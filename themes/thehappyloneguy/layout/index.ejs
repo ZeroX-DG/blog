@@ -1,0 +1,22 @@
+
+<div class="index-page">
+    <div class="left-nav">
+        <img alt="this is me" class="my-avatar" src="img/me.jpg"/>
+        <h1 class="logo">The happy lone guy</h1>
+        <p class="description">He's a guy who lives with social anxiety
+            and curious about the nature of everything.
+            He sometimes writes about technical stuff too.</p>
+        <div class="separator"></div>
+        <ul class="menu">
+            <li><a href="2019/06/02/why-the-happy-lone-guy/" class="content">My story</a></li>
+            <li><a href="https://twitter.com/ZeroX_Hung" class="content">Twitter</a></li>
+            <li><a href="https://github.com/ZeroX-DG" class="content">Github</a></li>
+            <li><a href="https://www.buymeacoffee.com/hQteV8A" class="content">Buy me a coffee</a></li>
+        </ul>
+    </div>
+    <div class="blog-post-list">
+        <% page.posts.each(function(item){ %>
+            <%- partial('_partial/article-list-item', {item: item}) %>
+        <% }); %>
+    </div>
+</div>

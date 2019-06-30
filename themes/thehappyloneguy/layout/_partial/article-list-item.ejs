@@ -1,0 +1,19 @@
+<div class="blog-post-item">
+  <!-- Title -->
+  <h2 class="blog-post-title">
+    <a href="<%- config.root %><%- item.path %>">
+      <%- item.title %>
+    </a>
+  </h2>
+  <!-- Content -->
+  <p>
+    <%- item.excerpt || item.description %>
+  </p>
+  <!-- Date and Author -->
+  <p class="blog-post-meta">
+    <%= item.date.format(config.date_format) %>
+    <span class="tags">
+      <%- item.tags.data.map(tag => `#${tag.name}`).join(", ") %>
+    </span>
+  </p>
+</div>

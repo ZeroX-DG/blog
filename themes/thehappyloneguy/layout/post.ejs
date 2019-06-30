@@ -1,0 +1,39 @@
+<a href="/" class="home-navigator">Home</a>
+<div class="blog-post">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1 class="blog-post-title">
+                <%- page.title || page.link %>
+            </h1>
+            <div class="blog-post-content">
+                <%- page.content %>
+            </div>
+            <div class="tag-list">
+                <b>Tags:</b>
+                <% page.tags.each(function(tag) {%>
+                    <a href="<%- tag.permalink %>" class="tag">
+                        #<%- tag.name %>
+                    </a>
+                <% }); %>
+            </div>
+            <div class="donate">
+                <a href="https://www.buymeacoffee.com/hQteV8A" class="donate-button">Love what you read? Buy me a coffee <i class="em em-coffee"></i></a>
+            </div>
+            <div class="separator"></div>
+            <div class="related-blog-post-list">
+                <h1 class="title">Other posts</h1>
+                <% const related_posts = list_related_posts(); %>
+                <% if(related_posts.length == 0) { %>
+                    <p style="font-family: KoHo">No posts found!</p>
+                <% } %>
+                <% related_posts.map(function(item){ %>
+                    <%- partial('_partial/article-list-item', {item: item}) %>
+                <% }); %>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="js-toc"></div>
+        </div>
+    </div>
+</div>
