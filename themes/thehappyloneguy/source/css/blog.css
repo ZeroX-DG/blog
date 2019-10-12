@@ -231,6 +231,10 @@
   outline: none;
 }
 
+.blog-post .blog-post-content p {
+  text-align: justify;
+}
+
 .blog-post .blog-post-content em {
   font-style: italic;
 }

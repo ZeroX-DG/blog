@@ -7,7 +7,7 @@
   </h2>
   <!-- Content -->
   <p>
-    <%- item.excerpt || item.description %>
+    <%- item.excerpt.replace(/:(\w+):/, '<i class="em em-$1"></i>') || item.description.replace(/:(\w+):/, '<i class="em em-$1"></i>') %>
   </p>
   <!-- Date and Author -->
   <p class="blog-post-meta">
