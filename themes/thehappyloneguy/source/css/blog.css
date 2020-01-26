@@ -410,6 +410,7 @@
   font-size: 18px;
   text-decoration: none;
   z-index: 100;
+  outline: none;
 }
 
 .home-navigator::before {

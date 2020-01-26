@@ -12,4 +12,4 @@ This is just a ordinary bucket list of mine :smile: <!--more--> In the future, I
 - [ ] 5. Learn digital drawing.
 - [ ] 6. Have a nice, peaceful place to live when I needed.
 - [ ] 7. Write at least 1 book.
-- [ ] 8. Create a ~~cult~~ group of friends to do crazy stuff both online & offline
+- [ ] 8. Create a ~~cult~~ group of friends to do crazy stuff both online & offline.
