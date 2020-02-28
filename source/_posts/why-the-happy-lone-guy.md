@@ -8,8 +8,8 @@ You may be wondering: "why the name the happy lone guy?". Well, this post explai
 
 <!-- more -->
 
-The concept behind the name "happy lone guy" is I'm an introvert living with social anxiety. Thus, I spent most of my time being alone in my room. With all the time on this world to be alone, I used them to think about the nature/philosophy of everything and decided to make a blog to express all those thoughts.
+I intented this blog to be a place where I can express myself, to stay true to myself before I walk through my door and put on mask to "fit in" with everyone else in the society. It's not that I don't like society, I worry that society won't like me. People call my fear is society anxiety, I got no idea if I really have that fancy mental illness or this is just a temporary state of mind of a teenager.
 
-One of the drawbacks of this method of thinking is most of the things you think about are negative things and your will easily get depress because of it. Therefore, to cope with depression, I'll have to seek for happiness in those negative thoughts. That's why I'm a "happy lone guy".
+But since social anxiety keep my inside my house, I don't really know how to talk to people so I normally alone with my thoughts even with people around me. But my thoughts are not always positive, in fact, most of them are negative. Thus, the name "happy" lone guy suppose to keep me on the right track for this blog and for my life. It should remind me that I can be alone but I have to learn to be happy because sadness come to us to show us happiness.
 
-I believe that the job of this life is to deliver negative things to human, so they can understand happiness. There's no happiness if there's no unhappiness, there's no day if there's no night. I'm still exploring the true feeling of happiness and this will be the document of my adventure :smile:
+Now you know how I picked the name for this blog and what the blog is about, enter my world at your own risk :rolling_on_the_floor_laughing:

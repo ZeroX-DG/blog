@@ -231,6 +231,10 @@
   outline: none;
 }
 
+.blog-post .blog-post-content img {
+  width: 100%;
+}
+
 .blog-post .blog-post-content p {
   text-align: justify;
 }
