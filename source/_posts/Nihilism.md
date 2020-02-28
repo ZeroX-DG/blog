@@ -31,7 +31,7 @@ However, in a bowling game, everything is all about the angle. You hit the first
 
 Now that make me thinking.
 
-> So where is the "free will" there? Then everything is created by the thing that come before it, therefore, the future doesn't change and thus, you have no "free will" in changing the future or your life. Then what is your life meaning?
+> So where is the "free will" there? Then everything is created by the thing that come before it, therefore, the future doesn't change and thus, you have no "free will" in changing the future or your life. Then what is your life's meaning?
 
 Those are the question that make me to believe in "Nihilism". We are not special, our life doesn't have a big, profound meaning. We are just a part of nature just like everything else. Or if you have watched "Fight Club" you probably remember this quote from Tyler Durden:
 
