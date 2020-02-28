@@ -35,7 +35,7 @@ Now that make me thinking.
 
 Those are the question that make me to believe in "Nihilism". We are not special, our life doesn't have a big, profound meaning. We are just a part of nature just like everything else. Or if you have watched "Fight Club" you probably remember this quote from Tyler Durden:
 
-![](/assets/imgs/you_are_not_special.jpg)
+![](/blog/Nihilism/you_are_not_special.jpg)
 
 But then why am I still alive? Why haven't I killed myself already? As of right now I'm 18 years old and I think there're too many things in life that keep me from doing that. Most of the reasons are because of family or tradition, but we can all group them in to "human emotions". There is no reason to rush on dying, you are doing that everyday. Therefore, I want to understand better the "human emotions", to be completely free from it and understand the beauty of life. I still have a lot to learn before I leave this world so I won't rush doing that. Instead, thinking that life doesn't have a meaning and nothing really matter enable me to be more free in my way of thinking, to truely understand the true value of things around me, not based on social value or morality but based on the core value of those things themselves and their existence in nature.
 
