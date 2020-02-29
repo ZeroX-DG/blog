@@ -37,7 +37,7 @@ Those are the question that make me to believe in "Nihilism". We are not special
 
 ![](/blog/Nihilism/you_are_not_special.jpg)
 
-We are part of nature, separation of ourselves from nature confused us and let us believe that we are special and our lives have meaning. But in fact, we are no different from those trees, those animals or those rocks out there, we are part of nature and nature is a part of universe. The universe is changing constantly and we merely a part of that change, in other words, we are the universe expressing itself and changing itself. Therefore, morality, knowledge or even reality doesn't really exist.
+We are part of nature, separation of ourselves from nature confused us and let us to believe that we are special and our lives have a meaning. But in fact, we are no different from those trees, those animals or those rocks out there, we are part of nature and nature is a part of universe. The universe is changing constantly and we merely a part of that change, in other words, we are the universe expressing itself and changing itself. Therefore, morality, knowledge or even reality doesn't really exist.
 
 But then why am I still alive? Why haven't I killed myself already? As of right now I'm 18 years old and I think I'm not completely free from human emotions and aspirations. I'm still craving to have things in life even though I know I can't really have it. I still have feelings for people around me and can't just left them and leave this world. In other words, I still have too much to lose.
 
