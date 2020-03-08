@@ -232,7 +232,7 @@
 }
 
 .blog-post .blog-post-content img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .blog-post .blog-post-content p {
