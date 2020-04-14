@@ -1,6 +1,7 @@
 ---
 title: Nihilism
 tags: [philosophy]
+date: 2020/02/29
 ---
 
 Ever since I was born, the idea of you controlling your own life or you is the one who decide your own fate has been surounded me most of the time. People seem to like the control that they have over their life and they criticise people with no purpose in life, people who are considered as "lazy" and doesn't contribute to "life" or society.
