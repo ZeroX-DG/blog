@@ -1,4 +1,4 @@
-<a href="<%- config.url %>" class="home-navigator">Home</a>
+<a href="<%- config.root %>" class="home-navigator">Home</a>
 <div class="blog-post">
     <div class="row">
         <div class="col-3"></div>
@@ -12,13 +12,13 @@
             <div class="tag-list">
                 <b>Tags:</b>
                 <% page.tags.each(function(tag) {%>
-                    <a href="<%- tag.permalink %>" class="tag">
+                    <a href="<%- config.root %><%- tag.path %>" class="tag">
                         #<%- tag.name %>
                     </a>
                 <% }); %>
             </div>
             <div class="donate">
-                <a href="https://www.buymeacoffee.com/hQteV8A" class="donate-button">Love what you read? Buy me a coffee <i class="em em-coffee"></i></a>
+                <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
             </div>
             <div class="separator"></div>
             <div class="related-blog-post-list">

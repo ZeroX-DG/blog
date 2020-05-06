@@ -225,7 +225,8 @@
 
 .blog-post .blog-post-content * {
   font-family: "KoHo";
-  font-size: 19px;
+  font-size: 18px;
+  line-height: 180%;
   font-weight: 400;
   color: #333447;
   outline: none;
@@ -239,8 +240,24 @@
   text-align: justify;
 }
 
+.blog-post .blog-post-content a {
+  text-decoration: none;
+  color: #e67e22;
+  border-bottom: 1px dashed #e67e22;
+}
+
 .blog-post .blog-post-content em {
   font-style: italic;
+}
+
+.blog-post .blog-post-content img + br + em {
+  display: block;
+}
+
+.blog-post .blog-post-content img + br + em, .blog-post .blog-post-content img + br + em * {
+  font-style: normal;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .blog-post .blog-post-content strong {
@@ -273,8 +290,9 @@
   font-size: 23px;
 }
 
-.blog-post .blog-post-content blockquote * {
-  font-size: 25px;
+.blog-post .blog-post-content blockquote {
+  border-left: 4px solid rgba(0, 0, 0, 0.125);
+  padding-left: 15px;
 }
 
 .blog-post code {
