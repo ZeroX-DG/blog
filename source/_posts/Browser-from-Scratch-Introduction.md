@@ -1,11 +1,10 @@
 ---
 title: 'Browser from Scratch: Introduction'
 tags: [code, browser-from-scratch]
+description: 'This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!'
 ---
 
 Ah, the browser, the provider of modern addictions such as social media, online games and hours upon hours of videos of stuff getting smashed by the hydraulic press. All of that in one simple piece of software that only take up 90% of your RAM and even [slows down Youtube if you try to switch to other browsers.][1]
-
-<!-- more -->
 
 That's why the browser is so appealing to me. We mainly connect with the Internet world via the browser, we spend hours being productive by watching other people being productive on Youtube, we organize our schedule on Google Calendar via the browser even though we go to sleep at 3 AM and wake up just after lunchtime and everyday is a half-day to you. And most importantly, if you are a web developer, the browser's output literally decides if you will get pay or become [Diogenes][2]:
 
