@@ -13,7 +13,11 @@
   <p class="blog-post-meta">
     <%= item.date.format(config.date_format) %>
     <span class="tags">
-      <%- item.tags.data.map(tag => `#${tag.name}`).join(", ") %>
+      <% item.tags.each(function(tag) {%>
+        <a href="<%- config.root %><%- tag.path %>" class="tag">
+            #<%- tag.name %>
+        </a>
+      <% }); %>
     </span>
   </p>
 </div>

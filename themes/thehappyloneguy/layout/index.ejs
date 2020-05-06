@@ -1,7 +1,12 @@
-
+<% if (page.tag) { %>
+<a href="<%- config.root %>" class="home-navigator">
+  <img alt="this is me" class="my-avatar" src="<%- config.root %>img/me.jpg"/>
+</a>
+<% } %>
 <div class="index-page">
+    <% if (!page.tag) { %>
     <div class="left-nav">
-        <img alt="this is me" class="my-avatar" src="img/me.jpg"/>
+        <img alt="this is me" class="my-avatar" src="<%- config.root %>img/me.jpg"/>
         <h1 class="logo">The happy lone guy</h1>
         <p class="description">Hi I'm Hung and this is a space where I share what really going on in my head that you normally won't hear me say because...people don't say that and I don't wanna be a weirdo....again.</p>
         <div class="separator"></div>
@@ -9,12 +14,26 @@
             <li><a href="2019/06/02/why-the-happy-lone-guy/" class="content">My story</a></li>
             <li><a href="https://twitter.com/ZeroX_Hung" class="content">Twitter</a></li>
             <li><a href="https://github.com/ZeroX-DG" class="content">Github</a></li>
-            <li><a href="https://www.buymeacoffee.com/hQteV8A" class="content">Buy me a coffee</a></li>
+            <li><a href="https://ko-fi.com/viethung" class="content">Buy me a coffee</a></li>
         </ul>
     </div>
-    <div class="blog-post-list">
+    <% } %>
+    <div class="blog-post-list<%= page.tag ? ' center' : '' %>">
+        <% if (page.tag) { %>
+          <h1>#<%- page.tag %></h1>
+        <% } %>
         <% page.posts.each(function(item){ %>
             <%- partial('_partial/article-list-item', {item: item}) %>
         <% }); %>
     </div>
+    <% if (page.tag) { %>
+    <div class="tag-list center">
+        <p style="font-size: 20px; font-weight: bold;">Other tags:</p>
+        <% site.tags.each(function(tag) {%>
+            <a href="<%- config.root %><%- tag.path %>" class="tag">
+                #<%- tag.name %>
+            </a>
+        <% }); %>
+    </div>
+    <% } %>
 </div>
