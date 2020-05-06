@@ -33,7 +33,7 @@ The browsers UI includes things that are not created by the web. For example, th
 
 ## Browser Engine
 
-I used to think that things that are not the UI together is called browser engine but I was wrong...as usual. The browser engine is the part that receives the input from the UI and processes it to command the render engine. It's a middle man who sits between UI and Render Engine to connect those 2 parts.
+I used to think that things that are not the UI, together is called browser engine but I was wrong...as usual. The browser engine is the part that receives the input from the UI and processes it to command the render engine. It's a middle man who sits between UI and Render Engine to connect those 2 parts.
 
 Why do you need a middle man instead of letting those 2 parts talking directly to each other? That's because if you want to have both study materials and facebook to be opened at the same time to distract yourself, you will have to have multiple windows or tabs open. In browsers like Chrome, each tab is a separate process that has an instance of Render Engine for rendering the website and these processes will only talk to the browser engine and no one else.
 
@@ -41,7 +41,7 @@ This way, the browser can isolate the tabs which can be very useful in many situ
 
 - If you click on that picture of the cute cat in your email and a hacker takes over your tab, he cannot access data in other tabs since each tab is a different process and they are introverts therefore they don't talk to each other.
 
-- If one of your tabs is doing some heavy work, instead of freezing the whole browser and wait for the work to finish like the old day, that tab can run in the background and you can still switch to other tabs to do you work without any interruption.
+- If one of your tabs is doing some heavy work, instead of freezing the whole browser and wait for the work to finish like the old days, that tab can run in the background and you can still switch to other tabs to do you work without any interruption.
 
 - If one tab crashes, it doesn't crash the whole browser!
 
