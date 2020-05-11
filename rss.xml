@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>The happy lone guy</title>
+    <link>https://zerox-dg.github.io/blog/</link>
+    
+    <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>Viet Hung&#39;s blog</description>
+    <pubDate>Mon, 11 May 2020 04:50:43 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Browser from Scratch: Introduction</title>
+      <link>https://zerox-dg.github.io/blog/2020/05/11/Browser-from-Scratch-Introduction/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/05/11/Browser-from-Scratch-Introduction/</guid>
+      <pubDate>Mon, 11 May 2020 04:50:43 GMT</pubDate>
+      <description>
+      
+        This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/05/11/Browser-from-Scratch-Introduction/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Nihilism</title>
+      <link>https://zerox-dg.github.io/blog/2020/02/29/Nihilism/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/02/29/Nihilism/</guid>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Ever since I was born, the idea of you controlling your own life or you is the one who decide your own fate has been surounded me most of the time. People seem to like the control that they have over their life and they criticise people with no purpose in life, people who are considered as “lazy” and doesn’t contribute to “life” or society.&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/02/29/Nihilism/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Why the happy lone guy?</title>
+      <link>https://zerox-dg.github.io/blog/2019/06/02/why-the-happy-lone-guy/</link>
+      <guid>https://zerox-dg.github.io/blog/2019/06/02/why-the-happy-lone-guy/</guid>
+      <pubDate>Sun, 02 Jun 2019 07:30:20 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;You may be wondering: “why the name the happy lone guy?”. Well, this post explains the origin of the name of this blog.&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2019/06/02/why-the-happy-lone-guy/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
