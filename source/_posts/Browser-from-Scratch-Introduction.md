@@ -67,7 +67,7 @@ While many parts of the browser can be created using libraries. I'll only use li
 
 # Next article
 
-That's it for the introduction. This post aims to give you an overview of how a browser works as well as some resources to read and understand it further before we start working on some code. In the next article, we will work on the Networking module for the browser.
+That's it for the introduction. This post aims to give you an overview of how a browser works as well as some resources to read and understand it further before we start working on some code. In the next article, we will work on the Rendering Engine for the browser.
 
 Till next time, folks.
 
