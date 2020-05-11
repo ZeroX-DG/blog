@@ -83,3 +83,13 @@ theme: thehappyloneguy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# RSS
+feed:
+  type: rss2
+  path: rss.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 100
+  content_limit_delim: ' '
