@@ -9,14 +9,14 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Mon, 11 May 2020 04:50:43 GMT</pubDate>
+    <pubDate>Mon, 11 May 2020 04:55:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Browser from Scratch: Introduction</title>
       <link>https://zerox-dg.github.io/blog/2020/05/11/Browser-from-Scratch-Introduction/</link>
       <guid>https://zerox-dg.github.io/blog/2020/05/11/Browser-from-Scratch-Introduction/</guid>
-      <pubDate>Mon, 11 May 2020 04:50:43 GMT</pubDate>
+      <pubDate>Mon, 11 May 2020 04:55:37 GMT</pubDate>
       <description>
       
         This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!
