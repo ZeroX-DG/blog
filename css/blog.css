@@ -59,6 +59,7 @@
   top: 0;
   padding: 40px 50px;
   box-sizing: border-box;
+  background: #f5f6fa;
 }
 
 .left-nav .my-avatar {
@@ -89,16 +90,6 @@
   background: rgba(0, 0, 0, 0.25);
   margin-top: 50px;
   margin-bottom: 50px;
-}
-
-.left-nav::after {
-  width: 1px;
-  height: 80%;
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: rgba(0, 0, 0, 0.25);
-  content: "";
 }
 
 .left-nav .menu {
@@ -399,32 +390,6 @@
 .blog-post .related-blog-post-list .title {
   font-size: 25px;
   margin: 0;
-}
-
-/*-------------------*/
-/*      FOOTER       */
-/*-------------------*/
-
-.footer {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-.footer p {
-  padding: 0;
-  margin: 0;
-  font-family: "Lato";
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.footer .em {
-  font-size: 14px;
-  margin: 0 5px;
 }
 
 /*-------------------*/
