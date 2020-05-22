@@ -2,40 +2,35 @@
   <img alt="this is me" class="my-avatar" src="<%- config.root %>img/me.jpg"/>
 </a>
 <div class="blog-post">
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <h1 class="blog-post-title">
-                <%- page.title || page.link %>
-            </h1>
-            <div class="blog-post-content">
-                <%- page.content %>
-            </div>
-            <div class="tag-list">
-                <b>Tags:</b>
-                <% page.tags.each(function(tag) {%>
-                    <a href="<%- config.root %><%- tag.path %>" class="tag">
-                        #<%- tag.name %>
-                    </a>
-                <% }); %>
-            </div>
-            <div class="donate">
-                <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
-            </div>
-            <div class="separator"></div>
-            <div class="related-blog-post-list">
-                <h1 class="title">Other posts</h1>
-                <% const related_posts = list_related_posts(); %>
-                <% if(related_posts.length == 0) { %>
-                    <p style="font-family: KoHo">No posts found!</p>
-                <% } %>
-                <% related_posts.map(function(item){ %>
-                    <%- partial('_partial/article-list-item', {item: item}) %>
-                <% }); %>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="js-toc"></div>
-        </div>
+  <div class="blog-post-container">
+    <h1 class="blog-post-title">
+        <%- page.title || page.link %>
+    </h1>
+    <div class="blog-post-content">
+        <%- page.content %>
     </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        <% page.tags.each(function(tag) {%>
+            <a href="<%- config.root %><%- tag.path %>" class="tag">
+                #<%- tag.name %>
+            </a>
+        <% }); %>
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        <% const related_posts = list_related_posts(); %>
+        <% if(related_posts.length == 0) { %>
+            <p style="font-family: KoHo">No posts found!</p>
+        <% } %>
+        <% related_posts.map(function(item){ %>
+            <%- partial('_partial/article-list-item', {item: item}) %>
+        <% }); %>
+    </div>
+  </div>
+  <div class="js-toc"></div>
 </div>
