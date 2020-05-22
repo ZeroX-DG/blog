@@ -207,6 +207,11 @@
   box-sizing: border-box;
 }
 
+.blog-post .blog-post-container {
+  width: 34em;
+  margin: 0 auto;
+}
+
 .blog-post .blog-post-title {
   font-size: 30px;
   margin: 0;
