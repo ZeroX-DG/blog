@@ -2,11 +2,10 @@
 title: Nihilism
 tags: [philosophy]
 date: 2020/02/29
+description: My thoughts on Nihilism
 ---
 
 Ever since I was born, the idea of you controlling your own life or you is the one who decide your own fate has been surounded me most of the time. People seem to like the control that they have over their life and they criticise people with no purpose in life, people who are considered as "lazy" and doesn't contribute to "life" or society.
-
-<!-- more -->
 
 I grew up with a very interesting saying that roughly said: through palmistry (reading lines on our palm) we can know how our future looks like but those lines are in the palm of our hand, therefore, we control our future. For a 12 years old kid, that theory makes total sense :rolling_on_the_floor_laughing: But as I grew up, I started to change my way of thinking. During the time I was 15 or 16, I was constantly asking myself, why am I still alive? What is it that so important, so powerful that it wakes me up in the morning and drag me out of that comfy bed? Why haven't I killed myself already? Despite all that thoughts, I never committed suicide. But I struggle with the question: "Why are we here?". The thought that keep me alive back then is, right now life doesn't have a meaning, but when it does, I'll make sure to be alive to see it :smile:
 

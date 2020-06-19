@@ -300,20 +300,25 @@
 }
 
 .blog-post code {
-    font-family: "Inconsolata"!important;
-    background: #f2f2f2;
-    padding: 3px 5px;
-    border-radius: 5px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+  font-family: "Inconsolata"!important;
+  background: #f2f2f2;
+  padding: 3px 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
 }
 
 .blog-post pre {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+  line-height: 130%!important;
+  display: inline-block;
+  background: none!important;
 }
 
 .blog-post pre code {
-    color: inherit!important;
-    box-shadow: none;
+  color: inherit!important;
+  box-shadow: none;
+  background: none;
+  display: block;
+  padding: 0;
 }
 
 .blog-post .tag-list {
@@ -332,8 +337,8 @@
 }
 
 .blog-post img {
-    margin: 0 auto;
-    display: block;
+  margin: 0 auto;
+  display: block;
 }
 
 .blog-post .js-toc {
@@ -433,6 +438,13 @@
 pre *,
 code * {
   font-family: "Inconsolata", monospace !important;
+  font-size: 16px!important;
+  line-height: inherit!important;
+}
+
+
+sup, sup * {
+  font-size: 14px!important;
 }
 
 .tag-list {

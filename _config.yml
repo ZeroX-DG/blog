@@ -45,7 +45,7 @@ highlight:
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
-  theme: 'base16-ateliersulphurpool.light'
+  theme: 'material-light'
   line_number: false    # default false
   
 # Home page setting
