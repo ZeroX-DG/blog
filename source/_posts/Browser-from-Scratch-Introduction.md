@@ -1,6 +1,7 @@
 ---
 title: 'Browser from Scratch: Introduction'
 tags: [code, browser-from-scratch]
+date: 2020/05/29
 description: 'This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!'
 ---
 
