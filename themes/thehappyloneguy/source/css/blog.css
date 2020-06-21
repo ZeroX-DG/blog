@@ -442,6 +442,9 @@ code * {
   line-height: inherit!important;
 }
 
+li pre {
+  display: block!important;
+}
 
 sup, sup * {
   font-size: 14px!important;
@@ -468,4 +471,40 @@ sup, sup * {
 
 .tag-list .tag:hover {
   color: black;
+}
+
+/* Responsive */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .blog-post .blog-post-container {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .blog-post .blog-post-title {
+    margin-left: 30px;
+  }
+
+  .blog-post blockquote {
+    margin: 0;
+  }
+
+  .home-navigator {
+    position: relative;
+  }
+
+  .blog-post .js-toc {
+    display: none;
+  }
+
+  pre {
+    display: block!important;
+  }
+
+  .index-page .left-nav, .index-page .blog-post-list {
+    width: 100%;
+    position: relative;
+    padding: 20px 15px;
+  }
 }
