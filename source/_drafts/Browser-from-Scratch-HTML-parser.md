@@ -552,6 +552,8 @@ self.next();
 dom::element(&tag_name, attributes, children)
 ```
 
+# DOM tree building
+
 [1]: https://en.wikipedia.org/wiki/Tim_Berners-Lee
 [2]: https://en.wikipedia.org/wiki/World_Wide_Web
 [3]: https://en.wikipedia.org/wiki/HTML
