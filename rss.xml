@@ -9,8 +9,29 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Wed, 01 Jul 2020 08:08:31 GMT</pubDate>
+    <pubDate>Sat, 04 Jul 2020 11:48:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Life meaning 1.0</title>
+      <link>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/</guid>
+      <pubDate>Sat, 04 Jul 2020 00:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Browser from Scratch: Introduction</title>
