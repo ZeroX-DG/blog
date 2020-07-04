@@ -30,6 +30,9 @@ Unable to become tranquil, he leaves his bed. He climbed out to the roof, lying 
 
 On the stary sky, he can't help but notice the bright moon shining in the middle of the empty black space. As if at that moment, he and the lady of the night are the only two that are still awake.
 
+![](/blog/Life-meaning-1-0/moon.jpg)
+*Photo by [Andrés Gómez](https://unsplash.com/@andresloquesea?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/moon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)*
+
 Having no one to talk with, he looks at the moon and thinks of sharing his thoughts with her. “What a crazy thing to share your thoughts with a life-less object, much less when it is 384,400 km away from you.” he thought. But still, it is better than holding his thoughts inside.
 
 He then opens his mouth, and starts jokingly asking the moon, "Hey, what is the meaning of life?".
