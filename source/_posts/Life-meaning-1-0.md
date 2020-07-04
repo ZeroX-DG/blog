@@ -6,6 +6,8 @@ date: 07/04/2020
 
 The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity. I repeat this story is a made-up story; the world in this story is a fake world along with every object in it, including that green plastic watering can for the fake Chinese rubber plant.
 
+<!-- more -->
+
 ---
 
 In a big watery blue ball, lie a small village, and in that village, lived Hung. Hung is a normal boy who lives in a happy family, with both of his parents living, breathing and loving each other. He is well educated and was one of the best in his class. He had a job that he loves in the field that I studied in.
