@@ -12,7 +12,7 @@ The story below is fictional. It is certainly not real, and all the names have b
 
 In a big watery blue ball, lie a small village, and in that village, lived Hung. Hung was a normal boy who lived in a happy family, with both of his parents living, breathing and loving each other. He was well educated and was one of the best in his class. He had a job that he loves in the field that I studied in.
 
-Some might say he has everything that most people dream of. But despite all the blessings that he was getting, he was not happy. One night, his brain wakes him up, and asks him the question that it has been asking for the longest time "What is the meaning of life?".
+Some might say he had everything that most people dream of. But despite all the blessings that he was getting, he was not happy. One night, his brain wakes him up, and asks him the question that it had been asking for the longest time "What is the meaning of life?".
 
 "How the f\*ck do I know? Just go back to sleep, we got a long day ahead!" he replied.
 
@@ -99,7 +99,7 @@ Realized that he had fallen asleep from the moment the moon first started to tal
 
 "You silly little sausage, you can always find me in your dreams, and I will forever be your lady of the night.", the moon replied.
 
-Hung woke up when a gentle breeze of morning swept through his body. All this time that he has been living, the answer to this life has been in his head all along, but only appears when he has his first conversation with a friend he never had and probably will never meet again.
+Hung woke up when a gentle breeze of morning swept through his body. All this time that he had been living, the answer to this life had been in his head all along, but only appears when he had his first conversation with a friend he never had and probably will never meet again.
 
 He looked to the sky and smile. He understood that it's the nature of life, that things will always change, people will always come and go, but it is an honour to have someone that changed and remained a part of your life, even when that someone is an imaginary moon.
 
