@@ -2,6 +2,7 @@
 title: Đặt dấu trong tiếng Việt
 tags: ["vietnamese", "algo"]
 date: 2020/07/14
+description: Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên "lai nớt" thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.
 ---
 
 Ngoài Covíd 19 và blog [thefullsnack][1] đóng cửa làm publicity stunt ra thì cuối 2019, đầu 2020 còn là thời kì của trao lưu RIIR (Rewrite It In Rust).
