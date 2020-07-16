@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Thu, 16 Jul 2020 13:44:20 GMT</pubDate>
+    <pubDate>Thu, 16 Jul 2020 13:47:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -19,13 +19,7 @@
       <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
       <description>
       
-        
-        
-          
-          
-            &lt;p&gt;Ngoài Covíd 19 và blog &lt;a href=&quot;https://thefullsnack.com/&quot; target=&quot;_blank&quot;
-          
-        
+        Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên &quot;lai nớt&quot; thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.
       
       </description>
       
