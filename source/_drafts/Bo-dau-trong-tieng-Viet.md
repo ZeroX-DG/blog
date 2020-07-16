@@ -1,6 +1,7 @@
 ---
 title: Đặt dấu trong tiếng Việt
 tags: ["vietnamese", "algo"]
+date: 2020/07/14
 ---
 
 Ngoài Covíd 19 và blog [thefullsnack][1] đóng cửa làm publicity stunt ra thì cuối 2019, đầu 2020 còn là thời kì của trao lưu RIIR (Rewrite It In Rust).
@@ -106,12 +107,33 @@ User input sẽ bao gồm 2 phần là action và content. Ví dụ, `chao1` th�
 
 Content sau khi được tách ra sẽ được xử lý để tìm ra phần nguyên âm. Cách làm thì khá đơn giản, chỉ cần skip phần phụ âm đầu (nếu có) và lấy những kí tự tiếp theo cho đến khi đụng phụ âm cuối hoặc kết thúc chữ.
 
+> **Lưu ý:** Trường hợp "gi" và "qu", dù "i" và "u" là chữ cái nguyên âm nhưng đây là trường hợp ngoại lệ và "gi", "qu" là cặp phụ âm đầu.
+
+
+### Tìm vị trí đặt dấu thanh
+
+Sau khi đã tìm ra phần nguyên âm, library sẻ áp dụng 6 quy luật trên để tìm vị trí đặt dấu thanh.
+
+### Chuyển ký tự thành action
+
+Khi tách ký tự khỏi user input, library sẽ chuyển kí tự thành action. Ví dụ, "1" thành dấu sắc, "2" thành dấu huyền, vv...
+
+### Đặt dấu thanh
+
+Ở giai đoạn này, library đã tìm được vị trí đặt dấu thanh cũng như loại dấu thanh cần đặt. Bước cuối cùng này replace kí tự ở vị trí đặt dấu thanh với một kí tự có chứa dấu thanh...bởi vì trình độ khoa học hiện tại chưa cho phép đánh cái dấu lên chữ thôi mà phải replace luôn bằng character khác. :grin:
+
+## Nghe hay đó, coi ở đâu?
+
+Hiện library mình đang open-source ở gihub. Mong các bạn có dịp ghé qua ủng hộ ý kiến :grin:
+
+https://github.com/ZeroX-DG/vi-rs
+
 # Tham khảo
 
 1. ngonngu.net. (2006). [Âm tiết và đặc điểm âm tiết tiếng Việt][8].
 2. Vũ Xuân Lương. (2020). [Quy tắc đặt dấu thanh trong tiếng Việt][11].
 3. Johannjs. (2003). [The right place of the Vietnamese accent][10].
-4. Donny Trương. (2018). [Vietnamese Typography][12].
+4. Donny Trương. (2018). [Vietnamese Typography][13].
 5. Trần ngọc Dung. (2016). [Vần & Cách Ráp Âm Trong Tiếng Việt][9].
 
 [1]: https://thefullsnack.com/
@@ -126,3 +148,4 @@ Content sau khi được tách ra sẽ được xử lý để tìm ra phần ng
 [10]: http://just.nicepeople.free.fr/Vietnamese-Typing.htm#PlaceOfAccent
 [11]: http://vietlex.com/xu-li-ngon-ngu/28-Quy_tac_dat_dau_thanh_trong_tieng_Viet
 [12]: https://vietnamesetypography.com/modified-letters/
+[13]: https://vietnamesetypography.com/
