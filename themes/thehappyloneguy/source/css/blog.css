@@ -507,4 +507,8 @@ sup, sup * {
     position: relative;
     padding: 20px 15px;
   }
+
+  .index-page .left-nav {
+    height: auto;
+  }
 }
