@@ -9,11 +9,32 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Mon, 20 Jul 2020 02:46:24 GMT</pubDate>
+    <pubDate>Mon, 20 Jul 2020 15:48:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Đặt dấu trong tiếng Việt</title>
+      <title>Vấn đề về IME trên Linux</title>
+      <link>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</guid>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là tương thích phương pháp gõ
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Bỏ dấu trong tiếng Việt</title>
       <link>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</link>
       <guid>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</guid>
       <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
