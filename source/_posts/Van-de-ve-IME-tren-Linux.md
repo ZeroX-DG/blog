@@ -5,6 +5,7 @@ date: 2020/07/21
 ---
 
 Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.
+<!-- more -->
 
 Theo bài viết của đại ca Huy Trần vào năm 2017<sup>[\[1\]][1]</sup> thì hiện tại, có 2 phương pháp mà các IME đang dùng trên linux:
 
