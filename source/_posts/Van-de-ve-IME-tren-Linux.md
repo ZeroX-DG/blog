@@ -21,7 +21,7 @@ Ví dụ điển hình là việc [ibus-bamboo][3]-bộ gõ tiếng Việt duy n
 ![](/blog/Van-de-ve-IME-tren-Linux/ibus_bamboo_notice.png)
 *Phần lưu ý trên trang README của ibus-bamboo*
 
-Đều này tạo ra sự bất tiện cho người sử dụng và vì thế ibus-bamboo, dù là một IME hiện đại ở thời điểm bấy giờ nhưng vẫn vướng phải những vấn đề của những tiền bối đi trước: không tương thích với tất cả mọi ứng dụng và gây nhiều bất tiện cho người dùng.
+Đều này tạo ra sự bất tiện cho người sử dụng và vì thế ibus-bamboo, dù có thể nói là IME hiện đại nhất ở thời điểm bấy giờ nhưng vẫn vướng phải những vấn đề của những tiền bối đi trước: không tương thích với tất cả mọi ứng dụng và gây nhiều bất tiện cho người dùng.
 
 # Trải nghiệm của mình
 
