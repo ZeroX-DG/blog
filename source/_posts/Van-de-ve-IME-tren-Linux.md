@@ -4,7 +4,7 @@ tags: ["vietnamese", "algo"]
 date: 2020/07/21
 ---
 
-Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là tương thích phương pháp gõ với ứng dụng lẫn người dùng.
+Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.
 
 Theo bài viết của đại ca Huy Trần vào năm 2017<sup>[\[1\]][1]</sup> thì hiện tại, có 2 phương pháp mà các IME đang dùng trên linux:
 
@@ -36,7 +36,7 @@ Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm
 
 Bằng cách sử dụng evdev, key input sẽ được nhận thẳng từ kernel nên việc X sever có dở chứng mà ignore key input đi chăng nữa cũng chẳng lo và việc receive key input sẽ hoạt động trên mọi ứng dụng.
 
-Vậy còn uinput là gì? Theo giải thích ngắn gọn mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một device driver, support cho node `/dev/uinput` và bất kì process nào cũng có thể write vào event vào node đó và Linux sẽ tạo một device ảo ở node `/dev/input`. Vì mọi event ở `/dev/input` sẽ được send tới mọi ứng dụng nên IME chỉ việc send key input giả bằng uinput và mọi ứng dụng sẽ listen event đó.
+Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một device driver, support cho node `/dev/uinput` và bất kì process nào cũng có thể write custom event vào node đó. Khi nhận được event, Linux sẽ tạo một device ảo ở node `/dev/input` và broadcast event từ device đó. Vì mọi event ở `/dev/input` sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên tất cả ứng dụng bất kể là gtk hay qt.
 
 **tldr/dqdd:** Evdev sử dụng để listen key event ở mọi ứng dụng và uinput dùng để send key event giả tới mọi ứng dụng.
 
@@ -52,7 +52,7 @@ UInput không phân biệt được window đang cần nhận event. Một trư�
 
 ### Vấn đề 3: Compose key
 
-Nếu uinput tạo ra keyboard giả thì làm sao có thể send được các kí tự tiếng Việt? tất nhiên là sử dụng phương pháp [compose key][8]. Compose key là phương pháp mà bạn gõ <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>u</kbd> và hex của kí tự mà bạn muốn send và X server sẽ compose ra kí tự mà bạn muốn. Hồi còn nhỏ mình hay xài trò này để dùng zero width character phối hợp với empty folder icon để tạo folder ẩn đựng "bài tập" :lenny:.
+Nếu uinput tạo ra keyboard giả thì làm sao có thể send được các kí tự tiếng Việt? tất nhiên là sử dụng phương pháp [compose key][8]. Compose key là phương pháp mà khi gõ tổ hợp <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>u</kbd> và hex của kí tự mà bạn muốn send và X server sẽ compose ra kí tự mà bạn muốn. Hồi còn nhỏ mình hay xài trò này để dùng zero width character phối hợp với empty folder icon để tạo folder ẩn đựng "bài tập" :lenny:.
 
 Nhưng vấn đề ở đây là quá trình compose sẽ chỉ được hoàn tất khi bạn release tất cả các phím. Điều này dẫn tới việc đôi lúc key tiếp theo bạn gõ bị ăn vào quá trình compose và tạo ra kí tự sai. Muốn giải quyết vấn đề này, IME cần tạo ra một khoảng delay lớn khi gõ phím vô cùng bất tiện.
 
