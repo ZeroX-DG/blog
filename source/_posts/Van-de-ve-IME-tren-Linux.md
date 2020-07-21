@@ -53,9 +53,9 @@ UInput không phân biệt được window đang cần nhận event. Một trư�
 
 ### Vấn đề 3: Compose key
 
-Nếu uinput tạo ra keyboard giả thì làm sao có thể send được các kí tự tiếng Việt? tất nhiên là sử dụng phương pháp [compose key][8]. Compose key là phương pháp mà khi gõ tổ hợp <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>u</kbd> và hex của kí tự mà bạn muốn send và X server sẽ compose ra kí tự mà bạn muốn. Hồi còn nhỏ mình hay xài trò này để dùng zero width character phối hợp với empty folder icon để tạo folder ẩn đựng "bài tập" :lenny:.
+Nếu uinput tạo ra keyboard giả thì làm sao có thể send được các kí tự tiếng Việt? tất nhiên là sử dụng phương pháp [compose key][8]. Compose key là phương pháp mà khi gõ tổ hợp <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>u</kbd> và hex của kí tự mà bạn muốn send, X server sẽ compose ra kí tự mà bạn muốn. Hồi còn nhỏ xài winxp mình hay dùng trò này để nhập zero width character phối hợp với empty folder icon để tạo folder ẩn đựng "bài tập" :lenny:.
 
-Nhưng vấn đề ở đây là quá trình compose sẽ chỉ được hoàn tất khi bạn release tất cả các phím. Điều này dẫn tới việc đôi lúc key tiếp theo bạn gõ bị ăn vào quá trình compose và tạo ra kí tự sai. Muốn giải quyết vấn đề này, IME cần tạo ra một khoảng delay lớn khi gõ phím vô cùng bất tiện.
+Nhưng vấn đề ở đây là quá trình compose sẽ chỉ được hoàn tất khi bạn release tất cả các phím. Điều này dẫn tới việc đôi lúc key tiếp theo bạn gõ bị ăn vào quá trình compose và tạo ra kí tự sai. Muốn giải quyết vấn đề này, bạn cần đợi IME compose key xong trước khi gõ phím tiếp theo. Việc này tạo ra một khoảng delay lớn khi gõ phím vô cùng bất tiện.
 
 ## X11
 
