@@ -37,7 +37,7 @@ Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm
 
 Bằng cách sử dụng evdev, key input sẽ được nhận thẳng từ kernel nên việc X sever có dở chứng mà ignore key input đi chăng nữa cũng chẳng lo và việc receive key input sẽ hoạt động trên mọi ứng dụng.
 
-Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một device driver, support cho node `/dev/uinput` và bất kì process nào cũng có thể write custom event vào node đó. Khi nhận được event, Linux sẽ tạo một device ảo ở node `/dev/input` và broadcast event từ device đó. Vì mọi event ở `/dev/input` sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên tất cả ứng dụng bất kể là gtk hay qt.
+Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một device driver, support cho node `/dev/uinput` và bất kì process nào cũng có thể write custom event vào node đó. Khi nhận được event, Linux sẽ tạo một device ảo ở node `/dev/input` và broadcast event từ device đó. Vì mọi event ở `/dev/input` sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên mọi ứng dụng bất kể là gtk hay qt.
 
 **tldr/dqdd:** Evdev sử dụng để listen key event ở mọi ứng dụng và uinput dùng để send key event giả tới mọi ứng dụng.
 
@@ -67,7 +67,7 @@ Thêm một điểm khá khó chịu là API của X11 vô cùng lộn xộn, đ
 
 # Kết
 
-Nói thế chứ post này chủ yếu để ghi lại những khó khăn mình đi qua chứ không có ý doạ những bạn có ý định xây dựng IME. Nếu các bạn cũng có ý định xậy dựng một bộ IME trên Linux, sử dụng những kĩ thuật tân tiến hơn thì có thể tham khảo library mà mình tạo ra để giúp các bạn bớt đi gánh nặng về logic của engine và chỉ cần tập trung vào key sending và receiving:
+Nói thế chứ post này chủ yếu để ghi lại những khó khăn mình đi qua chứ không có ý doạ những bạn có ý định xây dựng IME. Nếu các bạn cũng có ý định phát triển một bộ IME trên Linux, sử dụng những kĩ thuật tân tiến hơn thì có thể tham khảo library mà mình tạo ra để giúp các bạn bớt đi gánh nặng về logic của engine và chỉ cần tập trung vào key sending và receiving:
 
 https://github.com/ZeroX-DG/vi-rs
 
