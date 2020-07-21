@@ -29,7 +29,7 @@ Dạo gần đây mình có thử làm một IME bằng Rust, lý do cho việc 
 
 ## Evdev và uinput
 
-Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm 1 dự án công ty đó là bạn có thể listen event mà Linux nhận được từ hardware thông qua evdev. Theo wiki<sup>[\[2\]][5]</sup> thì evdev nhận event trước cả X server
+Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm 1 dự án công ty đó là bạn có thể listen event mà Linux nhận được từ hardware thông qua evdev. Theo wiki<sup>[\[2\]][5]</sup> thì evdev là một interface dùng để translate input từ hardware sang 1 dạng format chung mà các application có thể dùng để xử lý. Nói theo ngôn ngữ front-end webdev thì evdev như một API server cho phép đọc data từ hardware và thay vì dùng JSON, evdev có một chuẩn riêng để return dữ liệu về. Đặc biệt, evdev nhận event trước cả X server:
 
 > It sits below the process that handles input events, in between the kernel and that process.
 
@@ -37,7 +37,7 @@ Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm
 
 Bằng cách sử dụng evdev, key input sẽ được nhận thẳng từ kernel nên việc X sever có dở chứng mà ignore key input đi chăng nữa cũng chẳng lo và việc receive key input sẽ hoạt động trên mọi ứng dụng.
 
-Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một device driver, support cho node `/dev/uinput` và bất kì process nào cũng có thể write custom event vào node đó. Khi nhận được event, Linux sẽ tạo một device ảo ở node `/dev/input` và broadcast event từ device đó. Vì mọi event ở `/dev/input` sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên mọi ứng dụng bất kể là gtk hay qt.
+Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup>[\[3\]][6]</sup> thì uinput đơn giản là một kernel module, support cho directory `/dev/uinput` và bất kì process nào cũng có thể write custom event vào đó. Khi nhận được event, uinput sẽ tạo một device ảo ở directory `/dev/input` và broadcast event từ device đó. Vì mọi event ở `/dev/input` sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên mọi ứng dụng bất kể là gtk hay qt.
 
 **tldr/dqdd:** Evdev sử dụng để listen key event ở mọi ứng dụng và uinput dùng để send key event giả tới mọi ứng dụng.
 
@@ -77,6 +77,7 @@ https://github.com/ZeroX-DG/vi-rs
 2. Wikipedia. (2020). [evdev][5].
 3. Peter Hutterer. (2016). [The difference between uinput and evdev][6].
 4. Vojtech Pavlik. (2001). [Linux Input Subsystem userspace API][9].
+5. The kernel development community. (2020). [uinput module][10]
 
 [1]: https://thefullsnack.com/posts/go-tieng-viet-linux.html
 [2]: https://thanhnien.vn/cong-nghe/canh-giac-bo-go-unikey-gia-mao-chiem-doat-quyen-dieu-khien-may-tinh-1156174.html
@@ -87,3 +88,4 @@ https://github.com/ZeroX-DG/vi-rs
 [7]: https://github.com/anko/xkbcat
 [8]: https://en.wikipedia.org/wiki/Compose_key
 [9]: https://www.kernel.org/doc/html/latest/input/input.html
+[10]: https://www.kernel.org/doc/html/latest/input/uinput.html
