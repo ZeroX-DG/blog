@@ -77,11 +77,11 @@ In a DOM tree, a node has connections to many other nodes across the tree. But i
 
 ![](/blog/Browser-from-Scratch-DOM-API/DOM_original.png)
 
-If you look carefully, you can see that there's a loop inside the tree above. Therefore, the current structure can create unwanted memory leaks. To solve this problem, we introduce weak references so that we can both solve the memory leaks problem while retaining the current DOM structure.
+If you look carefully, you can see that there are loops inside the tree above. Therefore, the current structure can create unwanted memory leaks. To solve this problem, we introduce weak references so that we can both solve the memory leaks problem while retaining the current DOM structure.
 
 ![](/blog/Browser-from-Scratch-DOM-API/DOM_improved.png)
 
-Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an [interesting experiment][9] to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using `Rc` to structure the tree just like what you read above. But in this case, I have decided to go with the `Rc` tree approach for Nox.
+Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an [interesting experiment][9] to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using `Rc` to structure the tree just like what you read above. And in this case, I have decided to go with the `Rc` tree approach for Nox.
 
 ## DOM node inheritance
 
