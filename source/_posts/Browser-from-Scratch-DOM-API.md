@@ -67,7 +67,7 @@ While `Rc<T>` can help us solve the shared ownership pointer problem, it also in
 
 When using `Rc` pointer, Rust performs garbage collection based on reference counting, which means the Rc pointer holds a variable that keeps track of the number of references to it. When the count decreases to 0, Rust will free the data behind that pointer. Having cycles in your data is essentially not a bad thing, but it requires good memory management. Otherwise, [reference cycles can easily lead to memory leaks with reference count garbage collection][20].
 
-To cope with that problem, Rust introduces [Weak references][21]. Instead of increasing the counter variable of the Rc pointer, weak references do not count toward ownership of the data until upgraded into an `Rc`. Roughly speaking, when you hold a weak reference to a piece of data, you only have a connection to it, and the data can already be freed the moment you upgrade to an `Rc` pointer, which in that case the upgrade will result in `None` value.
+To cope with that problem, Rust introduces [Weak references][21]. Instead of increasing the counter variable of the Rc pointer, weak references do not count toward ownership of the data until upgraded into an `Rc`. Roughly speaking, when you hold a weak reference to a piece of data, you only have a connection to it, and the data may already be freed the moment you upgrade to an `Rc` pointer, which in that case the upgrade will result in `None` value.
 
 Rust book has a [good chapter][7] explaining how reference cycles can create memory leaks and how to tackle them using weak reference.
 
