@@ -1,11 +1,11 @@
 ---
-title: 'Browser from Scratch: DOM API'
+title: "Browser from Scratch: DOM API"
 tags: ["code", "browser-from-scratch"]
 date: 2020/09/01
 description: "One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust."
 ---
 
-The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP Three-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That's why text-based protocols like [Gopher protocol][1] are replaced by bloated HTTP that we know as "the web" today.
+The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP Three-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That's why text-based protocols like [Gopher protocol][1] are being replaced by the HTTP protocol that we known as "the web" today.
 
 One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust.
 
@@ -90,14 +90,13 @@ While it is easy to perform inheritance in OOP languages such as C/C++, Rust doe
 This creates a new problem in our DOM tree structure since DOM API relies a lot on inheritance. For example, this is the inheritance hierarchy for a simple HTML `div` element:
 
 ![](/blog/Browser-from-Scratch-DOM-API/div_inheritance.png)
-*Retrieve from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)*
+_Retrieve from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)_
 
 ## Solving DOM inheritance
 
 Since there's no way to perform inheritance, the best thing to do as of right now is to store the structs in a nested manner. But the real question here is: in which order?
 
 ![](/blog/Browser-from-Scratch-DOM-API/inheritance_choices.png)
-
 
 ### Node -> Element -> HtmlElement
 
