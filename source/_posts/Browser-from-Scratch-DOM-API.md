@@ -5,7 +5,7 @@ date: 2020/09/01
 description: "One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust."
 ---
 
-The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP Three-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That's why text-based protocols like [Gopher protocol][1] are being replaced by the HTTP protocol that we known as "the web" today.
+The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP 3-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That's why text-based protocols like the [Gopher protocol][1] are being disfavored and overpowered by the HTTP protocol that we have known as "the web" today.
 
 One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust.
 
@@ -41,7 +41,7 @@ Rust is a safety-first language, which means it doesn’t care about your feelin
 
 Despite Rust behaving like a grumpy old man, good things did come out of that. One of them is the prevention of [dangling pointers][11].
 
-A dangling pointer is a pointer that points to an invalid memory location. If you failed your pointer exam in college, think of it like ["Doraemon's Anywhere Door"][12] or ["The Magic Door" in Howl's moving castle][13] or for western readers, imagine [a wormhole][14] that leads to a place that you didn't expect it to lead to.
+A dangling pointer is a pointer that points to an invalid memory location. If you failed your pointer exam in college, think of it like ["Doraemon's Anywhere Door"][12] or ["The Magic Door" in Howl's moving castle][13] or for astrophysics, imagine [a wormhole][14] that leads to a place that you didn't expect it to lead to.
 
 To solve that problem, Rust introduced smart pointers, which is a type of pointer that keep track of the memory that it is pointing to. For example, if a pointer is pointing to a vector and the vector's length exceeds its capacity, [the vector will be reallocated by Rust to a new location on the heap][16]. This makes the pointer to become a dangling pointer since it doesn't automatically update to the new location that the array was moved to.
 
@@ -94,7 +94,7 @@ _Retrieve from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivEle
 
 ## Solving DOM inheritance
 
-Since there's no way to perform inheritance, the best thing to do as of right now is to store the structs in a nested manner. But the real question here is: in which order?
+Since there's no way to perform inheritance, the best thing to do as of right now is to store the structs in a nested manner. But the question here is: in which order?
 
 ![](/blog/Browser-from-Scratch-DOM-API/inheritance_choices.png)
 
