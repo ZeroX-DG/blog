@@ -41,7 +41,7 @@ Rust is a safety-first language, which means it doesn’t care about your feelin
 
 Despite Rust behaving like a grumpy old man, good things did come out of that. One of them is the prevention of [dangling pointers][11].
 
-A dangling pointer is a pointer that points to an invalid memory location. If you failed your pointer exam in college, think of it like ["Doraemon's Anywhere Door"][12] or ["The Magic Door" in Howl's moving castle][13] or for astrophysics, imagine [a wormhole][14] that leads to a place that you didn't expect it to lead to.
+A dangling pointer is a pointer that points to an invalid memory location. If you failed your pointer exam in college, think of it like ["Doraemon's Anywhere Door"][12] or ["The Magic Door" in Howl's moving castle][13] or for astrophysicists, imagine [a wormhole][14] that leads to a place that you didn't expect it to lead to.
 
 To solve that problem, Rust introduced smart pointers, which is a type of pointer that keep track of the memory that it is pointing to. For example, if a pointer is pointing to a vector and the vector's length exceeds its capacity, [the vector will be reallocated by Rust to a new location on the heap][16]. This makes the pointer to become a dangling pointer since it doesn't automatically update to the new location that the array was moved to.
 
