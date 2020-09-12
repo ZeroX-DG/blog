@@ -31,7 +31,7 @@ But, while the idea of having pointers to other nodes in the tree seems to break
 
 Because the DOM specs only specify the DOM API using interfaces ([WebIDL][3]), the underlying implementation of the DOM is up to you to decide. That's why different browser engines have different implementations of the DOM tree. For example, [Gecko][5] store DOM both as an array and a linked list so that `nextSibling`/`previousSibling` or `childnodes[i]` operation take `O(1)` complexity. On the other hand, [Webkit][6] only used a linked list to store the DOM, which result in an `O(n)` complexity for `childnodes[i]` operation but with a trade-off that it use less memory than Gecko.<sup>[source][4]</sup>
 
-The browser that I'm working on is called Nox (yes, my originality is at its best). With this browser, I have chosen to store the DOM only as a linked list for memory efficiency.
+The browser that I'm working on is called Moon (yes, my originality is at its best). With this browser, I have chosen to store the DOM only as a linked list for memory efficiency.
 
 # DOM in Rust
 
@@ -81,7 +81,7 @@ If you look carefully, you can see that there are loops inside the tree above. T
 
 ![](/blog/Browser-from-Scratch-DOM-API/DOM_improved.png)
 
-Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an [interesting experiment][9] to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using `Rc` to structure the tree just like what you read above. And in this case, I have decided to go with the `Rc` tree approach for Nox.
+Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an [interesting experiment][9] to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using `Rc` to structure the tree just like what you read above. And in this case, I have decided to go with the `Rc` tree approach for Moon.
 
 ## DOM node inheritance
 
@@ -149,9 +149,9 @@ With this solution, we are now able to create a node of any type with minimum de
 
 # That's it folk
 
-That is all I can share about my journey to build the DOM API for my browser. If you survived this post, I hope that you have learnt something new today. If you haven't, Nox is open-source on Github, don't hesitate to stop by and study my mistakes closely :troll:.
+That is all I can share about my journey to build the DOM API for my browser. If you survived this post, I hope that you have learnt something new today. If you haven't, Moon is open-source on Github, don't hesitate to stop by and study my mistakes closely :troll:.
 
-https://github.com/ZeroX-DG/nox
+https://github.com/ZeroX-DG/moon
 
 Till next time!
 
