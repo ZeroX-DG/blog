@@ -53,7 +53,7 @@
     <div class="blog-post-content">
         <p>The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP 3-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That’s why text-based protocols like the <a href="https://en.wikipedia.org/wiki/Gopher_(protocol)" target="_blank" rel="noopener">Gopher protocol</a> are being disfavored and overpowered by the HTTP protocol that we have known as “the web” today.</p>
 <p>One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I’ll break down my experimentation in building a DOM API with Rust.</p>
-<h1 id="Before-we-begin"><a href="#Before-we-begin" class="headerlink" title="Before we begin"></a>Before we begin</h1><p>Since this post contains considerable numbers of wibbly-wobbly computer science and rust-related terms/concepts, I recommend that you acquire some knowledge on <a href="https://medium.com/basecs/a-gentle-introduction-to-graph-theory-77969829ead8" target="_blank" rel="noopener">graph theory</a>, Rust’s <a href="https://doc.rust-lang.org/book/ch15-04-rc.html" target="_blank" rel="noopener">reference counted smart pointer</a> and <a href="https://www.cs.uah.edu/~rcoleman/Common/C_Reference/MemoryAlloc.html" target="_blank" rel="noopener">memory allocation</a> before continuing. Otherwise, I hope God bless you.</p>
+<h1 id="Before-we-begin"><a href="#Before-we-begin" class="headerlink" title="Before we begin"></a>Before we begin</h1><p>Since this post contains considerable numbers of computer science and rust-related terms/concepts, I recommend that you acquire some knowledge on <a href="https://medium.com/basecs/a-gentle-introduction-to-graph-theory-77969829ead8" target="_blank" rel="noopener">graph theory</a>, Rust’s <a href="https://doc.rust-lang.org/book/ch15-04-rc.html" target="_blank" rel="noopener">reference counted smart pointer</a> and <a href="https://www.cs.uah.edu/~rcoleman/Common/C_Reference/MemoryAlloc.html" target="_blank" rel="noopener">memory allocation</a> before continuing. Otherwise, I hope God bless you.</p>
 <h1 id="What-is-a-DOM-tree"><a href="#What-is-a-DOM-tree" class="headerlink" title="What is a DOM tree?"></a>What is a DOM tree?</h1><p><a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank" rel="noopener">DOM or Document Object Model</a> is an API uses by the browser to represent and manipulate HTML documents. Usually, to represent a document, the DOM API creates a tree data structure with HTML tags as tree nodes, hence the name DOM tree.</p>
 <h1 id="DOM…tree-really"><a href="#DOM…tree-really" class="headerlink" title="DOM…tree, really?"></a>DOM…tree, really?</h1><p>If you have a CS background, you must be a big fan of the game <i class="em em-troll"></i>. However, in this case, if you pay money and attention for an education in computer science (or you are a self-taught like me), you will know that in graph theory, there are two types of data structures-tree and graph.</p>
 <p>Since tags in an HTML document has a parent-child relationship, it’s best to represent the document using a tree structure…right? Yes, but if you think about it, each node of the tree can have pointers that point back to the parent, next siblings, previous siblings, etc. Those connections can and will create a loop in the DOM tree, which is very confusing since the tree, by definition, cannot contain a cycle.</p>
@@ -185,35 +185,6 @@
             <div class="blog-post-item">
   <!-- Title -->
   <h2 class="blog-post-title">
-    <a href="/blog/2020/07/14/Bo-dau-trong-tieng-Viet/">
-      Bỏ dấu trong tiếng Việt
-    </a>
-  </h2>
-  <!-- Content -->
-  <p>
-    Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên "lai nớt" thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.
-  </p>
-  <!-- Date and Author -->
-  <p class="blog-post-meta">
-    2020-07-14
-    <span class="tags">
-      
-        <a href="/blog/tags/vietnamese/" class="tag">
-            #vietnamese
-        </a>
-      
-        <a href="/blog/tags/algo/" class="tag">
-            #algo
-        </a>
-      
-    </span>
-  </p>
-</div>
-
-        
-            <div class="blog-post-item">
-  <!-- Title -->
-  <h2 class="blog-post-title">
     <a href="/blog/2020/07/04/Life-meaning-1-0/">
       Life meaning 1.0
     </a>
@@ -254,6 +225,35 @@
   <!-- Date and Author -->
   <p class="blog-post-meta">
     2020-07-21
+    <span class="tags">
+      
+        <a href="/blog/tags/vietnamese/" class="tag">
+            #vietnamese
+        </a>
+      
+        <a href="/blog/tags/algo/" class="tag">
+            #algo
+        </a>
+      
+    </span>
+  </p>
+</div>
+
+        
+            <div class="blog-post-item">
+  <!-- Title -->
+  <h2 class="blog-post-title">
+    <a href="/blog/2020/07/14/Bo-dau-trong-tieng-Viet/">
+      Bỏ dấu trong tiếng Việt
+    </a>
+  </h2>
+  <!-- Content -->
+  <p>
+    Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên "lai nớt" thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.
+  </p>
+  <!-- Date and Author -->
+  <p class="blog-post-meta">
+    2020-07-14
     <span class="tags">
       
         <a href="/blog/tags/vietnamese/" class="tag">
