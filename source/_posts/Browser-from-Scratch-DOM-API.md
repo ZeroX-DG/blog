@@ -11,7 +11,7 @@ One of the main building blocks of the HTML rendering process is the DOM API. Be
 
 # Before we begin
 
-Since this post contains considerable numbers of wibbly-wobbly computer science and rust-related terms/concepts, I recommend that you acquire some knowledge on [graph theory][24], Rust's [reference counted smart pointer][15] and [memory allocation][25] before continuing. Otherwise, I hope God bless you.
+Since this post contains considerable numbers of computer science and rust-related terms/concepts, I recommend that you acquire some knowledge on [graph theory][24], Rust's [reference counted smart pointer][15] and [memory allocation][25] before continuing. Otherwise, I hope God bless you.
 
 # What is a DOM tree?
 
