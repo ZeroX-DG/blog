@@ -37,7 +37,7 @@ Lastly, the casting of [Lu Man San][9] as the main character, to me, was hands d
 
 Even though you can see the beating rate of her pulse approached severe [tachycardia][10] when she is on the camera, her performance shows a calm, free and happy child. She is fully living in the "now" and appreciates even the most little thing that she saw, such as an ant carrying a piece of sugar or the white sap dripping from the papaya tree.
 
-But what I was most impressed with was how good she and [Tran Nu Yen Khe][13] were at acting with their eyes. This kind of acting is hard to pull off, but it can speak more than any words. A great example of this is every movie with [Anna Karina][11] in it. For example, this is my favourite scene from Vivre Sa Vie (1962):
+But what I was most impressed with was how good she and [Tran Nu Yen Khe][13] were at acting with their eyes. This kind of acting is hard to pull off, but it can speak more than any words. A great example of this is every movie with [Anna Karina][11] in it. For example, this is my favourite scene from [Vivre Sa Vie (1962)][12]:
 
 {% youtuber video 2n_r_5RXobM %}
 {% endyoutuber %}
@@ -55,5 +55,5 @@ Overall, that’s just my initial feeling after watching the movie. I believe th
 [9]: https://www.imdb.com/name/nm0523737/
 [10]: https://www.webmd.com/heart-disease/atrial-fibrillation/what-are-the-types-of-tachycardia
 [11]: https://www.imdb.com/name/nm0439344/?ref_=tt_cl_t1
-[12]: https://www.imdb.com/title/tt0079118/?ref_=nv_sr_srsg_0
+[12]: https://www.imdb.com/title/tt0056663/?ref_=nv_sr_srsg_0
 [13]: https://www.imdb.com/name/nm0951295/?ref_=nv_sr_srsg_0
