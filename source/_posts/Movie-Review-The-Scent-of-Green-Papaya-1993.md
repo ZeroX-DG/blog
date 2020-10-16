@@ -37,13 +37,9 @@ Lastly, the casting of [Lu Man San][9] as the main character, to me, was hands d
 
 Even though you can see the beating rate of her pulse approached severe [tachycardia][10] when she is on the camera, her performance shows a calm, free and happy child. She is fully living in the "now" and appreciates even the most little thing that she saw, such as an ant carrying a piece of sugar or the white sap dripping from the papaya tree.
 
-But what I was most impressed with was how good she and [Tran Nu Yen Khe][13] were at acting with their eyes. This kind of acting is hard to pull off, but it can speak more than any words. A great example of this is every movie with [Anna Karina][11] in it.
+But what I was most impressed with was how good she and [Tran Nu Yen Khe][13] were at acting with their eyes. This kind of acting is hard to pull off, but it can speak more than any words. A great example of this is every movie with [Anna Karina][11] in it. For example, this is my favourite scene from Vivre Sa Vie (1962):
 
-![](/blog/Movie-Review-The-Scent-of-Green-Papaya-1993/anne.jpg)
-
-And an "almost got it" example, is perhaps the ending of [Lemon Popsicle (1978)][12]. Notice how the movie relies on the music and the acting instead of dialogues:
-
-{% youtuber video pIwRBmXRy5k %}
+{% youtuber video 2n_r_5RXobM %}
 {% endyoutuber %}
 
 Overall, that’s just my initial feeling after watching the movie. I believe the movie still contains many more hidden meanings and metaphors, but I didn’t go to film school, so I can’t say that I’m qualified to dive into those details. If you are looking for something interesting to watch, this movie is probably not for you. But instead, if you are looking for the beauty of cinema, you know what I'm going to say :wink:
