@@ -2,7 +2,7 @@
 title: 'Movie Review: The Scent of Green Papaya (1993)'
 tags: ["movies", "reviews"]
 description: "A short review of The Scent of Green Papaya - a debut movie from the French-Vietnamese director Tran Anh Hung"
-date: 14/10/2020
+date: 2020/10/14
 ---
 ![](/blog/Movie-Review-The-Scent-of-Green-Papaya-1993/poster.jpg)
 
