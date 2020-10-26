@@ -5,6 +5,14 @@
     
     <meta name="description" content="<%- (page.description || page.excerpt || config.description).replace(/<(.*?)\>/g, '') %>">
     <meta name="author" content="<%- config.author %>">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="<%- (page.title || config.title) %>" />
+    <meta name="twitter:description" content="<%- (page.description || page.excerpt || config.description).replace(/<(.*?)\>/g, '') %>" />
+    <meta name="twitter:creator" content="@ZeroX_Hung" />
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg" />
+
     <link rel="icon" href="favicon/favicon.ico">
     <title>
       <% if (page.title) {  %>
