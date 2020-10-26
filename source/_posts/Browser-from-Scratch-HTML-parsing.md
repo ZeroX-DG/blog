@@ -101,6 +101,7 @@ Therefore, to tackle that problem, the browser has the ability to pause the HTML
 That's why JavaScript will block rendering and should be placed at the bottom of the HTML. It also reveals why CSS is also render blocking. When JavaScript runs, it can request for access to the CSSOM, which depends on the CSS; thus, the CSS will block the execution of JS until all the CSS is loaded and the CSSOM is constructed.
 
 ![](/blog/Browser-from-Scratch-HTML-parsing/html-blocking.png)
+*How CSS block rendering. [Source][15]*
 
 # Bonus
 
@@ -148,7 +149,7 @@ That's all I can share on my journey implementing the HTML parser. It's not sati
 - Wikipedia. (2020). [Tokenization][19]
 - Servo Engine. (2020). [Servo HTML parser][1]
 - SerenityOS. (2020). [SerenityOS HTML parser][17]
-- MDN. (2020). [Speculative parsing][15]
+- Milica Mihajlija. (2017). [Speculative parsing][15]
 - Ilya Grigorik. (2020). [Render Blocking CSS][15]
 
 [1]: https://github.com/servo/html5ever/
@@ -165,7 +166,7 @@ That's all I can share on my journey implementing the HTML parser. It's not sati
 [12]: https://html.spec.whatwg.org/#parsing-main-inhtml
 [13]: https://leetcode.com/problems/valid-parentheses/
 [14]: https://github.com/ZeroX-DG/moon/tree/master/components/html
-[15]: https://developer.mozilla.org/en-US/docs/Glossary/speculative_parsing
+[15]: https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/
 [16]: https://en.wikipedia.org/wiki/Ruby_character
 [17]: https://github.com/SerenityOS/serenity/tree/master/Libraries/LibWeb/HTML/Parser
 [18]: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
