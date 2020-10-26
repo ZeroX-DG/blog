@@ -65,7 +65,7 @@ The HTML tokenizer is a [state machine][20], which first starts at an initial st
 ![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenize-data.png)
 *The instruction for data state tokenization*
 
-But don't be fooled by the small number of tokens. What gives me PTSD after implementing the tokenizer is the sheer number of tokenizer states. 80, to be exact.
+But don't be fooled by the small number of tokens and think that this is easy to implement. What gives me PTSD after implementing the tokenizer is the sheer number of tokenizer states. 80, to be exact.
 
 ![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenizer-states.png)
 *A small section of the states from [moon source code][10]*
@@ -73,6 +73,8 @@ But don't be fooled by the small number of tokens. What gives me PTSD after impl
 ## Tree-building
 
 The way the tree-building stage works is similar to the tokenize stage. It also switches between different states to create the DOM tree. What special about this stage is it have a stack of open elements to keep track of the parent-child relationship, similar to the [balance parentheses problem][13].
+
+Therefore, to build the DOM tree, the tree-building state machine will process the tokens emitted by the tokenizer one by one. If it encounters any script tag, it will pause the current work and let the JS engine does its job. After that, the tree-building process will continue until the EOF token is received.
 
 One thing to notice when implementing an HTML parser is the tree-building stage doesn't happen after the tokenize stage. As stated in the specification:
 
