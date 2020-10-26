@@ -9,14 +9,14 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 16 Oct 2020 09:06:36 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2020 05:35:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Movie Review: The Scent of Green Papaya (1993)</title>
-      <link>https://zerox-dg.github.io/blog/2020/10/16/Movie-Review-The-Scent-of-Green-Papaya-1993/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/10/16/Movie-Review-The-Scent-of-Green-Papaya-1993/</guid>
-      <pubDate>Fri, 16 Oct 2020 09:06:36 GMT</pubDate>
+      <link>https://zerox-dg.github.io/blog/2020/10/26/Movie-Review-The-Scent-of-Green-Papaya-1993/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/10/26/Movie-Review-The-Scent-of-Green-Papaya-1993/</guid>
+      <pubDate>Mon, 26 Oct 2020 05:35:23 GMT</pubDate>
       <description>
       
         A short review of The Scent of Green Papaya - a debut movie from the French-Vietnamese director Tran Anh Hung
@@ -24,7 +24,22 @@
       </description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/10/16/Movie-Review-The-Scent-of-Green-Papaya-1993/#disqus_thread</comments>
+      <comments>https://zerox-dg.github.io/blog/2020/10/26/Movie-Review-The-Scent-of-Green-Papaya-1993/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Browser from Scratch: HTML parsing</title>
+      <link>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</guid>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 GMT</pubDate>
+      <description>
+      
+        Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/#disqus_thread</comments>
     </item>
     
     <item>

@@ -307,10 +307,41 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
 }
 
+.blog-post code.no-float {
+  box-shadow: none;
+  background: none;
+}
+
 .blog-post pre {
   line-height: 130%!important;
   display: inline-block;
   background: none!important;
+}
+
+.blog-post table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.blog-post table td, th {
+  border: 1px solid #b8b8b8;
+  padding: 0 10px;
+}
+
+.blog-post table thead tr {
+  background: #d1d1d1!important;
+}
+
+.blog-post table tr {
+  background: #dbdbdb;
+}
+
+.blog-post table tr:nth-child(odd) {
+  background: #ebebeb;
+}
+
+.blog-post table thead tr th {
+  font-weight: bold!important;
 }
 
 .blog-post pre code {
