@@ -24,11 +24,11 @@ But since I have foolishly made a promise with the first three words in the name
 
 ## Input decoder
 
-When the browser receives an HTML document from the server, everything is transfered as raw bytes. Thus, to decode those bytes into readable text characters, the browser will first run the [encoding sniffing algorithm][4] to detect the document's encoding. This includes trying out various methods from BOM sniffing to `meta` detection. Yes, you heard me, BOM sniffing.
+When the browser receives an HTML document from the server, everything is transfered as raw bytes. Thus, to decode those bytes into readable text characters, the browser will first run the [encoding sniffing algorithm][4] to detect the document's encoding. This includes trying out various methods from BOM sniffing to `meta` detection.
 
 ### BOM sniffing
 
-BOM or [Byte Order Mark][5] :troll: is like a [magic number][6] in files. When opening a file in a hex editor like [bless][7], if the file starts with `4A` `46` `49` `46`, we know that it's a JPEG file; `25` `50` `44` `46`, it's a PDF file. BOM serves the same purpose but for text streams. Therefore, to determine the encoding of the text stream, the browser will compare the first 3 bytes with the table below:
+BOM or [Byte Order Mark][5], is like a [magic number][6] in files. When opening a file in a hex editor like [bless][7], if the file starts with `4A` `46` `49` `46`, we know that it's a JPEG file; `25` `50` `44` `46`, it's a PDF file. BOM serves the same purpose but for text streams. Therefore, to determine the encoding of the text stream, the browser will compare the first 3 bytes with the table below:
 
 | Byte order mark                               | Encoding |
 |-----------------------------------------------|----------|
