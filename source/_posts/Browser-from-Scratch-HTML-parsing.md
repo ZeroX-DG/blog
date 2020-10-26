@@ -60,11 +60,15 @@ After the stream of bytes is decoded into a stream of characters, it's then fed 
 - **Character:** Represent a character that is not part of any other tokens.
 - **EOF:** Represent the end of the HTML document.
 
+The HTML tokenizer is a [state machine][20], which first starts at an initial state called the `Data` state. From that, the tokenizer will process a character according to the instruction of that state. The tokenization ends when it encounters an `EOF` character in the text stream.
+
+![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenize-data.png)
+*The instruction for data state tokenization*
+
 But don't be fooled by the small number of tokens. What gives me PTSD after implementing the tokenizer is the sheer number of tokenizer states. 80, to be exact.
 
 ![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenizer-states.png)
 *A small section of the states from [moon source code][10]*
-
 
 ## Tree-building
 
@@ -164,3 +168,4 @@ That's all I can share on my journey implementing the HTML parser. It's not sati
 [17]: https://github.com/SerenityOS/serenity/tree/master/Libraries/LibWeb/HTML/Parser
 [18]: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
 [19]: https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization
+[20]: https://www.freecodecamp.org/news/state-machines-basics-of-computer-science-d42855debc66/
