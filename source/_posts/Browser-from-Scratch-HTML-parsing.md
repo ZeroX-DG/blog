@@ -102,7 +102,7 @@ That's why JavaScript will block rendering and should be placed at the bottom of
 
 # Bonus
 
-Here are some cool bonus things that I learnt after implementing this HTML parser:
+Here are some extra cool things that I learnt after implementing this HTML parser:
 
 ## Speculative parsing
 
