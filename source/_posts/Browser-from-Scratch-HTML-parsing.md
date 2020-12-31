@@ -70,6 +70,8 @@ But don't be fooled by the small number of tokens and think that this is easy to
 ![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenizer-states.png)
 *A small section of the states from [moon source code][10]*
 
+A complete list of states can be found [here][21].
+
 ## Tree-building
 
 The way the tree-building stage works is similar to the tokenize stage. It also switches between different states to create the DOM tree. What special about this stage is it have a stack of open elements to keep track of the parent-child relationship, similar to the [balance parentheses problem][13].
@@ -147,6 +149,7 @@ That's all I can share on my journey implementing the HTML parser. It's not sati
 
 # Resources
 - Wikipedia. (2020). [Tokenization][19]
+- WHATWG. (2020). [HTML Living Standard][22]
 - Servo Engine. (2020). [Servo HTML parser][1]
 - SerenityOS. (2020). [SerenityOS HTML parser][17]
 - Milica Mihajlija. (2017). [Speculative parsing][15]
@@ -172,3 +175,5 @@ That's all I can share on my journey implementing the HTML parser. It's not sati
 [18]: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
 [19]: https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization
 [20]: https://www.freecodecamp.org/news/state-machines-basics-of-computer-science-d42855debc66/
+[21]: https://html.spec.whatwg.org/#data-state
+[22]: https://html.spec.whatwg.org/
