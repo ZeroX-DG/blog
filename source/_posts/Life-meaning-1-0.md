@@ -1,7 +1,7 @@
 ---
 title: Life meaning 1.0
 tags: ["thoughts", "philosophy"]
-date: 07/04/2020
+date: 2020/04/07
 ---
 
 The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity...sort of.
@@ -30,7 +30,7 @@ Unable to become tranquil, Hung left his bed. He climbed out to the roof, lying 
 
 Looking at the stary sky, he can't help but notice the bright moon, shining in the middle of the empty black space. As if at that moment, he and the lady of the night were the only two people that are still awake.
 
-![](/blog/Life-meaning-1-0/moon.jpg)
+![](moon.jpg)
 *Photo by [Andrés Gómez](https://unsplash.com/@andresloquesea?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/moon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)*
 
 Having no one to talk with, he looked at the moon and thought of sharing his thoughts with her. “What a crazy thing to do, to share your thoughts with a life-less object, much less when it is 384,400 km away from you.” he thought. But still, it is better than holding his thoughts inside.

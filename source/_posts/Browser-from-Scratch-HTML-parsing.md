@@ -20,7 +20,7 @@ But since I have foolishly made a promise with the first three words in the name
 
 # The parsing flow
 
-![](/blog/Browser-from-Scratch-HTML-parsing/html-parsing-process.png)
+![](html-parsing-process.png)
 
 ## Input decoder
 
@@ -62,12 +62,12 @@ After the stream of bytes is decoded into a stream of characters, it's then fed 
 
 The HTML tokenizer is a [state machine][20], which first starts at an initial state called the `Data` state. From that, the tokenizer will process a character according to the instruction of that state. The tokenization ends when it encounters an `EOF` character in the text stream.
 
-![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenize-data.png)
+![](html-tokenize-data.png)
 *The instruction for data state tokenization*
 
 But don't be fooled by the small number of tokens and think that this is easy to implement. What gives me PTSD after implementing the tokenizer is the sheer number of tokenizer states. 80, to be exact.
 
-![](/blog/Browser-from-Scratch-HTML-parsing/html-tokenizer-states.png)
+![](html-tokenizer-states.png)
 *A small section of the states from [moon source code][10]*
 
 A complete list of states can be found [here][21].
@@ -102,7 +102,7 @@ Therefore, to tackle that problem, the browser has the ability to pause the HTML
 
 That's why JavaScript will block rendering and should be placed at the bottom of the HTML. It also reveals why CSS is also render blocking. When JavaScript runs, it can request for access to the CSSOM, which depends on the CSS; thus, the CSS will block the execution of JS until all the CSS is loaded and the CSSOM is constructed.
 
-![](/blog/Browser-from-Scratch-HTML-parsing/html-blocking.png)
+![](html-blocking.png)
 *How CSS block rendering. [Source][15]*
 
 # Bonus
@@ -117,7 +117,7 @@ As I explained before, because JavaScript can potentially modify the page using 
 
 After hours of implementing dry HTML parsing rules, this one really makes me question my own sanity :rolling_on_the_floor_laughing:
 
-![](/blog/Browser-from-Scratch-HTML-parsing/html-sarcasm.png)
+![](html-sarcasm.png)
 
 ## <ruby\>
 

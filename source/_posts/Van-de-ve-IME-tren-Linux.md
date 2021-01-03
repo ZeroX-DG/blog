@@ -18,7 +18,7 @@ Chính vì cái cảm giác khó chịu mà cái gạch đít của preedit mang
 
 Ví dụ điển hình là việc [ibus-bamboo][3]-bộ gõ tiếng Việt duy nhất ở thời điểm hiện tại vẫn còn active, đã phải bổ sung tổ hợp <kbd>Shift</kbd> + <kbd>~</kbd> để chuyển đổi giữa các phương pháp gõ cho từng ứng dụng khác nhau. Trên README của ibus-bamboo có nói rõ vấn đề này:
 
-![](/blog/Van-de-ve-IME-tren-Linux/ibus_bamboo_notice.png)
+![](ibus_bamboo_notice.png)
 *Phần lưu ý trên trang README của ibus-bamboo*
 
 Đều này tạo ra sự bất tiện cho người sử dụng và vì thế ibus-bamboo, dù có thể nói là IME hiện đại nhất ở thời điểm bấy giờ nhưng vẫn vướng phải những vấn đề của những tiền bối đi trước: không tương thích với tất cả mọi ứng dụng và gây nhiều bất tiện cho người dùng.
@@ -43,7 +43,7 @@ Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup
 
 ### Vấn đề 1: Sudo
 
-![](/blog/Van-de-ve-IME-tren-Linux/sudo_meme.jpg)
+![](sudo_meme.jpg)
 
 Vì evdev có thể listen key ở toàn bộ mọi ứng dụng, nên IME sẽ chả khác gì một con keylogger cả. Vì vậy, Linux bắt buộc phải có quyền sudo để sử dụng evdev. Uinput cũng cần quyền root vì lý do tương tự. Điều này không phải là vấn đề quá nhạy cảm vì nếu muốn làm keylogger thì hoàn toàn có thể dùng X11 mà không cần quyền root<sup>[\[4\]][7]</sup>. Nhưng nếu lỡ không may cần xài trên máy trường hoặc máy công cộng không có quyền root thì điều này là khá bất tiện.
 

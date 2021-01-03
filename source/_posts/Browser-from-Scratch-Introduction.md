@@ -9,7 +9,7 @@ Ah, the browser, the provider of modern addictions such as social media, online 
 
 That's why the browser is so appealing to me. We mainly connect with the Internet world via the browser, we spend hours being productive by watching other people being productive on Youtube, we organize our schedule on Google Calendar via the browser even though we go to sleep at 3 AM and wake up just after lunchtime and everyday is a half-day to you. And most importantly, if you are a web developer, the browser's output literally decides if you will get pay or become [Diogenes][2]:
 
-![](/blog/Browser-from-Scratch-Introduction/Diogenes.jpg)
+![](Diogenes.jpg)
 *Diogenes Sitting in his Tub by [Jean-Léon Gérôme][9] (1860)*
 
 Such an important creation of the world and you probably never get to know how it works which in that case, shame on you....and me too. :okay:
@@ -24,7 +24,7 @@ Most browsers are written in C or C++ to achieve maximum speed and flexibility. 
 
 Before we start jumping into the code, let's first take a look at the overall structure of a browser.
 
-![](/blog/Browser-from-Scratch-Introduction/browser_structure.png)
+![](browser_structure.png)
 *Source: https://www.randgroup.com/insights/ajax-seo-does-google-index-ajax/*
 
 ## User Interface
@@ -47,7 +47,7 @@ This way, the browser can isolate the tabs which can be very useful in many situ
 
 Sounds interesting? Check out [Chrome comic][7] for more useful information on Google Chrome design that doesn't bore you.
 
-![](/blog/Browser-from-Scratch-Introduction/chrome_processes.jpg)
+![](chrome_processes.jpg)
 *Source: https://www.google.com/googlebooks/chrome/small_04.html*
 
 ## Render Engine

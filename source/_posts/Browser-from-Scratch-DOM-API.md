@@ -23,7 +23,7 @@ If you have a CS background, you must be a big fan of the game :troll:. However,
 
 Since tags in an HTML document has a parent-child relationship, it’s best to represent the document using a tree structure…right? Yes, but if you think about it, each node of the tree can have pointers that point back to the parent, next siblings, previous siblings, etc. Those connections can and will create a loop in the DOM tree, which is very confusing since the tree, by definition, cannot contain a cycle.
 
-![](/blog/Browser-from-Scratch-DOM-API/not_a_tree.png)
+![](not_a_tree.png)
 
 But, while the idea of having pointers to other nodes in the tree seems to break the very definition of it, the DOM tree is still, technically, a tree. Sure it is full of connections and looks more like a graph than a tree. But the fact that each node only has 1 parent is what makes the DOM tree...a tree. After all, those connections are just pointers. They don’t own the data that they point to; thus, it is safe to say that a DOM tree is a tree.
 
@@ -63,7 +63,7 @@ Since our DOM tree can contains nodes that are being pointed to by other nodes, 
 
 While `Rc<T>` can help us solve the shared ownership pointer problem, it also introduces a new challenge called cyclic data.
 
-![](/blog/Browser-from-Scratch-DOM-API/cyclic_data.svg)
+![](cyclic_data.svg)
 
 When using `Rc` pointer, Rust performs garbage collection based on reference counting, which means the Rc pointer holds a variable that keeps track of the number of references to it. When the count decreases to 0, Rust will free the data behind that pointer. Having cycles in your data is essentially not a bad thing, but it requires good memory management. Otherwise, [reference cycles can easily lead to memory leaks with reference count garbage collection][20].
 
@@ -75,11 +75,11 @@ Rust book has a [good chapter][7] explaining how reference cycles can create mem
 
 In a DOM tree, a node has connections to many other nodes across the tree. But in this case, we will only pay attention to its first child, last child, next sibling, previous sibling pointer.
 
-![](/blog/Browser-from-Scratch-DOM-API/DOM_original.png)
+![](DOM_original.png)
 
 If you look carefully, you can see that there are loops inside the tree above. Therefore, the current structure can create unwanted memory leaks. To solve this problem, we introduce weak references so that we can both solve the memory leaks problem while retaining the current DOM structure.
 
-![](/blog/Browser-from-Scratch-DOM-API/DOM_improved.png)
+![](DOM_improved.png)
 
 Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an [interesting experiment][9] to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using `Rc` to structure the tree just like what you read above. And in this case, I have decided to go with the `Rc` tree approach for Moon.
 
@@ -89,20 +89,20 @@ While it is easy to perform inheritance in OOP languages such as C/C++, Rust doe
 
 This creates a new problem in our DOM tree structure since DOM API relies a lot on inheritance. For example, this is the inheritance hierarchy for a simple HTML `div` element:
 
-![](/blog/Browser-from-Scratch-DOM-API/div_inheritance.png)
+![](div_inheritance.png)
 _Retrieve from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement)_
 
 ## Solving DOM inheritance
 
 Since there's no way to perform inheritance, the best thing to do as of right now is to store the structs in a nested manner. But the question here is: in which order?
 
-![](/blog/Browser-from-Scratch-DOM-API/inheritance_choices.png)
+![](inheritance_choices.png)
 
 ### Node -> Element -> HtmlElement
 
 The first approach is to store the nodes in the order of their inheritance hierarchy. With this approach, the `Node` type is the parent of all subtype, which reduces the needs for node casting but also comes with some significant downsides.
 
-![](/blog/Browser-from-Scratch-DOM-API/inheritance_in_order.png)
+![](inheritance_in_order.png)
 
 Because nodes are connected from the `Node` level, there's no need for node casting. If, for example, you want to obtains HTML data from a `Node`, you only need to travel down from `Node` to `Element` to `HTMLElement` and so on.
 
@@ -114,7 +114,7 @@ Another downside to this is the Node type can store not only `Element` but also 
 
 So how do you tackle the problems above? You do the complete opposite, of course :troll:.
 
-![](/blog/Browser-from-Scratch-DOM-API/inheritance_in_reverse.png)
+![](inheritance_in_reverse.png)
 
 Storing nodes in the opposite direction gives you a more modular and easy to separate structure since the inner node type doesn’t depend on the outer one.
 
@@ -122,7 +122,7 @@ However, as you can already guess, to associate those nodes together, Rust requi
 
 Enter [Any trait][19]!
 
-![](/blog/Browser-from-Scratch-DOM-API/any.png)
+![](any.png)
 
 Yes, Rust's developers do think of everything. I won't go into the details of how the trait works because ~~I don't really know either~~ it's not relevant to this post.
 

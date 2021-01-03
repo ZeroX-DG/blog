@@ -51,7 +51,7 @@ và tổ hợp phụ âm có thể là:
 
 Cấu trúc của 1 âm tiết có thể hình dung như sau:
 
-![](/blog/Bo-dau-trong-tieng-Viet/cau_truc_am_tiet.png)
+![](cau_truc_am_tiet.png)
 
 Tuy nhiên, 1 âm tiết không nhất thiết phải bao gồm phụ âm đầu lẫn phụ âm cuối. Ví dụ, chữ "ưng" trong "ưng ý" không hề có phụ âm đầu, hay chữ "hư" không tồn tại phụ âm cuối.
 
@@ -61,7 +61,7 @@ Ngoài việc sử dụng các kí tự latin, trong tiếng Việt còn tồn t
 
 Nếu các bạn hứng thú với lịch sử chữ Quốc ngữ, cũng như typography của tiếng Việt, thì đừng bỏ qua cuốn [Vietnamese Typography](https://vietnamesetypography.com/) của tác giả [Donny Trương](https://donnytruong.com/).
 
-![](/blog/Bo-dau-trong-tieng-Viet/vietnamese_typography.png)
+![](vietnamese_typography.png)
 *Một phần của trang giới thiệu lịch sử tiếng Việt trên trang Vietnamese Typography*
 
 # Các quy luật đặt dấu
@@ -98,7 +98,7 @@ Như đã nói ở trên, mình vốn chủ định VI là một IME, nhưng vì
 
 Quy trình đặt dấu thanh của library diễn ra như sau:
 
-![](/blog/Bo-dau-trong-tieng-Viet/library_structure.png)
+![](library_structure.png)
 
 ### Tách action và content
 
