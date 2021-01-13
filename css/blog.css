@@ -316,6 +316,7 @@
   line-height: 130%!important;
   display: inline-block;
   background: none!important;
+  border: none!important;
 }
 
 .blog-post table {

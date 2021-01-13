@@ -9,8 +9,23 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sun, 03 Jan 2021 01:14:55 GMT</pubDate>
+    <pubDate>Wed, 13 Jan 2021 22:53:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Browser from Scratch: CSS parsing &amp; processing</title>
+      <link>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</link>
+      <guid>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</guid>
+      <pubDate>Wed, 13 Jan 2021 22:53:39 GMT</pubDate>
+      <description>
+      
+        A brief history of CSS &amp; how browser process CSS values
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Browser from Scratch: HTML parsing</title>
@@ -73,21 +88,6 @@
     </item>
     
     <item>
-      <title>Life meaning 1.0</title>
-      <link>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/</guid>
-      <pubDate>Sat, 04 Jul 2020 00:00:00 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity…sort of.&lt;/p&gt;
-      
-      </description>
-      
-      
-      <comments>https://zerox-dg.github.io/blog/2020/07/04/Life-meaning-1-0/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>Browser from Scratch: Introduction</title>
       <link>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</link>
       <guid>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</guid>
@@ -100,6 +100,21 @@
       
       
       <comments>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Life meaning 1.0</title>
+      <link>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</link>
+      <guid>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</guid>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity…sort of.&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/#disqus_thread</comments>
     </item>
     
   </channel>
