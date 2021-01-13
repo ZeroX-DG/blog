@@ -9,14 +9,14 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Wed, 13 Jan 2021 22:53:39 GMT</pubDate>
+    <pubDate>Wed, 13 Jan 2021 23:44:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Browser from Scratch: CSS parsing &amp; processing</title>
       <link>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</link>
       <guid>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</guid>
-      <pubDate>Wed, 13 Jan 2021 22:53:39 GMT</pubDate>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 GMT</pubDate>
       <description>
       
         A brief history of CSS &amp; how browser process CSS values
