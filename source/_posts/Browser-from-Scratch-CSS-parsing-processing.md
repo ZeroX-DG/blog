@@ -2,11 +2,12 @@
 title: 'Browser from Scratch: CSS parsing & processing'
 tags: ["code", "browser-from-scratch"]
 description: "A brief history of CSS & how browser process CSS values"
+date: 2021/01/13
 ---
 
 In the beginning was the web, and the web was.....ugly.
 
-No one knows why, but it was indeed ugly. So in 1994, a web pioneer working at the birthplace of the web - [CERN][2], named [Håkon Wium Lie][1], has proposed a new way to style the web. This method of styling relies on a simple concept called "cascading", which is a specified priority scheme to determine which style rule applies if more than one rule matches a particular element. Hence, the name Cascading Style Sheets or as self-taught developers lacking history lessons like myself would call it - CSS.
+No one knows why, but it was indeed ugly. So in 1994, a web pioneer working at the birthplace of the web - [CERN][2], named [Håkon Wium Lie][1], has proposed a new way to style the web. This method of styling relies on a simple concept called cascading. Cascading is a priority scheme that determines which style rule applies if more than one rule matches a particular element. Hence, the name Cascading Style Sheets or as self-taught developers lacking history lessons like myself would call it - CSS.
 
 CSS went on to be a great success, adopted by major browsers and contributed greatly to the increment of insomnia rate among developers, making Håkon Wium Lie, one of the greatest creations that Norway has ever given to the world, just after [Aurora][4] and [OOP][5] of course. So, takk skal du ha herr Håkon Wium Lie for that.
 
