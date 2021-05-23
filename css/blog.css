@@ -9,7 +9,7 @@
 }
 
 .top-nav .logo {
-  font-family: "Lato", serif;
+  font-family: "Open Sans", serif;
   font-size: 28px;
   height: 50px;
 }
@@ -25,7 +25,7 @@
 }
 
 .top-nav .nav .nav-item {
-  font-family: "Lato", serif;
+  font-family: "Open Sans", serif;
   font-size: 18px;
   text-decoration: none;
   margin-left: 20px;
@@ -74,13 +74,13 @@
 
 .left-nav .logo {
   font-size: 28px;
-  font-family: "Lato";
+  font-family: "Open Sans";
   margin: 0;
   margin-bottom: 30px;
 }
 
 .left-nav .description {
-  font-family: "KoHo";
+  font-family: "Open Sans";
   font-weight: 300;
 }
 
@@ -108,7 +108,7 @@
 .left-nav .menu li .content {
   position: relative;
   cursor: pointer;
-  font-family: "Lato";
+  font-family: "Open Sans";
   text-decoration: none;
 }
 
@@ -140,13 +140,13 @@
 /*-------------------*/
 
 .blog-post-item {
-  padding: 15px 0;
+  padding: 25px 0;
   box-sizing: border-box;
 }
 
 .blog-post-item .blog-post-title {
   margin: 0 !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
   margin-bottom: 5px !important;
 }
 
@@ -155,9 +155,9 @@
 }
 
 .blog-post-item .blog-post-title a {
-  font-family: "Lato";
+  font-family: "Open Sans";
   text-decoration: none;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .blog-post-item p {
@@ -167,12 +167,13 @@
 }
 
 .blog-post-item * {
-  font-family: "KoHo", serif;
+  font-family: "Open Sans", serif;
   font-weight: 400;
+  line-height: 2em;
 }
 
 .blog-post-item .tags .tag {
-  font-family: "Lato";
+  font-family: "Open Sans";
   color: #333447;
   margin-left: 5px;
   font-weight: bold;
@@ -218,6 +219,7 @@
   padding: 0;
   margin-bottom: 30px;
   position: relative;
+  font-family: "Open Sans";
 }
 
 .blog-post .blog-post-title::before {
@@ -228,8 +230,8 @@
 }
 
 .blog-post .blog-post-content * {
-  font-family: "KoHo";
-  font-size: 18px;
+  font-family: "Open Sans";
+  font-size: 16px;
   line-height: 180%;
   font-weight: 400;
   color: #333447;
@@ -283,7 +285,7 @@
 .blog-post .blog-post-content h5,
 .blog-post .blog-post-content h6 {
   font-weight: bold;
-  font-family: "Lato";
+  font-family: "Open Sans";
 }
 
 .blog-post .blog-post-content h1 {
@@ -388,7 +390,7 @@
 
 .blog-post .js-toc a {
   text-decoration: none;
-  font-family: "KoHo";
+  font-family: "Open Sans";
 }
 
 .blog-post .js-toc a:hover {
@@ -418,7 +420,7 @@
   padding: 10px 20px;
   box-sizing: border-box;
   background: #cda869;
-  font-family: "KoHo";
+  font-family: "Open Sans";
   font-size: 16px;
   outline: none;
   cursor: pointer;
