@@ -6,7 +6,7 @@ description: Ghi chép về lần đầu tui đi phỏng vấn xin việc.
 
 Đầu tháng 2 tui có đi phỏng vấn onsite lần đầu tiên trong cuộc đời. Tui chả biết phải mặc gì, nên cũng "play it safe" mà ra ngoài shop mua đại cái áo sơ mi với quần tây cho chỉnh tề. Ai ngờ vào office gặp cả team phỏng vấn mặc đồ casual, thế là uổng mấy chục đô mua đồ. :thinkcry:
 
-Tui vào sớm 20 phút nên anh teamlead rủ đi uống gì đó làm quen trước. Tui khá bất ngờ trước việc này, vì anh có vẻ thân thiện hơn gấp ∞ lần so với tưởng tượng của tui.
+Tui vào sớm tận 20 phút nên anh teamlead rủ đi uống gì đó làm quen trước. Tui khá bất ngờ trước việc này, vì anh có vẻ thân thiện hơn gấp ∞ lần so với tưởng tượng của tui.
 
 Anh hỏi tui uống coffee hay trà sữa. Tui không hảo coffee nên chọn qua trà sữa...mặc dù tui không uống trà sữa gần 10 năm roài. Thế là anh teamlead và tôi ghé vào quán gongcha gần đó.
 
@@ -42,7 +42,7 @@ Anh teamlead...vẫn gật đầu. Anh bắt đầu hỏi về các thứ công 
 
 Anh DevOps là một kiểu người im lặng. Nhưng hỏi câu nào là khó đỡ câu đấy. Em xài data structure gì cho cache? khi nào em invalidate cache? làm sao em đảm bảo tính toàn vẹn cho chức năng upload nếu em cho server nằm sau load balancer?
 
-"Chết mịa bị lộ đang chém roài. Thôi quay về viết cover letter mới đi là vừa", tôi nghĩ thầm. Tuy vậy tui vẫn cố giải thích để cái thiện design. Nhận lỗi sai một khu vực và cái design cuối cùng ra lò trông cũng ổn.
+"Chết mịa bị lộ đang chém roài. Thôi quay về viết cover letter mới đi là vừa", tôi nghĩ thầm. Tuy vậy tui vẫn cố giải thích để cái thiện design. Sửa lỗi một vài chỗ và cái design cuối cùng ra lò trông cũng ổn.
 
 Sau này quen thân anh DevOps hỏi ra mới biết tui chém cũng khá. Chỉ là ảnh hơi ít nói, và làm chuyên technical nên khi hỏi làm tui cảm thấy sợ. Chứ thiệt ra ảnh hiền khô à.
 
