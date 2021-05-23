@@ -16,7 +16,7 @@ Nhìn lướt qua menu, tui order đại mọi thứ gì mà tui có thể nhậ
 
 Dù sao thì order cũng xong xuôi. Anh teamlead tính tiền luôn cho tui ly trà nên tui lại càng bất ngờ hơn, chỉ biết quay sang cám ơn rối rít. Tụi tui quay lại office với 2 ly trà sữa. Tui hớp thử một ngụm.........mèn, có vẻ tui đã tìm được cái combo kinh tởm nhứt mà loài người có thể order được ở gongcha.
 
-Về tới office là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, tui nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, và nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Tui sợ rằng sáng mai, khi tui thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm.
+Về tới office là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, tui nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Sợ rằng sáng mai, khi thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm.
 
 ## Phần 1: Coding test
 
@@ -28,13 +28,13 @@ Thế là tui giải bài trong vòng 1 phút và anh teamlead khá ấn tượn
 
 Đây là phần tui lo nhất vì trước giờ có làm system design đâu. :thinkcry:
 
-Và đúng như những gì tui lo sợ. Cái system tui cần design là 1 hệ thống lưu trữ bự tổ chảng. Hoảng quá nên tui xin cho đọc đề 5 phút. Cơ mà được chừng 2 phút, tui thấy không khí im lặng quá mà đầu tui thì cứ trống trơn nên thôi cứ lên bảng vẽ đại cái gì cho có đã rồi tính tiếp.
+Và đúng như những gì tui lo sợ. Cái system tui cần design là 1 hệ thống lưu trữ bự tổ chảng. Hoảng quá nên tui xin cho đọc đề 5 phút. Cơ mà được chừng 2 phút, thấy không khí im lặng quá mà đầu tui thì cứ trống trơn nên thôi cứ lên bảng vẽ đại cái gì cho có đã rồi tính tiếp.
 
 Tui vẽ rất nhiều thứ. Tui vẽ user, vẽ server, vẽ database, vẽ process. Tui cảm thấy mình thật may mắn khi sinh ra đã có khiếu vẽ. Ngày trước tui còn đại diện trường đi rớt vài kì thi nét vẽ xanh. Hôm nay tui áp dụng kinh nghiệm vẽ tích luỹ sau nhiều năm để vẽ cái server hình vuông...tròn xoe. :troll:
 
 Tui cứ tiếp tục vẽ, bí quá lại liệt kê requirements, và lại...vẽ. Chẳng mấy chốc cái bảng (thiệt ra là cái tường) đã được bao phủ bởi 1 mạng lưới process chằng chịt, rối bù như cái headphone trong túi quần tui vậy.
 
-Tui quay xuống nhìn anh teamlead. Ảnh vẫn gật đầu liên tục. Tui quay sang nhìn chị PM, chỉ có vẻ đang ngó nghiêng, tìm chỗ để đè ra hỏi. Tui quay sang anh DevOps, ảnh không nhìn vào design mà nhìn thẳng vào mặt tui với 1 lượng sát khi nồng nặc...hóa ra tui đứng che cái bảng.
+Tui quay xuống nhìn anh teamlead. Ảnh vẫn gật đầu liên tục. Tui quay sang nhìn chị PM, chỉ có vẻ đang ngó nghiêng, tìm chỗ để đè ra hỏi. Tui quay sang anh DevOps, ảnh không nhìn vào design mà nhìn thẳng vào mặt tui với 1 lượng sát khí nồng nặc...hóa ra tui đứng che cái bảng.
 
 Chị PM là người hỏi đầu tiên, và cũng là người hỏi nhiều nhất. Chị hỏi từ chuyện làm sao để lấy được nhanh nhất một đoạn data ngắn ở giữa một chuỗi data dài thòng, tới chuyện lỡ như upload data theo gói (chunk) mà user bị rớt mạng giữa chừng thì tính sao. May mà tui chém cũng ổn...tui nghĩ thế, thấy chị ấy cũng cười vui vẻ.
 
