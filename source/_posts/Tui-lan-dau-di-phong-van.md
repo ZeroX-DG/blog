@@ -42,9 +42,9 @@ Anh teamlead...vẫn gật đầu. Anh bắt đầu hỏi về các thứ công 
 
 Anh DevOps là một kiểu người im lặng. Nhưng hỏi câu nào là khó đỡ câu đấy. Em xài data structure gì cho cache? khi nào em invalidate cache? làm sao em đảm bảo tính toàn vẹn cho chức năng upload nếu em cho server nằm sau load balancer?
 
-"Chết mịa bị lộ đang chém roài. Thôi quay về viết cover letter mới đi là vừa", tôi nghĩ thầm. Tuy vậy tui vẫn cố giải thích để cái thiện design. Sửa lỗi một vài chỗ và cái design cuối cùng ra lò trông cũng ổn.
+"Chết mịa bị lộ đang chém roài. Thôi quay về viết cover letter mới đi là vừa", tôi nghĩ thầm. Tuy vậy tui vẫn cố giải thích để cái thiện design, sửa lỗi một vài chỗ và cái design cuối cùng ra lò trông cũng ổn.
 
-Sau này quen thân anh DevOps hỏi ra mới biết tui chém cũng khá. Chỉ là ảnh hơi ít nói, và làm chuyên technical nên khi hỏi làm tui cảm thấy sợ. Chứ thiệt ra ảnh hiền khô à.
+Sau này quen thân anh DevOps hỏi ra mới biết tui chém cũng khá. Chỉ là ảnh hơi ít nói, và làm chuyên technical nên khi hỏi làm tui cảm thấy sợ. Chứ thiệt ra ảnh hiền khô à. :omg:
 
 ## Xong xuôi
 
