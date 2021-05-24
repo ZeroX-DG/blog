@@ -41,7 +41,7 @@ Chị PM là người hỏi đầu tiên, và cũng là người hỏi nhiều n
 
 Anh teamlead...vẫn gật đầu. Anh hỏi về các thứ công nghệ tui chọn. Như database thì em xài MySQL hay PostgreSQL? Tại sao chọn rứa? Cần requirement gì để deploy? Tui thì xuất thân front-end chính gốc, quanh đi quẩn lại cũng chỉ biết đi canh `div` cho nằm giữa trang chứ có biết ba cái database engines khác nhau chỗ nào đâu? Tui cũng đành ú ớ chém đại. May mà ảnh vẫn gật đầu.
 
-Anh DevOps là một kiểu người trầm tính, im lặng. Nhưng hỏi câu nào là khó đỡ câu đấy. Em xài data structure gì cho cache? khi nào em invalidate cache? làm sao em đảm bảo tính toàn vẹn cho data upload nếu em cho server nằm sau load balancer?
+Anh DevOps là một kiểu người trầm tính, im lặng. Nhưng hỏi câu nào là khó đỡ câu đấy. Em xài data structure gì cho cache? khi nào em invalidate cache? làm sao em đảm bảo data upload sẽ đến đúng server nếu em cho cả mớ server nằm sau load balancer?
 
 Anh tìm được nhiều lỗ hổng trong design của tui. Nhiều lỗ lớn quá tui phải đập đi vẽ lại. Sửa xong một vài lỗi cái design ra lò trông cũng ổn. Tui quay sang nhìn anh DevOps lần nữa để tìm sự đồng thuận. Ảnh vẫn lặng thinh. 
 
