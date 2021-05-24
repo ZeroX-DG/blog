@@ -55,4 +55,4 @@ Sau khoảng hơn 2 tiếng phỏng vấn, mọi chuyện cũng xong xuôi. Cả
 
 Tui cảm thấy trải nghiệm lần đầu phỏng vấn onsite của tui cũng khá "suôn sẻ". Tui cảm thấy may mắn vì cái tưởng tượng của tui nó sai bét nhè; may mắn vì tui học được quá nhiều thứ mới chỉ trong vỏn vẹn gần 3 tiếng; may mắn vì tui tìm được nhiều thứ hay ho trong bản thân tui và cho nó uống thuốc.
 
-Đây là những bước chân chập chững đầu tiên của tui khi bước vào đời. Khá là chắc kèo tui sẽ còn té nhiều. But you know what? Một ngày nào đó tui sẽ có thể chạy nhanh như tên bay vậy...hoặc đi bình thường thôi, stamina yếu ngoe mà đòi chạy cái gì? :troll:
+Đây là những bước chân chập chững đầu tiên của tui khi bước vào đời. Khá là chắc kèo tui sẽ còn té nhiều. But you know what? Một ngày nào đó tui sẽ có thể chạy nhanh như tên bay vậy...hoặc đi bình thường thôi, có miếng stamina nào đâu mà đòi chạy? :troll:
