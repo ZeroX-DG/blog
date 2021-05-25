@@ -17,7 +17,7 @@ Nhìn lướt qua menu, tui order đại mọi thứ gì mà tui có thể nhậ
 
 Dù sao thì order cũng xong xuôi. Anh teamlead tính tiền luôn cho tui ly trà. Quá đỗi bất ngờ, tui chỉ biết quay sang cám ơn anh rối rít. Tụi tui quay lại office với 2 ly trà sữa. Tui hớp thử một ngụm.........mèn, có vẻ tui đã tìm được cái combo kinh tởm nhứt mà loài người có thể order được ở gongcha.
 
-Về tới nơi là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, tui nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Sợ rằng sáng mai, khi thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm...tui đùa đấy, tui lo chết mịa được.
+Về tới nơi là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, tui nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Sợ rằng sáng mai, khi thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm.....tui đùa đấy, tui lo chết mịa đi được.
 
 ## Phần 1: Coding test
 
