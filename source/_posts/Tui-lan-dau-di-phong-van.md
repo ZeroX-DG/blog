@@ -7,17 +7,17 @@ date: 2021/05/24
 
 Đầu tháng 2 tui có đi phỏng vấn onsite lần đầu tiên trong cuộc đời. Tui chả biết phải mặc gì, nên cũng "play it safe" mà ra ngoài shop mua đại cái áo sơ mi với quần tây cho chỉnh tề. Ai ngờ vào office gặp cả team phỏng vấn mặc đồ casual, thế là uổng mấy chục đô mua đồ. :thinkcry:
 
-Tui vào sớm tận 20 phút nên anh teamlead rủ đi uống gì đó làm quen trước. Anh có vẻ thân thiện hơn gấp ∞ lần so với tui tưởng tượng. Thật ra pessimism là sở trường của tui nên hầu như trước khi gặp ai, làm việc gì tui đều có những tưởng tượng rất đáng sợ.
+Tui vào sớm tận 20 phút nên anh teamlead rủ đi uống gì đó làm quen trước. Anh có vẻ thân thiện hơn gấp ∞ lần so với tui tưởng tượng. Thật ra pessimism và social anxiety là sở trường của tui nên hầu như trước khi gặp ai, làm việc gì tui đều có những tưởng tượng rất đáng sợ.
 
 Anh hỏi tui uống coffee hay trà sữa. Tui không hảo coffee nên chọn qua trà sữa...mặc dù đã không uống trà sữa gần 10 năm roài. Thế là anh teamlead và tui ghé vào quán gongcha gần đó.
 
-"Lạy trúa, em tưởng chỉ có starbucks mới order phức tạp thôi chớ? trà sữa cái mịa gì mà tùm lum option vại? :shake: " - tui nghĩ lý nhí trong đầu vì sẽ quê chết mịa nếu nói ra, và nghĩ lớn tiếng quá thì có khi ảnh cũng nghe được. :joy:
+"Lạy trúa, em tưởng chỉ có starbucks mới order phức tạp thôi chớ? trà sữa cái mịa gì mà tùm lum option vại? :shake: ", tui ngó cái menu và bắt đầu hoảng.
 
 Nhìn lướt qua menu, tui order đại mọi thứ gì mà tui có thể nhận dạng được. Anh nhân viên nhìn mặt tui như thể đây là lần đầu anh thấy con người. Còn tui thì toàn thân run rẩy như cầy sấy...chắc thế, tui cũng không biết cầy sấy là gì nhưng tui khá là chắc kèo là tui run bằng hoặc hơn.
 
 Dù sao thì order cũng xong xuôi. Anh teamlead tính tiền luôn cho tui ly trà. Quá đỗi bất ngờ, tui chỉ biết quay sang cám ơn anh rối rít. Tụi tui quay lại office với 2 ly trà sữa. Tui hớp thử một ngụm.........mèn, có vẻ tui đã tìm được cái combo kinh tởm nhứt mà loài người có thể order được ở gongcha.
 
-Về tới nơi là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, tui nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Sợ rằng sáng mai, khi thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm.
+Về tới nơi là ngay đúng giờ phỏng vấn. Đứng trong phòng phỏng vấn, nhìn ra cái khung cảnh thành phố bên ngoài cửa sổ, tui nghĩ tới tui lúc nhỏ. Tui nghĩ tới nhưng bất công mà tui đã phải gánh chịu trong cuộc sống; tui nghĩ tới những con số 4 5 6 đỏ chót trên bài kiểm tra do...không đi học thêm; tui nghĩ tới nhưng đêm mất ngủ lo về cái tương lai đang mờ nhạt dần. Sợ rằng sáng mai, khi thức dậy, nó sẽ không còn ở đó nữa. Nhưng may mắn thay, nỗi lo duy nhất của tui bây giờ là làm sao để chém gió thật ấn tượng về cái thứ mà tui đam mê nhất. Tui thở phào nhẹ nhõm...tui đùa đấy, tui lo chết mịa được.
 
 ## Phần 1: Coding test
 
