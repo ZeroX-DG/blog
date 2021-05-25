@@ -35,7 +35,7 @@ Tui vẽ rất nhiều thứ. Tui vẽ user, vẽ server, vẽ database, vẽ pr
 
 Tui cứ tiếp tục vẽ, bí quá lại liệt kê requirements, và lại...vẽ. Chẳng mấy chốc cái bảng (thiệt ra là cái tường) đã được bao phủ bởi 1 mạng lưới process chằng chịt, rối bù như cái headphone trong túi quần tui vậy.
 
-Tui quay xuống nhìn anh teamlead. Ảnh vẫn gật đầu liên tục. Tui quay sang nhìn chị PM, chỉ có vẻ đang ngó nghiêng, tìm chỗ để đè ra hỏi. Tui nhìn qua anh DevOps, ảnh không nhìn vào design mà nhìn thẳng vào mặt tui với một lượng lớn sát khí nồng nặc...hóa ra tui đứng che cái bảng.
+Tui quay xuống nhìn anh teamlead. Ảnh vẫn gật đầu liên tục. Tui quay sang nhìn chị PM, chỉ có vẻ đang ngó nghiêng, tìm chỗ để đè ra hỏi. Tui quay qua anh DevOps, ảnh không nhìn vào design mà nhìn thẳng vào mặt tui với một lượng lớn sát khí nồng nặc...hóa ra tui đứng che cái bảng.
 
 Chị PM là người hỏi đầu tiên, và cũng là người hỏi nhiều nhất. Chị hỏi từ chuyện làm sao để lấy được nhanh nhất một đoạn data ngắn ở giữa một chuỗi data dài thòng, tới chuyện lỡ như upload data theo gói (chunk) mà user bị rớt mạng giữa chừng thì tính sao. Tui phải rặn hết mọi loại kiến thức trong đầu về database design, indexing và networking để giải thích tại sao design của tui là tối ưu cho các trường hợp chị nêu ra. Chỉ khi tui chạm tới cái rìa của sự hiểu biết hạn hẹp của mình, thì chị mới tỏ vẻ hài lòng và nở một nụ cười thỏa mãn. Giải thích xong các câu hỏi của chị, thân nhiệt tui tăng mạnh, tay và trán toát đầy mồ hôi, phải chi mùa đông cũng có chị ghé qua nhà phỏng vấn thì đỡ tiền máy sưởi biết mấy...
 
