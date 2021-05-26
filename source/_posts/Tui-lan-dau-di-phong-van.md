@@ -43,11 +43,11 @@ Anh teamlead...vẫn gật đầu. Anh hỏi về các thứ công nghệ tui ch
 
 Anh DevOps là một kiểu người trầm tính, im lặng. Nhưng hỏi câu nào là khó đỡ câu đấy. Em xài data structure gì cho cache? khi nào em invalidate cache? làm sao em đảm bảo data upload sẽ đến đúng server nếu em cho cả mớ server nằm sau load balancer?
 
-Anh tìm được nhiều lỗ hổng trong design của tui. Nhiều lỗ lớn quá tui phải đập đi vẽ lại. Sửa xong một vài lỗi cái design ra lò trông cũng ổn. Tui quay sang nhìn anh DevOps lần nữa để tìm sự đồng thuận. Ảnh vẫn lặng thinh. 
+Anh tìm được nhiều lỗ hổng trong design của tui. Nhiều lỗ lớn quá tui phải đập đi vẽ lại. Sửa xong một vài lỗi, cái design ra lò trông cũng ổn. Tui quay sang nhìn anh DevOps lần nữa để tìm sự đồng thuận. Ảnh vẫn lặng thinh. 
 
 "Này chắc rớt quá. Múa rìu chưa qua mắt thợ đã rớt giữa đường. Thôi thì mình về quê, mình nuôi cá và trồng thêm rau. :okay:", tui nghĩ.
 
-Sau này quen thân anh DevOps hỏi ra mới biết tui chém cũng khá. Chỉ là ảnh hơi ít nói, và làm chuyên technical nên khi hỏi làm tui cảm thấy sợ. Chứ thiệt ra ảnh hiền khô à. :omg:
+Sau này quen thân anh DevOps, hỏi ra mới biết tui chém cũng khá. Chỉ là ảnh hơi ít nói, và làm chuyên technical nên khi hỏi làm tui cảm thấy sợ. Chứ thiệt ra ảnh hiền khô à. :omg:
 
 ## Xong xuôi
 
