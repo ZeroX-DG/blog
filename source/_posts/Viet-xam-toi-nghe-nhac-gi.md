@@ -35,7 +35,24 @@ Có lẽ vì là một fan cứng nên đôi lúc tôi không thể vừa làm v
 
 Nói như thế không phải vì shoegaze hay post-rock không thể truyền tải được cảm xúc gì, ngược lại là đằng khác. Minh chứng là mỗi khi cần cảm hứng viết, điều mà (với tôi) được dẫn đắt chủ yếu bởi cảm xúc, tôi lại chuyển sang nghe band post-rock mà mình yêu thích nhất-Godspeed You! Black Emperor (hay GYBE). [F♯A♯∞ (1997)][F#A#Inf], [Lift Your Skinny Fists Like Antennas to Heaven (2000)][LYSFLATH] và [Yanqui U.X.O. (2002)][YUXO] là 3 album đã khiến tôi đau đầu nhiều nhất. Chúng mang lại một nguồn cảm hứng bất tận vượt khỏi khả năng viết của tôi. Tôi thường nằm nghe âm nhạc của GYBE với sự bức bối thét gào trong lòng bởi chúng liên tục thôi thúc tôi phải viết ra những thứ mà tôi cảm nhận được, nhưng tôi lại chẳng tài nào có thể biểu đạt rõ nhất những điều ấy bằng những câu chữ và vốn từ vựng nghèo nàn của mình.
 
-Âm nhạc của GYBE đặt biệt tới nỗi vào cái lần đầu tiên tôi nghe xong **The Dead Flag Blues** trong album **F♯A♯∞ (1997)**, tôi bất giác ngồi yên một lúc lâu, đắm chìm vào không gian im lặng của căn phòng tối om và nghĩ rằng, tôi sẽ chẳng bao giờ giống như trước đây được nữa. Tôi như đã lặn xuống đáy cùng của sự tuyệt vọng và tìm thấy hi vọng ở đầu bên kia.
+
+Thứ khiến âm nhạc của GYBE đặc biệt đến vậy có lẽ là cái màu u tối, "apocalyptic" của những tiếng violin chậm rãi, rề rề như kéo lê một sự tuyệt vọng nặng nề giữa mớ tàn tích của một nền văn minh đang chìm dần vào quên lãng. Những hình ảnh hiện lên như một bộ phim đen trắng, vẽ nên bằng tiếng guitar lúc nhanh, rồi lại chậm, lúc tuyệt vọng tột cùng, rồi lại hy vọng đôi chút, dù chỉ là một chút nhỏ nhoi.
+
+> We're trapped in the belly of this horrible machine
+And the machine is bleeding to death
+The sun has fallen down
+And the billboards are all leering
+And the flags are all dead at the top of their poles
+...
+The skyline was beautiful on fire
+All twisted metal stretching upwards
+Everything washed in a thin orange haze
+I said: "kiss me, you're beautiful -
+These are truly the last days"
+You grabbed my hand and we fell into it
+Like a daydream or a fever
+
+> *The Dead Flag Blues - Godspeed You! Black Emperor*
 
 ![](gybe.jpg)
 *[Godspeed You! Black Emperor](https://en.wikipedia.org/wiki/Godspeed_You!_Black_Emperor)*
