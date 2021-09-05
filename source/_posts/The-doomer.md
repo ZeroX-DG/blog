@@ -2,6 +2,7 @@
 title: The doomer
 tags: ["poem"]
 description: A little poem that came to me when I was remembering my past.
+ignoreRSS: true
 ---
 <poem>Complete silence,
 dimly lit by the screen,

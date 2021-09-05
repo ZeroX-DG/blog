@@ -93,6 +93,7 @@ feed:
   content:
   content_limit: 100
   content_limit_delim: ' '
+  template: './rss.xml'
 
 # Marked
 marked:
