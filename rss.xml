@@ -9,128 +9,168 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Wed, 18 Aug 2021 05:32:23 GMT</pubDate>
+    <pubDate>Sun, 05 Sep 2021 10:08:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    
     
     <item>
       <title>Lần đầu đi phỏng vấn</title>
       <link>https://zerox-dg.github.io/blog/2021/05/24/Tui-lan-dau-di-phong-van/</link>
       <guid>https://zerox-dg.github.io/blog/2021/05/24/Tui-lan-dau-di-phong-van/</guid>
       <pubDate>Mon, 24 May 2021 00:00:00 GMT</pubDate>
-      <description>
       
-        Ghi chép về lần đầu tui đi phỏng vấn xin việc.
-      
-      </description>
+      <description>Ghi chép về lần đầu tui đi phỏng vấn xin việc.</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2021/05/24/Tui-lan-dau-di-phong-van/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/experience/">experience</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Browser from Scratch: CSS parsing &amp; processing</title>
       <link>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</link>
       <guid>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</guid>
       <pubDate>Wed, 13 Jan 2021 00:00:00 GMT</pubDate>
-      <description>
       
-        A brief history of CSS &amp; how browser process CSS values
-      
-      </description>
+      <description>A brief history of CSS &amp; how browser process CSS values</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Browser from Scratch: HTML parsing</title>
       <link>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</link>
       <guid>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</guid>
       <pubDate>Sat, 24 Oct 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.
-      
-      </description>
+      <description>Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Browser from Scratch: DOM API</title>
       <link>https://zerox-dg.github.io/blog/2020/09/01/Browser-from-Scratch-DOM-API/</link>
       <guid>https://zerox-dg.github.io/blog/2020/09/01/Browser-from-Scratch-DOM-API/</guid>
       <pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I&#39;ll break down my experimentation in building a DOM API with Rust.
-      
-      </description>
+      <description>One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I&#39;ll break down my experimentation in building a DOM API with Rust.</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/09/01/Browser-from-Scratch-DOM-API/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Vấn đề về IME trên Linux</title>
       <link>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</link>
       <guid>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</guid>
       <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.&lt;br&gt;
-      
-      </description>
+      <description>&lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.&lt;br&gt;</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Bỏ dấu trong tiếng Việt</title>
       <link>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</link>
       <guid>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</guid>
       <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên &quot;lai nớt&quot; thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.
-      
-      </description>
+      <description>Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên &quot;lai nớt&quot; thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Browser from Scratch: Introduction</title>
       <link>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</link>
       <guid>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</guid>
       <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!
-      
-      </description>
+      <description>This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      
     </item>
+    
+    
     
     <item>
       <title>Life meaning 1.0</title>
       <link>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</link>
       <guid>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</guid>
       <pubDate>Tue, 07 Apr 2020 00:00:00 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity…sort of.&lt;/p&gt;
-      
-      </description>
+      <description>&lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity…sort of.&lt;/p&gt;</description>
       
       
-      <comments>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/#disqus_thread</comments>
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/philosophy/">philosophy</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/thoughts/">thoughts</category>
+      
     </item>
+    
     
   </channel>
 </rss>

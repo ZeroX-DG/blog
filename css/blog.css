@@ -301,6 +301,11 @@
   padding-left: 15px;
 }
 
+.blog-post .blog-post-content poem {
+  font-family: "EB Garamond", serif;
+  font-size: 20px;
+}
+
 .blog-post code {
   font-family: "Inconsolata"!important;
   background: #f2f2f2;
