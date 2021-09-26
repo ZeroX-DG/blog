@@ -9,10 +9,8 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sun, 26 Sep 2021 11:22:37 GMT</pubDate>
+    <pubDate>Sun, 26 Sep 2021 11:25:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    
     
     
     <item>
@@ -32,6 +30,8 @@
       <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
+    
+    
     
     
     
