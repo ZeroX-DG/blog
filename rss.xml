@@ -9,9 +9,29 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sun, 05 Sep 2021 10:08:21 GMT</pubDate>
+    <pubDate>Sun, 26 Sep 2021 11:22:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
+    
+    
+    
+    <item>
+      <title>Browser from Scratch: Layout</title>
+      <link>https://zerox-dg.github.io/blog/2021/09/26/Browser-from-Scratch-Layout/</link>
+      <guid>https://zerox-dg.github.io/blog/2021/09/26/Browser-from-Scratch-Layout/</guid>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 GMT</pubDate>
+      
+      <description>A quick look into how the browser layout process works.</description>
+      
+      
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      
+    </item>
     
     
     
