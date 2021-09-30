@@ -30,7 +30,7 @@ The reason for this is because to render a frame, the browser must perform a ser
 
 Because the render pipeline executes its tasks sequentially, if the layout task takes too long to finish, it ends up blocking all the tasks that come after and could result in the render pipeline not completing within the frame’s time limit, thus, dropping the frame rate.
 
-To put that into perspective. If your desired frame rate is 60 FPS, each frame has roughly 1000ms / 60 ≈ 16.6ms to render. Meaning, within 16ms, the browser has to execute every `O(n!)` JS function of yours, calculate all the styles from your CSS and computes the position of every node in the render tree, before painting those nodes onto million of pixels of your 4K screen. Now you understand how the render pipeline feels, you barbarian monkeys.
+To put that into perspective. If your desired frame rate is 60 FPS, each frame has roughly 1000ms / 60 ≈ 16.6ms to render. Meaning, within 16ms, the browser has to execute every `O(n!)` JS function of yours, calculate all the styles from your CSS and computes the position of every node in the render tree, before painting those nodes onto million of pixels of your 4K screen. Now you understand how the render pipeline feels, you barbaric monkeys.
 
 Anyway, to calculate the DOM node's position, the browser relies on a set of specifications that were written by very smart web developers. I didn’t mean to be sarcastic there. Seriously, hats off to those pioneers who literally defined the web we have today. They’re the reason why you’re reading this post and why I get paid at the end of the month.
 
