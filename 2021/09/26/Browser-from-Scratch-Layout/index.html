@@ -58,7 +58,7 @@
 <p>The reason for this is because to render a frame, the browser must perform a series of tasks that together is commonly known as a render pipeline:</p>
 <p><img src="render_pipeline.jpg" alt><br><em>A render pipeline</em></p>
 <p>Because the render pipeline executes its tasks sequentially, if the layout task takes too long to finish, it ends up blocking all the tasks that come after and could result in the render pipeline not completing within the frame’s time limit, thus, dropping the frame rate.</p>
-<p>To put that into perspective. If your desired frame rate is 60 FPS, each frame has roughly 1000ms / 60 ≈ 16.6ms to render. Meaning, within 16ms, the browser has to execute every <code>O(n!)</code> JS function of yours, calculate all the styles from your CSS and computes the position of every node in the render tree, before painting those nodes onto million of pixels of your 4K screen. Now you understand how the render pipeline feels, you barbarian monkeys.</p>
+<p>To put that into perspective. If your desired frame rate is 60 FPS, each frame has roughly 1000ms / 60 ≈ 16.6ms to render. Meaning, within 16ms, the browser has to execute every <code>O(n!)</code> JS function of yours, calculate all the styles from your CSS and computes the position of every node in the render tree, before painting those nodes onto million of pixels of your 4K screen. Now you understand how the render pipeline feels, you barbaric monkeys.</p>
 <p>Anyway, to calculate the DOM node’s position, the browser relies on a set of specifications that were written by very smart web developers. I didn’t mean to be sarcastic there. Seriously, hats off to those pioneers who literally defined the web we have today. They’re the reason why you’re reading this post and why I get paid at the end of the month.</p>
 <p>Overall, the layout process consists of 4 main steps:</p>
 <ol>
@@ -164,6 +164,35 @@
             <div class="blog-post-item">
   <!-- Title -->
   <h2 class="blog-post-title">
+    <a href="/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/">
+      Browser from Scratch: HTML parsing
+    </a>
+  </h2>
+  <!-- Content -->
+  <p>
+    Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.
+  </p>
+  <!-- Date and Author -->
+  <p class="blog-post-meta">
+    2020-10-24
+    <span class="tags">
+      
+        <a href="/blog/tags/code/" class="tag">
+            #code
+        </a>
+      
+        <a href="/blog/tags/browser-from-scratch/" class="tag">
+            #browser-from-scratch
+        </a>
+      
+    </span>
+  </p>
+</div>
+
+        
+            <div class="blog-post-item">
+  <!-- Title -->
+  <h2 class="blog-post-title">
     <a href="/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/">
       Browser from Scratch: CSS parsing & processing
     </a>
@@ -204,35 +233,6 @@
   <!-- Date and Author -->
   <p class="blog-post-meta">
     2020-09-01
-    <span class="tags">
-      
-        <a href="/blog/tags/code/" class="tag">
-            #code
-        </a>
-      
-        <a href="/blog/tags/browser-from-scratch/" class="tag">
-            #browser-from-scratch
-        </a>
-      
-    </span>
-  </p>
-</div>
-
-        
-            <div class="blog-post-item">
-  <!-- Title -->
-  <h2 class="blog-post-title">
-    <a href="/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/">
-      Browser from Scratch: HTML parsing
-    </a>
-  </h2>
-  <!-- Content -->
-  <p>
-    Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.
-  </p>
-  <!-- Date and Author -->
-  <p class="blog-post-meta">
-    2020-10-24
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
