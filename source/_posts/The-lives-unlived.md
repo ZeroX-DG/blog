@@ -9,5 +9,5 @@ ignoreRSS: true
 for the lives unlived,
 for the ones I could never be,
 for they died
-giving birth to the life of who I am.
+giving birth to who I am.
 </poem>
