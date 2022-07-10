@@ -46,8 +46,9 @@
         std::mem::transmute the unsafe magic
     </h1>
     <div class="blog-post-content">
-        <p>One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support composition over inheritance, and the concept of <code>trait</code> is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.</p>
+        <p>One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance" target="_blank" rel="noopener">composition over inheritance</a>, and the concept of <code>trait</code> is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.</p>
 <p>The DOM tree structure was designed in the OOP paradigm. Meaning it relies heavily on inheritance: <code>HTMLElement</code> inherits <code>Element</code> inherits <code>Node</code>.</p>
+<p><img src="html.png" alt><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="noopener">Extracted from MDN</a></em></p>
 <p>A straightforward way to implement this behaviour is to use nested structs:</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
   element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
@@ -63,7 +64,7 @@
 </code></pre>
 <p>This is fine, as long as the data access flows from top to bottom. Meaning you can access a property of <code>Node</code> from <code>HTMLElement</code> just fine, but not the other way around. You could argue that I should design my code in a way that only accesses data from top down, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
 <p>But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce unsafe into the mix, and after understanding this trick, you will know that <code>unsafe</code> in Rust is only unsafe for the novice. The great master of the language should draw power from both sides of Rust. Safe and Unsafe. Order and Chaos.</p>
-<p>Transmute in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four <code>u8</code> into an <code>u32</code> since four <code>u8</code> sittings next to each other in memory is a <code>32-bit</code> memory segment which could be interpreted as a <code>u32</code>.</p>
+<p><a href="https://doc.rust-lang.org/stable/std/mem/fn.transmute.html" target="_blank" rel="noopener">Transmute</a> in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four <code>u8</code> into an <code>u32</code> since four <code>u8</code> sittings next to each other in memory is a <code>32-bit</code> memory segment which could be interpreted as a <code>u32</code>.</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">1u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span>transmute<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>u8<span class="token punctuation">;</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u32<span class="token operator">></span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 256</span>
@@ -109,6 +110,10 @@
 <span class="token keyword">let</span> element<span class="token punctuation">:</span> Element <span class="token operator">=</span> node<span class="token punctuation">.</span>cast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>So <code>unsafe</code> wasn’t that unsafe after all isn’t it? :)</p>
+<h2 id="Other-cool-resources"><a href="#Other-cool-resources" class="headerlink" title="Other cool resources"></a>Other cool resources</h2><ul>
+<li><a href="https://github.com/MQuy/mbrowser/blob/master/components/dom/src/inheritance.rs" target="_blank" rel="noopener">mbrowser DOM tree is using this pattern</a></li>
+<li><a href="https://github.com/servo/servo/blob/master/components/script/dom/bindings/inheritance.rs" target="_blank" rel="noopener">servo DOM tree is also using this pattern</a></li>
+</ul>
 
     </div>
     <div class="tag-list">
@@ -146,35 +151,6 @@
   <!-- Date and Author -->
   <p class="blog-post-meta">
     2020-05-29
-    <span class="tags">
-      
-        <a href="/blog/tags/code/" class="tag">
-            #code
-        </a>
-      
-        <a href="/blog/tags/browser-from-scratch/" class="tag">
-            #browser-from-scratch
-        </a>
-      
-    </span>
-  </p>
-</div>
-
-        
-            <div class="blog-post-item">
-  <!-- Title -->
-  <h2 class="blog-post-title">
-    <a href="/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/">
-      Browser from Scratch: HTML parsing
-    </a>
-  </h2>
-  <!-- Content -->
-  <p>
-    Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.
-  </p>
-  <!-- Date and Author -->
-  <p class="blog-post-meta">
-    2020-10-24
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
@@ -262,6 +238,35 @@
   <!-- Date and Author -->
   <p class="blog-post-meta">
     2020-09-01
+    <span class="tags">
+      
+        <a href="/blog/tags/code/" class="tag">
+            #code
+        </a>
+      
+        <a href="/blog/tags/browser-from-scratch/" class="tag">
+            #browser-from-scratch
+        </a>
+      
+    </span>
+  </p>
+</div>
+
+        
+            <div class="blog-post-item">
+  <!-- Title -->
+  <h2 class="blog-post-title">
+    <a href="/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/">
+      Browser from Scratch: HTML parsing
+    </a>
+  </h2>
+  <!-- Content -->
+  <p>
+    Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.
+  </p>
+  <!-- Date and Author -->
+  <p class="blog-post-meta">
+    2020-10-24
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
