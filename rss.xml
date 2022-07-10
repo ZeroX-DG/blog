@@ -9,8 +9,28 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Wed, 08 Jun 2022 11:53:45 GMT</pubDate>
+    <pubDate>Sun, 10 Jul 2022 13:31:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>std::mem::transmute the unsafe magic</title>
+      <link>https://zerox-dg.github.io/blog/2022/07/11/Transmute-the-unsafe-magic/</link>
+      <guid>https://zerox-dg.github.io/blog/2022/07/11/Transmute-the-unsafe-magic/</guid>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 GMT</pubDate>
+      
+      <description>Using mem::transmute for struct inheritance in Rust</description>
+      
+      
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
+      
+    </item>
+    
     
     
     
