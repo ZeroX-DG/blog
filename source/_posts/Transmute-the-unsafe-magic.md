@@ -5,9 +5,12 @@ date: 2022/07/11
 description: "Using mem::transmute for struct inheritance in Rust"
 ---
 
-One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support composition over inheritance, and the concept of `trait` is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.
+One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support [composition over inheritance][1], and the concept of `trait` is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.
 
 The DOM tree structure was designed in the OOP paradigm. Meaning it relies heavily on inheritance: `HTMLElement` inherits `Element` inherits `Node`.
+
+![](html.png)
+*[Extracted from MDN][5]*
 
 A straightforward way to implement this behaviour is to use nested structs:
 
@@ -29,7 +32,7 @@ This is fine, as long as the data access flows from top to bottom. Meaning you c
 
 But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce unsafe into the mix, and after understanding this trick, you will know that `unsafe` in Rust is only unsafe for the novice. The great master of the language should draw power from both sides of Rust. Safe and Unsafe. Order and Chaos.
 
-Transmute in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four `u8` into an `u32` since four `u8` sittings next to each other in memory is a `32-bit` memory segment which could be interpreted as a `u32`.
+[Transmute][2] in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four `u8` into an `u32` since four `u8` sittings next to each other in memory is a `32-bit` memory segment which could be interpreted as a `u32`.
 
 ```rust
 let a = [0u8, 1u8, 0u8, 0u8];
@@ -84,3 +87,14 @@ let element: Element = node.cast::<Element>();
 ```
 
 So `unsafe` wasn’t that unsafe after all isn’t it? :)
+
+## Other cool resources
+
+- [mbrowser DOM tree is using this pattern][3]
+- [servo DOM tree is also using this pattern][4]
+
+[1]: https://en.wikipedia.org/wiki/Composition_over_inheritance
+[2]: https://doc.rust-lang.org/stable/std/mem/fn.transmute.html
+[3]: https://github.com/MQuy/mbrowser/blob/master/components/dom/src/inheritance.rs
+[4]: https://github.com/servo/servo/blob/master/components/script/dom/bindings/inheritance.rs
+[5]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
