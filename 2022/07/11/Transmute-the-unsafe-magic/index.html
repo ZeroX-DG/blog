@@ -69,7 +69,9 @@
 <span class="token keyword">let</span> b <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span>transmute<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>u8<span class="token punctuation">;</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u32<span class="token operator">></span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 256</span>
 </code></pre>
-<p>You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the <code>HTMLElement</code> is the same as the address of <code>Element</code> and <code>Node</code> (as long as the <code>element</code> and <code>node</code> field is the first field in each struct). This enables us to use <code>transmute</code> to cast between those types and access the data from the inner struct out to the containing struct.</p>
+<p>You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the <code>HTMLElement</code> is the same as the address of <code>Element</code> and <code>Node</code> (as long as the <code>element</code> and <code>node</code> field is the first field in each struct).</p>
+<p><img src="memory-layout.png" alt></p>
+<p>This enables us to use <code>transmute</code> to cast between those types and access the data from the inner struct out to the containing struct.</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
   element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
@@ -140,17 +142,17 @@
             <div class="blog-post-item">
   <!-- Title -->
   <h2 class="blog-post-title">
-    <a href="/blog/2020/05/29/Browser-from-Scratch-Introduction/">
-      Browser from Scratch: Introduction
+    <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
+      Browser from Scratch: Layout
     </a>
   </h2>
   <!-- Content -->
   <p>
-    This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!
+    A quick look into how the browser layout process works.
   </p>
   <!-- Date and Author -->
   <p class="blog-post-meta">
-    2020-05-29
+    2021-09-26
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
@@ -169,17 +171,17 @@
             <div class="blog-post-item">
   <!-- Title -->
   <h2 class="blog-post-title">
-    <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
-      Browser from Scratch: Layout
+    <a href="/blog/2020/05/29/Browser-from-Scratch-Introduction/">
+      Browser from Scratch: Introduction
     </a>
   </h2>
   <!-- Content -->
   <p>
-    A quick look into how the browser layout process works.
+    This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!
   </p>
   <!-- Date and Author -->
   <p class="blog-post-meta">
-    2021-09-26
+    2020-05-29
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
