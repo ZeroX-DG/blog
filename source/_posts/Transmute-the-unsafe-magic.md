@@ -40,7 +40,11 @@ let b = std::mem::transmute::<[u8; 4], u32>(a);
 println!("{}", b); // 256
 ```
 
-You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the `HTMLElement` is the same as the address of `Element` and `Node` (as long as the `element` and `node` field is the first field in each struct). This enables us to use `transmute` to cast between those types and access the data from the inner struct out to the containing struct.
+You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the `HTMLElement` is the same as the address of `Element` and `Node` (as long as the `element` and `node` field is the first field in each struct).
+
+![](memory-layout.png)
+
+This enables us to use `transmute` to cast between those types and access the data from the inner struct out to the containing struct.
 
 ```rust
 struct HTMLElement {
