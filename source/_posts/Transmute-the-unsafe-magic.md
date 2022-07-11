@@ -75,6 +75,25 @@ fn main() {
 }
 ```
 
+By default, structs have the [`Default`/`Rust` representation][6], which doesn't guarantee the memory layout due to memory alignment optimization. So the `#[repr(C)]` attribute is required for your structs to use the [C representation][7] and preserve the memory layout.
+
+```rust
+#[repr(C)]
+struct HTMLElement {
+  element: Element,
+}
+
+#[repr(C)]
+struct Element {
+  node: Node,
+}
+
+#[repr(C)]
+struct Node {
+  data: String
+}
+```
+
 Our DOM tree is now infinitely more powerful and flexible. You can go so far as to design a convenient API for type casting in the DOM tree:
 
 ```rust
@@ -102,3 +121,5 @@ So `unsafe` wasn’t that unsafe after all isn’t it? :)
 [3]: https://github.com/MQuy/mbrowser/blob/master/components/dom/src/inheritance.rs
 [4]: https://github.com/servo/servo/blob/master/components/script/dom/bindings/inheritance.rs
 [5]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+[6]: https://doc.rust-lang.org/reference/type-layout.html#the-default-representation
+[7]: https://doc.rust-lang.org/reference/type-layout.html#the-c-representation
