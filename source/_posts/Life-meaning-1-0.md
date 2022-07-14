@@ -1,6 +1,6 @@
 ---
 title: Life meaning 1.0
-tags: ["thoughts", "philosophy"]
+tags: ["philosophy", "short-story"]
 date: 2020/04/07
 ---
 
