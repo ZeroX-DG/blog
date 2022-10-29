@@ -62,8 +62,8 @@
   data<span class="token punctuation">:</span> <span class="token punctuation">...</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>This is fine, as long as the data access flows from top to bottom. Meaning you can access a property of <code>Node</code> from <code>HTMLElement</code> just fine, but not the other way around. You could argue that I should design my code in a way that only accesses data from top down, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
-<p>But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce unsafe into the mix, and after understanding this trick, you will know that <code>unsafe</code> in Rust is only unsafe for the novice. The great master of the language should draw power from both sides of Rust. Safe and Unsafe. Order and Chaos.</p>
+<p>This is fine, as long as the data access flows from top to bottom, meaning you can access a property of <code>Node</code> from <code>HTMLElement</code>, but not the other way around. You could argue that this is the Rust “way” and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
+<p>But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce <code>unsafe</code> into the mix, which in truth, is only unsafe for the novice. The great master of the language should draw his/her power from both sides of Rust-Safe and Unsafe; Order and Chaos.</p>
 <p><a href="https://doc.rust-lang.org/stable/std/mem/fn.transmute.html" target="_blank" rel="noopener">Transmute</a> in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four <code>u8</code> into an <code>u32</code> since four <code>u8</code> sittings next to each other in memory is a <code>32-bit</code> memory segment which could be interpreted as a <code>u32</code>.</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">1u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span>transmute<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>u8<span class="token punctuation">;</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u32<span class="token operator">></span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -115,7 +115,7 @@
   data<span class="token punctuation">:</span> String
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Our DOM tree is now infinitely more powerful and flexible. You can go so far as to design a convenient API for type casting in the DOM tree:</p>
+<p>The DOM tree is now infinitely more powerful and flexible. You can even design a convenient API for type casting:</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token comment" spellcheck="true">// Not tested yet, don't trust me.</span>
 <span class="token keyword">trait</span> Castable <span class="token punctuation">{</span>
   <span class="token keyword">fn</span> cast<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> T <span class="token punctuation">{</span>
@@ -127,7 +127,7 @@
 <span class="token keyword">let</span> node<span class="token punctuation">:</span> Node <span class="token operator">=</span> html<span class="token punctuation">.</span>cast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Node<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> element<span class="token punctuation">:</span> Element <span class="token operator">=</span> node<span class="token punctuation">.</span>cast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>So <code>unsafe</code> wasn’t that unsafe after all isn’t it? :)</p>
+<p>So <code>unsafe</code> isn’t that unsafe after all, is it? :)</p>
 <h2 id="Other-cool-resources"><a href="#Other-cool-resources" class="headerlink" title="Other cool resources"></a>Other cool resources</h2><ul>
 <li><a href="https://github.com/MQuy/mbrowser/blob/master/components/dom/src/inheritance.rs" target="_blank" rel="noopener">mbrowser DOM tree is using this pattern</a></li>
 <li><a href="https://github.com/servo/servo/blob/master/components/script/dom/bindings/inheritance.rs" target="_blank" rel="noopener">servo DOM tree is also using this pattern</a></li>
@@ -154,6 +154,35 @@
         <h1 class="title">Other posts</h1>
         
         
+        
+            <div class="blog-post-item">
+  <!-- Title -->
+  <h2 class="blog-post-title">
+    <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
+      Browser from Scratch: Layout
+    </a>
+  </h2>
+  <!-- Content -->
+  <p>
+    A quick look into how the browser layout process works.
+  </p>
+  <!-- Date and Author -->
+  <p class="blog-post-meta">
+    2021-09-26
+    <span class="tags">
+      
+        <a href="/blog/tags/code/" class="tag">
+            #code
+        </a>
+      
+        <a href="/blog/tags/browser-from-scratch/" class="tag">
+            #browser-from-scratch
+        </a>
+      
+    </span>
+  </p>
+</div>
+
         
             <div class="blog-post-item">
   <!-- Title -->
@@ -227,35 +256,6 @@
   <!-- Date and Author -->
   <p class="blog-post-meta">
     2020-10-24
-    <span class="tags">
-      
-        <a href="/blog/tags/code/" class="tag">
-            #code
-        </a>
-      
-        <a href="/blog/tags/browser-from-scratch/" class="tag">
-            #browser-from-scratch
-        </a>
-      
-    </span>
-  </p>
-</div>
-
-        
-            <div class="blog-post-item">
-  <!-- Title -->
-  <h2 class="blog-post-title">
-    <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
-      Browser from Scratch: Layout
-    </a>
-  </h2>
-  <!-- Content -->
-  <p>
-    A quick look into how the browser layout process works.
-  </p>
-  <!-- Date and Author -->
-  <p class="blog-post-meta">
-    2021-09-26
     <span class="tags">
       
         <a href="/blog/tags/code/" class="tag">
