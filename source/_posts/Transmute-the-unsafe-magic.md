@@ -28,9 +28,9 @@ struct Node {
 }
 ```
 
-This is fine, as long as the data access flows from top to bottom. Meaning you can access a property of `Node` from `HTMLElement` just fine, but not the other way around. You could argue that I should design my code in a way that only accesses data from top down, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.
+This is fine, as long as the data access flows from top to bottom, meaning you can access a property of `Node` from `HTMLElement`, but not the other way around. You could argue that this is the Rust "way" and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.
 
-But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce unsafe into the mix, and after understanding this trick, you will know that `unsafe` in Rust is only unsafe for the novice. The great master of the language should draw power from both sides of Rust. Safe and Unsafe. Order and Chaos.
+But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce `unsafe` into the mix, which in truth, is only unsafe for the novice. The great master of the language should draw his/her power from both sides of Rust-Safe and Unsafe; Order and Chaos.
 
 [Transmute][2] in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four `u8` into an `u32` since four `u8` sittings next to each other in memory is a `32-bit` memory segment which could be interpreted as a `u32`.
 
@@ -94,7 +94,7 @@ struct Node {
 }
 ```
 
-Our DOM tree is now infinitely more powerful and flexible. You can go so far as to design a convenient API for type casting in the DOM tree:
+The DOM tree is now infinitely more powerful and flexible. You can even design a convenient API for type casting:
 
 ```rust
 // Not tested yet, don't trust me.
@@ -109,7 +109,7 @@ let node: Node = html.cast::<Node>();
 let element: Element = node.cast::<Element>();
 ```
 
-So `unsafe` wasn’t that unsafe after all isn’t it? :)
+So `unsafe` isn’t that unsafe after all, is it? :)
 
 ## Other cool resources
 
