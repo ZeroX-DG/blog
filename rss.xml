@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sat, 29 Oct 2022 23:26:45 GMT</pubDate>
+    <pubDate>Sun, 30 Oct 2022 01:32:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
@@ -30,8 +30,6 @@
       <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
       
     </item>
-    
-    
     
     
     
@@ -188,26 +186,6 @@
       <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
       
       <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Life meaning 1.0</title>
-      <link>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/04/07/Life-meaning-1-0/</guid>
-      <pubDate>Tue, 07 Apr 2020 00:00:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;The story below is fictional. It is certainly not real, and all the names have been substituted with fake names to protect confidentiality and respect anonymity…sort of.&lt;/p&gt;</description>
-      
-      
-      
-      
-      
-      <category domain="https://zerox-dg.github.io/blog/tags/philosophy/">philosophy</category>
-      
-      <category domain="https://zerox-dg.github.io/blog/tags/short-story/">short-story</category>
       
     </item>
     
