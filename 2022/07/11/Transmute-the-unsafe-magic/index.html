@@ -52,6 +52,7 @@
 <p>A straightforward way to implement this behaviour is to use nested structs:</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
   element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+  tag_name<span class="token punctuation">:</span> String
 <span class="token punctuation">}</span>
 
 <span class="token keyword">struct</span> Element <span class="token punctuation">{</span>
@@ -62,7 +63,8 @@
   data<span class="token punctuation">:</span> <span class="token punctuation">...</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>This is fine, as long as the data access flows from top to bottom, meaning you can access a property of <code>Node</code> from <code>HTMLElement</code>, but not the other way around. You could argue that this is the Rust “way” and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
+<p>This is fine, as long as the data access flows from top to bottom, meaning you can access a property of <code>Node</code> from <code>HTMLElement</code>, but not the other way around. For example, if you have an <code>Element</code> that is also an <code>HTMLElement</code>, there’s no way for you to downcast the <code>Element</code> down to <code>HTMLElement</code> struct to access the <code>tag_name</code> property.</p>
+<p>You could argue that this is the Rust “way” and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
 <p>But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce <code>unsafe</code> into the mix, which in truth, is only unsafe for the novice. The great master of the language should draw his/her power from both sides of Rust-Safe and Unsafe; Order and Chaos.</p>
 <p><a href="https://doc.rust-lang.org/stable/std/mem/fn.transmute.html" target="_blank" rel="noopener">Transmute</a> in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four <code>u8</code> into an <code>u32</code> since four <code>u8</code> sittings next to each other in memory is a <code>32-bit</code> memory segment which could be interpreted as a <code>u32</code>.</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">1u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
