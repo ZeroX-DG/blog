@@ -17,6 +17,7 @@ A straightforward way to implement this behaviour is to use nested structs:
 ```rust
 struct HTMLElement {
   element: Element,
+  tag_name: String
 }
 
 struct Element {
@@ -28,7 +29,9 @@ struct Node {
 }
 ```
 
-This is fine, as long as the data access flows from top to bottom, meaning you can access a property of `Node` from `HTMLElement`, but not the other way around. You could argue that this is the Rust "way" and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.
+This is fine, as long as the data access flows from top to bottom, meaning you can access a property of `Node` from `HTMLElement`, but not the other way around. For example, if you have an `Element` that is also an `HTMLElement`, there's no way for you to downcast the `Element` down to `HTMLElement` struct to access the `tag_name` property.
+
+You could argue that this is the Rust "way" and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.
 
 But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce `unsafe` into the mix, which in truth, is only unsafe for the novice. The great master of the language should draw his/her power from both sides of Rust-Safe and Unsafe; Order and Chaos.
 
