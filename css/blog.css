@@ -238,7 +238,7 @@
   outline: none;
 }
 
-.blog-post .blog-post-content img {
+.blog-post .blog-post-content img, .blog-post .blog-post-content video {
   max-width: 100%;
 }
 
@@ -256,11 +256,13 @@
   font-style: italic;
 }
 
-.blog-post .blog-post-content img + br + em {
+.blog-post .blog-post-content img + br + em,
+.blog-post .blog-post-content video + p em {
   display: block;
 }
 
-.blog-post .blog-post-content img + br + em, .blog-post .blog-post-content img + br + em * {
+.blog-post .blog-post-content img + br + em, .blog-post .blog-post-content img + br + em *,
+.blog-post .blog-post-content video + p em, .blog-post .blog-post-content video + p em * {
   font-style: normal;
   text-align: center;
   font-size: 0.9rem;
