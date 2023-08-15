@@ -8,7 +8,7 @@ Tới giờ tui vẫn chưa tin được là mấy đêm hôm đó có diễn ra
 
 <!-- more -->
 
-Đầu năm tới giờ tui đi được 3 buổi hoà nhạc. Buổi đầu đi coi chị Julia Jacklin được anh đồng nghiệp tài trợ. Khoảng đâu 8 giờ tối ảnh nhắn qua bảo bạn gái ảnh bệnh bất chợt nên hỏi tui có muốn ~~làm bạn gái ảnh~~ à nhầm có muốn lấy vé bạn gái ảnh không? Dù mới chỉ nghe được một hai bài của chị Julia nhưng vì tối đó cũng không làm gì nên tui cũng gật đầu đồng ý rồi lật đật thay đồ, kêu Uber. Đêm nhạc diễn ra khá vui, trừ chuyện tui lùn, nên không ngó được rõ mặt chị ca sĩ. Tuy vậy, đây vẫn là concert đầu tiên đánh dấu lần đầu tui đi coi ca nhạc sau nhiều năm trời.
+Đầu năm tới giờ tui đi được 3 buổi hoà nhạc. Buổi đầu đi coi chị Julia Jacklin, tui được anh đồng nghiệp tài trợ. Khoảng đâu 8 giờ tối ảnh nhắn qua bảo bạn ảnh bận việc đột xuất nên hỏi tui có muốn đi thay không? Dù mới chỉ nghe được một hai bài của chị Julia nhưng vì ham hố vé free nên tui cũng gật đầu đồng ý rồi lật đật thay đồ, kêu Uber. Đêm nhạc diễn ra khá vui, trừ chuyện tui lùn, nên không ngó được rõ mặt chị ca sĩ. Tuy vậy, đây vẫn là concert đầu tiên đánh dấu lần đầu tui đi coi ca nhạc sau nhiều năm trời.
 
 ![](juliajacklin.jpg)
 
