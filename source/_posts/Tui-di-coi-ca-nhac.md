@@ -12,7 +12,7 @@ Buổi đầu, tui đi coi chị [Julia Jacklin][1], được anh đồng nghi�
 
 Hôm đó khoảng 8h, ngoài trời tối om như mực, xa xa không có lấy một tiếng chó sủa, âm thanh thông báo slack bỗng vang lên gấp gáp trên điện thoại tui như xe toạc màn đêm tĩnh lặng. Tôi chột dạ. Hông lẽ sếp đã tìm ra con bug mình merge hồi chiều?
 
-Nhưng thực ra tui đã lo hơi xa. Con bug đó khoảng một tháng sau mới bị phát hiện. Còn tối hôm đó, chỉ là anh đồng nghiệp nhắn qua rủ đi coi ca nhạc. Hoá ra bạn ảnh bận việc đột xuất nên phải bẻ kèo.
+Nhưng thực ra tui đã lo hơi xa. Lúc đó, chỉ là anh đồng nghiệp nhắn qua rủ đi coi ca nhạc. Hoá ra bạn ảnh bận việc đột xuất nên phải bẻ kèo. Còn con bug thì khoảng một tháng sau mới bị phát hiện.
 
 Thế là, dù mới chỉ nghe được một hai bài của chị Julia nhưng vì ham hố vé free nên tui cũng gật đầu đồng ý rồi lật đật thay đồ, kêu Uber.
 
@@ -36,7 +36,7 @@ Tiếc là lần đó tui không có chụp hình tấm nào. Thôi thì coi đ�
 
 Lần thứ 3 là lần gần đây nhất, cũng có lẽ là lần lạ nhất với tui, vì tui là fan ruột của band này nhưng chưa từng nghĩ rằng mình sẽ có cơ hội xem họ live. Band tui đang nói tới là band lặn chậm ([Slowdive][2]) huyền thoại từng tan rã vào năm 1995 và chỉ mới quay lại vào 2014.
 
-Với riêng bản thân tui, những tháng ngày cô độc, lạc lõng giữa những con phố, giữa những dòng người hối hả đã trở nên dễ chịu hơn rất nhiều mỗi khi tiếng nhạc của album [Souvlaki][3] chui qua chiếc tai nghe cũ. Suốt nhiều năm trời du học, và có lẽ tới giờ vẫn vậy, tui nghĩ rằng âm nhạc của Slowdive là một trong những thứ đẹp đẽ cuối cùng còn sót lại trên cái thế giới mục nát này.
+Với riêng bản thân tui, những tháng ngày cô độc, lạc lõng giữa những con phố, giữa những dòng người hối hả đã trở nên dễ chịu hơn rất nhiều mỗi khi những âm thanh từ album [Souvlaki][3] chui qua chiếc tai nghe cũ. Suốt nhiều năm trời du học, và có lẽ tới giờ vẫn vậy, tui nghĩ rằng âm nhạc của Slowdive là một trong những thứ đẹp đẽ cuối cùng còn sót lại trên cái thế giới mục nát này.
 
 Nên khi lướt Facebook trúng ngay tin nói rằng band sẽ tới thăm thành phố tui đang sống, tui đã lập tức chộp ví đặt vé ngay mà không cần xem giá. Có phải trèo cây mít trốn vé vô xem tui cũng trèo. Bằng bất cứ giá nào cũng phải đi coi cho bằng được. Nhớ không lầm thì hình như tui là người thứ 5 đặt vé lúc mới mở bán. Cũng may là band không nổi như hồng đen nên đặt vé khá dễ dàng.
 
