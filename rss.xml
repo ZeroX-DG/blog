@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Thu, 09 Nov 2023 09:17:33 GMT</pubDate>
+    <pubDate>Thu, 09 Nov 2023 09:21:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
@@ -25,9 +25,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
-      
-      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
       
     </item>
     
