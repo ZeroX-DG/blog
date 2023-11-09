@@ -9,8 +9,28 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sat, 09 Sep 2023 05:40:55 GMT</pubDate>
+    <pubDate>Thu, 09 Nov 2023 09:17:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Rust Koan: Những Chướng Ngại</title>
+      <link>https://zerox-dg.github.io/blog/2023/11/09/Rust-koans-chuong-ngai/</link>
+      <guid>https://zerox-dg.github.io/blog/2023/11/09/Rust-koans-chuong-ngai/</guid>
+      <pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
+      
+      <description>Dịch lại một đoạn koan về rust trong lúc cao hứng.</description>
+      
+      
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      
+    </item>
+    
     
     
     <item>
