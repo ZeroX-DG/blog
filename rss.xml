@@ -9,8 +9,28 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Thu, 09 Nov 2023 09:21:07 GMT</pubDate>
+    <pubDate>Fri, 15 Dec 2023 17:20:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>What is border-radius, really?</title>
+      <link>https://zerox-dg.github.io/blog/2023/12/05/What-is-border-radius-really/</link>
+      <guid>https://zerox-dg.github.io/blog/2023/12/05/What-is-border-radius-really/</guid>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate>
+      
+      <description>Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?</description>
+      
+      
+      
+      
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/css/">css</category>
+      
+    </item>
+    
     
     
     <item>
