@@ -477,7 +477,6 @@ kbd {
   }
 
   .index-page .left-nav, .index-page .blog-post-list {
-    width: 100%;
     padding: 20px 15px;
   }
 
@@ -490,6 +489,7 @@ kbd {
 
   .blog-post-item {
       flex-direction: column;
+      margin-bottom: 1em;
   }
 
   .index-page .left-nav {
