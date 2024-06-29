@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sat, 29 Jun 2024 04:00:01 GMT</pubDate>
+    <pubDate>Sat, 29 Jun 2024 04:03:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
@@ -117,9 +117,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
-      
       <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      
+      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
       
     </item>
     
