@@ -1,23 +1,9 @@
-<% if (page.tag) { %>
-<a href="<%- config.root %>" class="home-navigator">
-  <img alt="this is me" class="my-avatar" src="<%- config.root %>img/me.jpg"/>
-</a>
-<% } %>
 <div class="index-page">
-    <% if (!page.tag) { %>
-    <div class="left-nav">
-        <img alt="this is me" class="my-avatar" src="<%- config.root %>img/me.jpg"/>
-        <h1 class="logo">Viet Hung</h1>
-        <p class="description">I'm a developer who is into creative writing lately. This is my experimental writing, thoughts and knowledge-sharing hub on the Internet.</p>
-        <div class="separator"></div>
-        <ul class="menu">
-            <li><a href="rss.xml" class="content">RSS</a></li>
-            <li><a href="https://twitter.com/ZeroX_Hung" class="content">Twitter</a></li>
-            <li><a href="https://github.com/ZeroX-DG" class="content">Github</a></li>
-            <li><a href="https://ko-fi.com/viethung" class="content">Buy me a coffee</a></li>
-        </ul>
+    <div class="introduction">
+        <h1 class="name"><a href="/">Viet-Hung Nguyen</a></h1>
+        <p class="title">Software Engineer / Film Enthusiast</p>
+        <p><a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> • <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> • <a href="https://www.linkedin.com/in/v-hung/" target="_blank">LinkedIn</a></p>
     </div>
-    <% } %>
     <div class="blog-post-list<%= page.tag ? ' center' : '' %>">
         <% if (page.tag) { %>
           <h1>#<%- page.tag %></h1>

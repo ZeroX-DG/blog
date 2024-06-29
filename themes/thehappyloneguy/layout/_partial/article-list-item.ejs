@@ -1,23 +1,8 @@
 <div class="blog-post-item">
-  <!-- Title -->
-  <h2 class="blog-post-title">
-    <a href="<%- config.root %><%- item.path %>">
-      <%- item.title %>
-    </a>
-  </h2>
-  <!-- Content -->
-  <p>
-    <%- item.excerpt && item.excerpt.replace(/:(\w+):/, '<i class="em em-$1"></i>') || item.description && item.description.replace(/:(\w+):/, '<i class="em em-$1"></i>') %>
-  </p>
-  <!-- Date and Author -->
-  <p class="blog-post-meta">
-    <%= item.date.format(config.date_format) %>
-    <span class="tags">
-      <% item.tags.each(function(tag) {%>
-        <a href="<%- config.root %><%- tag.path %>" class="tag">
-            #<%- tag.name %>
+  <span class="date"><%= item.date.format(config.date_format) %></span>
+    <span class="blog-post-title">
+        <a href="<%- config.root %><%- item.path %>">
+          <%- item.title %>
         </a>
-      <% }); %>
     </span>
-  </p>
 </div>
