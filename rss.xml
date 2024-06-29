@@ -3,13 +3,13 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Viet Hung - My corner on the Internet</title>
+    <title>Viet Hung&#39;s blog</title>
     <link>https://zerox-dg.github.io/blog/</link>
     
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sat, 29 Jun 2024 04:03:42 GMT</pubDate>
+    <pubDate>Sat, 29 Jun 2024 04:04:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
