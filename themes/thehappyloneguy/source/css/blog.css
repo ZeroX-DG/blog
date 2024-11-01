@@ -310,7 +310,7 @@ a:hover {
   color: black;
 }
 
-.blog-post img {
+.blog-post img, .blog-post video {
   margin: 0 auto;
   display: block;
 }
