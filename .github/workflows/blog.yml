@@ -1,9 +1,11 @@
 name: Blog
 on: [push]
 jobs:
-  build:
+  deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
