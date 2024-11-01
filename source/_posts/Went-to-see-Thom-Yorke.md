@@ -7,15 +7,15 @@ description: Yes, that Thom Yorke, from Radiohead
 
 It was a night of pure sound, with the warmth of more people than I can count mixed with the last cool breezes of the end of winter. We sat in silence, watching a man on stage shuffling around, tweaking, swearing, laughing at his musical instruments. I had to constantly remind myself that everything was real, and I was no longer watching from the other side of the tiny laptop screen anymore. I was just meters away from Thom Yorke himself.
 
-I became a Radiohead fan in 2017. By then they had released their 9th album - *A moon-shaped pool* the year before and had started to spend some time apart, which I thought was a normal thing for them; they did have consistent two-year breaks between their last albums. But it turns out this year, that last break will be celebrating its 8th birthday and it's still growing strongly. I sometimes dream of their reunion and the release of their 10th album before waking up to the alarm bell and sobbing violently.
+I became a Radiohead fan in 2017. By then they had released their 9th album - *A moon-shaped pool* the year before and had started to spend some time apart, which I thought was a normal thing for them; they did have consistent two-year breaks between their last albums. But it turns out, this year, that break will be celebrating its 8th birthday, and it's still growing strongly. I sometimes dream of their reunion and the release of their 10th album before waking up to the alarm bell and sobbing violently.
 
-After that 9th album, the band members went on to do their own stuff. Jonny Greenwood went on to score some of the most beautiful film soundtracks (Phantom Thread, Spencer, etc.), and Thom Yorke, after creating the haunting and dreamy soundtrack for Suspiria, also released some of his finest songs in his album ANIMA.
+After the 9th album, the band members went on to do their own stuff. Jonny Greenwood went on to score some of the most beautiful film soundtracks (Phantom Thread, Spencer, etc.), and Thom Yorke, after creating the haunting and dreamy soundtrack for the film Suspiria, released some of his finest solo songs in his album ANIMA.
 
 Jonny and Thom did end up starting a new band - The Smile, jamming together through the Covid-19 pandemic. My guacamole of a mental state was held together by their music throughout the lockdown period.
 
-Since then, these two people have been the most important figures in my musical world. So when I saw an advertisement titled "Thom Yorke is coming to New Zealand", my little heart.exe stopped responding. For the longest time, I never thought I would one day sit in the same ~~room~~ arena with one of my heroes.
+Since then, these two people have been the most important figures in my musical world. So when I saw a post titled "Thom Yorke is coming to New Zealand", my little heart.exe stopped responding. For the longest time, I never thought I would one day sit in the same ~~room~~ arena with one of my heroes.
 
-After the show, I went home, half awake, and picked up my guitar. I shuffled around, tweaked, swore and laughed at the wonky sound from my instrument. My mind desperately held on to remaining minutes of the day and the fading memory of the night.
+After the show, I went home, dazed, and picked up my guitar. I shuffled around, tweaked, swore and laughed at the wonky sound from my instrument. My mind desperately held on to remaining minutes of the day and the fading memory of the night.
 
 Here are a few clips from my terrible iPhone:
 
