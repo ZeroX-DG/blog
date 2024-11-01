@@ -5,7 +5,7 @@ date: 2024/11/02
 description: Yes, that Thom Yorke, from Radiohead
 ---
 
-It was a night of pure sound, with the warmth of more people than I can count mixed with the last cool breezes of the end of winter. We sat in silence, watching a man on stage shuffling around, tweaking, swearing, laughing at his musical instruments. I had to constantly remind myself that everything was real, and I was no longer watching from the other side of the tiny laptop screen anymore. I was just meters away from Thom Yorke himself.
+It was a night of pure sound, with the warmth of more people than I can count mixed with the last cool breezes of the end of winter. We sat in silence, watching a man on stage shuffling around, tweaking, swearing, laughing at his musical instruments. I had to constantly remind myself that everything was real, and I was no longer watching from the other side of the tiny laptop screen. I was just meters away from Thom Yorke himself.
 
 I became a Radiohead fan in 2017. By then they had released their 9th album - *A moon-shaped pool* the year before and had started to spend some time apart, which I thought was a normal thing for them; they did have consistent two-year breaks between their last albums. But it turns out, this year, that break will be celebrating its 8th birthday, and it's still growing strongly. I sometimes dream of their reunion and the release of their 10th album before waking up to the alarm bell and sobbing violently.
 
