@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta 1 2 name="description" content="Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên " lai nớt" thì có cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. là bộ input method editor hoàn toàn bằng rust, hứa hẹn sẽ thể cạnh tranh với các tên tuổi trong làng gõ chữ quốc ngữ trên linux như ibus hay fcitx.">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Bỏ dấu trong tiếng Việt">
+    <meta 1 2 name="twitter:description" content="Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên " lai nớt" thì có cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. là bộ input method editor hoàn toàn bằng rust, hứa hẹn sẽ thể cạnh tranh với các tên tuổi trong làng gõ chữ quốc ngữ trên linux như ibus hay fcitx.">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Bỏ dấu trong tiếng Việt
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Bỏ dấu trong tiếng Việt
+    </h1>
+    <div class="blog-post-content">
+        <p>Ngoài Covíd 19 và blog <a href="https://thefullsnack.com/" target="_blank" rel="noopener">thefullsnack</a> đóng cửa làm publicity stunt ra thì cuối 2019, đầu 2020 còn là thời kì của trao lưu RIIR (Rewrite It In Rust).</p>
+<p>Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên “lai nớt” thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ <a href="https://en.wikipedia.org/wiki/Input_method" target="_blank" rel="noopener">Input Method Editor</a> hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như <a href="https://en.wikipedia.org/wiki/Intelligent_Input_Bus" target="_blank" rel="noopener">ibus</a> hay <a href="https://en.wikipedia.org/wiki/Fcitx" target="_blank" rel="noopener">fcitx</a>.</p>
+<p>Sau khi kế hoạch 2 bên bại lộ thì vị tiền bối kia đã chọn giao lại trọng trách này cho mình thực hiện. (vị tiền bối mình đang nói tới chưa bao giờ thấy ở trong cùng 1 căn phòng với chủ blog <a href="https://thefullsnack.com/" target="_blank" rel="noopener">thefullsnack</a> <i class="em em-troll"></i>)</p>
+<p>Tuy nhiên, sau nhiều ngày thử nghiệm với cơ chế receive và sending key trên <a href="https://en.wikipedia.org/wiki/X_Window_System" target="_blank" rel="noopener">X11</a>, thậm chí là sử dụng luôn cả <a href="https://en.wikipedia.org/wiki/Evdev" target="_blank" rel="noopener">evdev</a> và uinput để nhận và send key thẳng vào kernel Linux, nhưng tần suất chửi thề của mình vẫn không thuyên giảm (Cái này mình sẽ nói ở <a href="/blog/2020/07/21/Van-de-ve-IME-tren-Linux/">một bài riêng</a>). Nhận thấy trình độ thấp kém, mình đành ngậm ngùi nhận thua và chuyển từ phát triển IME sang làm library giúp đặt dấu cho IME. Mong là có thể giúp ích cho các vị cao nhân trong tương lai sử dụng library của mình mà hoàn thành trọng trách bị mình bỏ dở.</p>
+<p>Ở post này mình sẽ nói sơ qua quy luật đặt dấu mà mình học được và đồng thời giới thiệu library hỗ trợ đặt dấu do mình phát triển.</p>
+<h1 id="Cac-phan-cua-1-chu-tieng-Viet"><a href="#Cac-phan-cua-1-chu-tieng-Viet" class="headerlink" title="Các phần của 1 chữ tiếng Việt"></a>Các phần của 1 chữ tiếng Việt</h1><blockquote>
+<p><strong>Disclaimer!</strong> Mình vốn không xuất thân từ ngành ngôn ngữ học, điểm văn lại chưa bao giờ qua 6.5 từ hồi cấp 2 tới giờ nên những gì mình tìm hiểu được có thể không chính xác cho lắm.</p>
+</blockquote>
+<p>Để hiểu về quy luật bỏ dấu này, các bạn không cần đi sâu vào tiếng Việt mà chỉ tập trung chủ yếu phần <a href="https://vi.wikipedia.org/wiki/Âm_vị_học_tiếng_Việt" target="_blank" rel="noopener">âm vị học</a>.</p>
+<h2 id="Am-tiet"><a href="#Am-tiet" class="headerlink" title="Âm tiết"></a>Âm tiết</h2><p>Trong tiếng Việt, đơn vị phát âm nhỏ nhất gọi là âm tiết <sup><a href="https://ngonngu.net/amtiet_tiengviet/60" target="_blank" rel="noopener">[1]</a></sup>. Tuy nhiên, cũng có <a href="https://mltav.asn.au/vietnamese/images/documents/Van/wa-van.pdf" target="_blank" rel="noopener">tài liệu</a> cho rằng phần này gọi là âm hoặc tiếng. Có thể hiểu, 1 âm tiết là 1 chữ khi phát âm.</p>
+<p>Theo bài viết của tác giả Vũ Xuân Lương (vietlex)<sup><a href="http://vietlex.com/xu-li-ngon-ngu/28-Quy_tac_dat_dau_thanh_trong_tieng_Viet" target="_blank" rel="noopener">[2]</a></sup>:</p>
+<blockquote>
+<p><strong>Âm tiết</strong> là đơn vị phát âm tự nhiên nhỏ nhất trong ngôn ngữ. Trong tiếng Việt, một âm tiết bao giờ cũng được phát ra với một thanh điệu, và tách rời với âm tiết khác bằng một khoảng trống (space). Trên chữ viết, mỗi âm tiết tiếng Việt được ghi thành một “chữ” . Vd: “hoa hồng bạch” gồm 3 chữ hoặc 3 âm tiết.</p>
+</blockquote>
+<h2 id="Nguyen-am"><a href="#Nguyen-am" class="headerlink" title="Nguyên âm"></a>Nguyên âm</h2><p>Trong mỗi âm tiết, đều có 1 phần nguyên âm bao gồm 1 hoặc nhiều chữ cái nguyên âm hợp lại. Các chữ cái nguyên âm bao gồm:</p>
+<p><em>a, ă, â, e, ê, i, o, ô, ơ, u, ư, y</em></p>
+<h2 id="Phu-am"><a href="#Phu-am" class="headerlink" title="Phụ âm"></a>Phụ âm</h2><p>Phụ âm bao gồm <strong>phụ âm đầu</strong> và <strong>phụ âm cuối</strong>. Đây là phần chỉ bao gồm các chữ cái phụ âm nhưng với vài trường hợp ngoại lệ, tổ hợp phụ âm có thể bao gồm chữ cái phụ âm lẫn nguyên âm. Ví dụ, các chữ cái phụ âm có thể bao gồm:</p>
+<p><em>b, c, d, đ, vv…</em></p>
+<p>và tổ hợp phụ âm có thể là:</p>
+<p><em>ch, gh, kh, ng, gi, qu, vv…</em></p>
+<p>Để ý với tổ hợp “qu”, tuy “u” là kí tự nguyên âm nhưng khi đi chung với “q” nó lại trở thành một phần tạo nên phụ âm “qu”.</p>
+<h2 id="Cau-truc-cua-am-tiet"><a href="#Cau-truc-cua-am-tiet" class="headerlink" title="Cấu trúc của âm tiết"></a>Cấu trúc của âm tiết</h2><p>Cấu trúc của 1 âm tiết có thể hình dung như sau:</p>
+<p><img src="cau_truc_am_tiet.png" alt></p>
+<p>Tuy nhiên, 1 âm tiết không nhất thiết phải bao gồm phụ âm đầu lẫn phụ âm cuối. Ví dụ, chữ “ưng” trong “ưng ý” không hề có phụ âm đầu, hay chữ “hư” không tồn tại phụ âm cuối.</p>
+<h1 id="Ki-tu-rieng-cua-tieng-Viet"><a href="#Ki-tu-rieng-cua-tieng-Viet" class="headerlink" title="Kí tự riêng của tiếng Việt"></a>Kí tự riêng của tiếng Việt</h1><p>Ngoài việc sử dụng các kí tự latin, trong tiếng Việt còn tồn tại những kí tự riêng. Chúng ta có tổng cộng 7 kí tự riêng, với 4 kí tự có dấu tách biệt như ă â ê ô và 3 kí tự có dấu nối liền như đ, ơ và ư <sup><a href="https://vietnamesetypography.com/modified-letters/" target="_blank" rel="noopener">[4]</a></sup>.</p>
+<p>Nếu các bạn hứng thú với lịch sử chữ Quốc ngữ, cũng như typography của tiếng Việt, thì đừng bỏ qua cuốn <a href="https://vietnamesetypography.com/" target="_blank" rel="noopener">Vietnamese Typography</a> của tác giả <a href="https://donnytruong.com/" target="_blank" rel="noopener">Donny Trương</a>.</p>
+<p><img src="vietnamese_typography.png" alt><br><em>Một phần của trang giới thiệu lịch sử tiếng Việt trên trang Vietnamese Typography</em></p>
+<h1 id="Cac-quy-luat-dat-dau"><a href="#Cac-quy-luat-dat-dau" class="headerlink" title="Các quy luật đặt dấu"></a>Các quy luật đặt dấu</h1><p>Sau khi tham khảo nhiều bài viết thì mình quyết định kết hợp 2 bảng quy luật từ 2 nguồn là bài <a href="http://vietlex.com/xu-li-ngon-ngu/28-Quy_tac_dat_dau_thanh_trong_tieng_Viet" target="_blank" rel="noopener">“Quy tắc đặt dấu thanh trong tiếng Việt”</a> của tác giả Vũ Xuân Lương và từ một trang của một tác giả lấy tên là Johannjs<sup><a href="http://just.nicepeople.free.fr/Vietnamese-Typing.htm#PlaceOfAccent" target="_blank" rel="noopener">[3]</a></sup>. (Fun fact: Mình đang gõ bài viết này bằng công cụ gõ cực xịn trên trang đó).</p>
+<p>Chúng ta có 6 quy luật khi đặt dấu thanh. Các quy luật này được áp dụng từ trên xuống theo trình tự chứ không áp dụng ngẫu nhiên:</p>
+<p><strong>1. Dấu thanh luôn luôn đặt ở nguyên âm.</strong><br>Với quy luật này, chúng ta có thể loại bỏ phần phụ âm và chỉ xét phần nguyên âm. Trong rất nhiều trường hợp, 1 chữ chỉ bao gồm 1 kí tự nguyên âm, ví dụ “hà”, “quý”, “chung” nên chúng ta có thể giảm thiểu đáng kể độ phức tạp của thuật toán đặt dấu</p>
+<p><strong>2. Nếu một từ có chứa kí tự “ơ”, dấu thanh sẽ đặt ở kí tự đó.</strong><br>Quy luật này giúp giải quyết tình huống phần nguyên âm có 2 kí tự nguyên âm trở lên và bao gồm kí tự “ơ”. Ví dụ “ước”, “phước”, “tưới”.</p>
+<p><strong>3. Nếu nguyên âm bao gồm 1 kí tự riêng, dấu thanh sẽ được đặt vào kí tự đó.</strong><br>Kí tự riêng hay, kí tự mang dấu phụ như mình nói ở phần trước, nếu có xuất hiện trong phần nguyên âm, nó sẽ được ưu tiên đặt dấu đầu tiên. Ví dụ, chữ “hiện” bao gồm “iê” trong phần nguyên âm, và vì, “ê” là kí tự riêng nên chúng ta ưu tiên đặt dấu nặng vào “ê” thay vì “i”.</p>
+<p><strong>4. Nếu một từ có chứa cặp nguyên âm “oa”, “oe”, “oo”, “oy”, dấu thanh sẽ được đặt ở nguyên âm thứ 2.</strong><br>Quy luật này giúp ta xử lý các trường hợp như “loá”, “xoè” hay “tuỵ”. Lưu ý, các từ với cặp “oo”, dấu thanh vẫn được để trên chữ cái thứ 2. Ví dụ: quần soọc, xe rơ moóc.</p>
+<p><strong>5. Nếu một từ kết thúc bằng 2 hoặc 3 con chữ nguyên âm, dấu thanh sẽ được đặt ở chữ cái nguyên âm áp chót.</strong><br>Ví dụ: ngoẻo, ngoáy, chịu, của, vv…</p>
+<p><strong>6. Chữ cái nguyên âm nào đứng đầu từ trái đếm qua thì dấu thanh sẽ được đặt ở chữ cái đó.</strong><br>Nếu tất cả các quy luật trên đều không thể áp dụng, thì dấu thanh sẽ được đặt lên chữ cái nguyên âm đầu tiên.</p>
+<h1 id="Quang-cao"><a href="#Quang-cao" class="headerlink" title="Quảng cáo"></a>Quảng cáo</h1><p>Tất nhiên bạn có thể tự implement các quy luật kia làm IME, nhưng tại sao phải “reinvent the wheel” khi các bạn đã có library viết bởi author bài viết mà bạn vừa skip xuống đáy vì dài quá đéo đọc? <i class="em em-troll"></i></p>
+<h2 id="So-luoc-ve-library-VI"><a href="#So-luoc-ve-library-VI" class="headerlink" title="Sơ lược về library VI"></a>Sơ lược về library VI</h2><p>Như đã nói ở trên, mình vốn chủ định VI là một IME, nhưng vì không tìm ra được cách hiệu quả để listen và send key trên Linux nên mình quyết định chuyển nó thành 1 library hỗ trợ cho việc phát triển IME.</p>
+<p>Quy trình đặt dấu thanh của library diễn ra như sau:</p>
+<p><img src="library_structure.png" alt></p>
+<h3 id="Tach-action-va-content"><a href="#Tach-action-va-content" class="headerlink" title="Tách action và content"></a>Tách action và content</h3><p>User input sẽ bao gồm 2 phần là action và content. Ví dụ, <code>chao1</code> thì content sẽ là <code>chao</code> và kí tự <code>1</code> theo kiểu gõ VNI là để đặt dấu sắc, mình gọi đó là một action.</p>
+<h3 id="Tim-nguyen-am"><a href="#Tim-nguyen-am" class="headerlink" title="Tìm nguyên âm"></a>Tìm nguyên âm</h3><p>Content sau khi được tách ra sẽ được xử lý để tìm ra phần nguyên âm. Cách làm thì khá đơn giản, chỉ cần skip phần phụ âm đầu (nếu có) và lấy những kí tự tiếp theo cho đến khi đụng phụ âm cuối hoặc kết thúc chữ.</p>
+<blockquote>
+<p><strong>Lưu ý:</strong> Trường hợp “gi” và “qu”, dù “i” và “u” là chữ cái nguyên âm nhưng đây là trường hợp ngoại lệ nên “gi”, “qu” là cặp phụ âm đầu.</p>
+</blockquote>
+<h3 id="Tim-vi-tri-dat-dau-thanh"><a href="#Tim-vi-tri-dat-dau-thanh" class="headerlink" title="Tìm vị trí đặt dấu thanh"></a>Tìm vị trí đặt dấu thanh</h3><p>Sau khi đã tìm ra phần nguyên âm, library sẻ áp dụng 6 quy luật trên để tìm vị trí đặt dấu thanh.</p>
+<h3 id="Chuyen-ky-tu-thanh-action"><a href="#Chuyen-ky-tu-thanh-action" class="headerlink" title="Chuyển ký tự thành action"></a>Chuyển ký tự thành action</h3><p>Khi tách ký tự khỏi user input, library sẽ chuyển kí tự thành action. Ví dụ, “1” thành dấu sắc, “2” thành dấu huyền, vv…</p>
+<h3 id="Dat-dau-thanh"><a href="#Dat-dau-thanh" class="headerlink" title="Đặt dấu thanh"></a>Đặt dấu thanh</h3><p>Ở giai đoạn này, library đã tìm được vị trí đặt dấu thanh cũng như loại dấu thanh cần đặt. Bước cuối cùng này replace kí tự ở vị trí đặt dấu thanh với một kí tự có chứa dấu thanh…bởi vì trình độ khoa học hiện tại chưa cho phép đánh cái dấu lên chữ thôi mà phải replace luôn bằng character khác. <i class="em em-grin"></i></p>
+<h2 id="Nghe-hay-do-coi-them-o-dau"><a href="#Nghe-hay-do-coi-them-o-dau" class="headerlink" title="Nghe hay đó, coi thêm ở đâu?"></a>Nghe hay đó, coi thêm ở đâu?</h2><p>Hiện library mình đang open-source ở gihub. Mong các bạn có dịp ghé qua ủng hộ ý kiến <i class="em em-grin"></i></p>
+<p><a href="https://github.com/ZeroX-DG/vi-rs" target="_blank" rel="noopener">https://github.com/ZeroX-DG/vi-rs</a></p>
+<h1 id="Tham-khao"><a href="#Tham-khao" class="headerlink" title="Tham khảo"></a>Tham khảo</h1><ol>
+<li>ngonngu.net. (2006). <a href="https://ngonngu.net/amtiet_tiengviet/60" target="_blank" rel="noopener">Âm tiết và đặc điểm âm tiết tiếng Việt</a>.</li>
+<li>Vũ Xuân Lương. (2020). <a href="http://vietlex.com/xu-li-ngon-ngu/28-Quy_tac_dat_dau_thanh_trong_tieng_Viet" target="_blank" rel="noopener">Quy tắc đặt dấu thanh trong tiếng Việt</a>.</li>
+<li>Johannjs. (2003). <a href="http://just.nicepeople.free.fr/Vietnamese-Typing.htm#PlaceOfAccent" target="_blank" rel="noopener">The right place of the Vietnamese accent</a>.</li>
+<li>Donny Trương. (2018). <a href="https://vietnamesetypography.com/" target="_blank" rel="noopener">Vietnamese Typography</a>.</li>
+<li>Trần ngọc Dung. (2016). <a href="https://mltav.asn.au/vietnamese/images/documents/Van/wa-van.pdf" target="_blank" rel="noopener">Vần &amp; Cách Ráp Âm Trong Tiếng Việt</a>.</li>
+</ol>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/vietnamese/" class="tag">
+                #vietnamese
+            </a>
+        
+            <a href="/blog/tags/algo/" class="tag">
+                #algo
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2020-07-21</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/07/21/Van-de-ve-IME-tren-Linux/">
+          Vấn đề về IME trên Linux
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-03-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/03/05/Viet-cho-2022/">
+          Viết cho 2022
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-11-02</span>
+    <span class="blog-post-title">
+        <a href="/blog/2024/11/02/Went-to-see-Thom-Yorke/">
+          Went to see Thom Yorke
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/12/05/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-05-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/05/24/Tui-lan-dau-di-phong-van/">
+          Lần đầu đi phỏng vấn
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

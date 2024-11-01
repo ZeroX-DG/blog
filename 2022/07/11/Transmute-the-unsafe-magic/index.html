@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Using mem::transmute for struct inheritance in Rust">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="std::mem::transmute the unsafe magic">
+    <meta name="twitter:description" content="Using mem::transmute for struct inheritance in Rust">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        std::mem::transmute the unsafe magic
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        std::mem::transmute the unsafe magic
+    </h1>
+    <div class="blog-post-content">
+        <p>One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance" target="_blank" rel="noopener">composition over inheritance</a>, and the concept of <code>trait</code> is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.</p>
+<p>The DOM tree structure was designed in the OOP paradigm. Meaning it relies heavily on inheritance: <code>HTMLElement</code> inherits <code>Element</code> inherits <code>Node</code>.</p>
+<p><img src="html.png" alt><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="noopener">Extracted from MDN</a></em></p>
+<p>A straightforward way to implement this behaviour is to use nested structs:</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
+  element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+  tag_name<span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> Element <span class="token punctuation">{</span>
+  node<span class="token punctuation">:</span> Node<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> Node <span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is fine, as long as the data access flows from top to bottom, meaning you can access a property of <code>Node</code> from <code>HTMLElement</code>, but not the other way around. For example, if you have an <code>Element</code> that is also an <code>HTMLElement</code>, there’s no way for you to downcast the <code>Element</code> down to <code>HTMLElement</code> struct to access the <code>tag_name</code> property.</p>
+<p>You could argue that this is the Rust “way” and that I should find a way to only access data from the outer struct to the inner struct, but that would certainly reduce the flexibility of the code. Repressing developer experience for the compiler’s happiness is like a slow burning fire that will one day spring out of control. The developer should write the code, not the other way around.</p>
+<p>But here we’re pushing the limit of safe Rust. There’s no other choice but to introduce <code>unsafe</code> into the mix, which in truth, is only unsafe for the novice. The great master of the language should draw his/her power from both sides of Rust-Safe and Unsafe; Order and Chaos.</p>
+<p><a href="https://doc.rust-lang.org/stable/std/mem/fn.transmute.html" target="_blank" rel="noopener">Transmute</a> in Rust is a function that treats a value of one type as another type that you desire, ignoring the type system entirely. In other words, it’s typecasting, a very unsafe type casting, but incredibly powerful. For example, you can cast an array of four <code>u8</code> into an <code>u32</code> since four <code>u8</code> sittings next to each other in memory is a <code>32-bit</code> memory segment which could be interpreted as a <code>u32</code>.</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">1u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">,</span> <span class="token number">0u8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span>transmute<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span><span class="token punctuation">[</span>u8<span class="token punctuation">;</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u32<span class="token operator">></span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 256</span>
+</code></pre>
+<p>You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the <code>HTMLElement</code> is the same as the address of <code>Element</code> and <code>Node</code> (as long as the <code>element</code> and <code>node</code> field is the first field in each struct).</p>
+<p><img src="memory-layout.png" alt></p>
+<p>This enables us to use <code>transmute</code> to cast between those types and access the data from the inner struct out to the containing struct.</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
+  element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> Element <span class="token punctuation">{</span>
+  node<span class="token punctuation">:</span> Node<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> Node <span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">let</span> html <span class="token operator">=</span> HTMLElement <span class="token punctuation">{</span> element<span class="token punctuation">:</span> Element <span class="token punctuation">{</span> node<span class="token punctuation">:</span> Node <span class="token punctuation">{</span> data<span class="token punctuation">:</span> String<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"node data: {}"</span><span class="token punctuation">,</span> html<span class="token punctuation">.</span>element<span class="token punctuation">.</span>node<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> node<span class="token punctuation">:</span> Node <span class="token operator">=</span> <span class="token keyword">unsafe</span> <span class="token punctuation">{</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">transmute</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"node data: {}"</span><span class="token punctuation">,</span> node<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> element<span class="token punctuation">:</span> Element <span class="token operator">=</span> <span class="token keyword">unsafe</span> <span class="token punctuation">{</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">transmute</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"node data: {}"</span><span class="token punctuation">,</span> element<span class="token punctuation">.</span>node<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>By default, structs have the <a href="https://doc.rust-lang.org/reference/type-layout.html#the-default-representation" target="_blank" rel="noopener"><code>Default</code>/<code>Rust</code> representation</a>, which doesn’t guarantee the memory layout due to memory alignment optimization. So the <code>#[repr(C)]</code> attribute is required for your structs to use the <a href="https://doc.rust-lang.org/reference/type-layout.html#the-c-representation" target="_blank" rel="noopener">C representation</a> and preserve the memory layout.</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token attribute attr-name">#[repr(C)]</span>
+<span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
+  element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token attribute attr-name">#[repr(C)]</span>
+<span class="token keyword">struct</span> Element <span class="token punctuation">{</span>
+  node<span class="token punctuation">:</span> Node<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token attribute attr-name">#[repr(C)]</span>
+<span class="token keyword">struct</span> Node <span class="token punctuation">{</span>
+  data<span class="token punctuation">:</span> String
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The DOM tree is now infinitely more powerful and flexible. You can even design a convenient API for type casting:</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token comment" spellcheck="true">// Not tested yet, don't trust me.</span>
+<span class="token keyword">trait</span> Castable <span class="token punctuation">{</span>
+  <span class="token keyword">fn</span> cast<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> T <span class="token punctuation">{</span>
+    <span class="token keyword">unsafe</span> <span class="token punctuation">{</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>mem<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">transmute</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> html <span class="token operator">=</span> HTMLElement<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> node<span class="token punctuation">:</span> Node <span class="token operator">=</span> html<span class="token punctuation">.</span>cast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Node<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> element<span class="token punctuation">:</span> Element <span class="token operator">=</span> node<span class="token punctuation">.</span>cast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>So <code>unsafe</code> isn’t that unsafe after all, is it? :)</p>
+<h2 id="Other-cool-resources"><a href="#Other-cool-resources" class="headerlink" title="Other cool resources"></a>Other cool resources</h2><ul>
+<li><a href="https://github.com/MQuy/mbrowser/blob/master/components/dom/src/inheritance.rs" target="_blank" rel="noopener">mbrowser DOM tree is using this pattern</a></li>
+<li><a href="https://github.com/servo/servo/blob/master/components/script/dom/bindings/inheritance.rs" target="_blank" rel="noopener">servo DOM tree is also using this pattern</a></li>
+</ul>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/code/" class="tag">
+                #code
+            </a>
+        
+            <a href="/blog/tags/rust/" class="tag">
+                #rust
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/12/05/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-11-09</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/11/09/Rust-koans-chuong-ngai/">
+          Rust Koan: Những Chướng Ngại
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-05-29</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/05/29/Browser-from-Scratch-Introduction/">
+          Browser from Scratch: Introduction
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-09-26</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
+          Browser from Scratch: Layout
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-09-01</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/09/01/Browser-from-Scratch-DOM-API/">
+          Browser from Scratch: DOM API
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

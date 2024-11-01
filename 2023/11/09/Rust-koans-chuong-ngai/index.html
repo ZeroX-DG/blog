@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Dịch lại một đoạn koan về rust trong lúc cao hứng.">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rust Koan: Những Chướng Ngại">
+    <meta name="twitter:description" content="Dịch lại một đoạn koan về rust trong lúc cao hứng.">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Rust Koan: Những Chướng Ngại
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Rust Koan: Những Chướng Ngại
+    </h1>
+    <div class="blog-post-content">
+        <p>Dịch lại từ: <a href="https://users.rust-lang.org/t/rust-koans/2408#obstacles-1" target="_blank" rel="noopener">https://users.rust-lang.org/t/rust-koans/2408#obstacles-1</a></p>
+<p>Với sự hỗ trợ của: <a href="https://hvdic.thivien.net/" target="_blank" rel="noopener">Từ điển Hán Nôm</a>, <a href="https://poe.com/" target="_blank" rel="noopener">Claude Instant</a> và <a href="https://openai.com/blog/chatgpt" target="_blank" rel="noopener">ChatGPT</a>.</p>
+<hr>
+<p>Đã là ngày thứ tám ngày liên tiếp, Tân Đạo Sĩ Col (Neophyte Col) thấy mình đứng trước hai vị vệ binh trường lão của ngôi tự miếu. Họ đứng canh gác lối vào rộng lớn của đạo quán, mặc y phục bình dân. Tuy vậy, khí chất của bọn họ rất oai nghiêm, làm người ta không dám cất tiếng. Col bước tới gần vệ binh đầu tiên với vẻ tự tin, rồi đưa tờ giấy ghi chương trình của mình.</p>
+<p>Vệ binh thứ nhất kĩ lưỡng đọc qua. Bước này chỉ là mang tính thủ tục; hôm qua, Col chỉ thất bại thuyết phục vệ binh thứ hai. Hắn ta chắc chắn lần này, bản thân đã giải quyết hết thảy mọi phàn nàn tồn đọng.</p>
+<p>Vệ binh thứ nhất trả lại tấm giấy cho Col. Rồi bằng một cử động gọn lẹ, hắn ta một tay vung lên tát mạnh vào mặt Col. Bằng giọng đều đều, vệ binh thứ nhất nói: “Kiểu dữ liệu không khớp nhau: kiểu mong đợi là <code>&amp;Target</code>, còn kiểu thực tế là <code>&amp;&lt;T as Deref&gt;::Target</code>“, rồi im lặng.</p>
+<p>Col cầm tờ giấy của mình lui về một băng ghế gần đó, hai mắt gần ngấn lệ. <em>Tám ngày</em>. Chương trình chẳng mấy phức tạp, vậy mà hắn vẫn không cách nào thuyết phục được hai vệ binh cho phép vào đền. Hắn chưa từng gặp khó khăn như vậy ở những đền khác!</p>
+<p>Tại một băng ghế nọ, hắn trông thấy một tân đạo sĩ khác. Hai ngày trước, họ đã trao đổi vài câu, khi ấy hắn được biết đạo hữu của mình đã phải cực khổ ngoài đền thờ gần gần hai tuần trời để chương trình của y được chấp thuận.</p>
+<p>Đều là lỗi của hai vệ binh kia. Col biết chương trình của mình sẽ hoạt động như ý. Hai người kia chỉ luôn tìm những lỗi nhỏ nhặt, từ chối hắn bằng những lí do tầm thường nhất. Họ chỉ muốn tìm cớ để cấm đoán hắn thôi; ắt hẳn như vậy!</p>
+<p>Trong lòng hắn oán hờn dâng trào.</p>
+<p>Lúc bấy giờ, hắn chú ý thấy một vị tăng nhân đang đối thoại với vị đạo hữu kia. Cuộc trao đổi có vẻ sôi nổi, bỗng người đạo hữu ấy phát ra một tiếng reo mừng, bật dậy như phục sinh, lao thẳng vào đền. Vừa phi chạy như bay, hắn ta vừa điên cuồng sửa đổi chương trình của mình.</p>
+<p>Tuy nhiên, thay vì đối đầu hai vệ binh, hắn lại tiến về một góc tường bẩn thỉu. Không ngờ bức tường mở ra một lối vào bí mật. Gã đạo sĩ kia xuyên qua bức tường, biến mất khỏi tầm mắt Col.</p>
+<p>Col kinh ngạc khôn cùng. Một lối vào bí mật? Vậy thì….. hai tên vệ binh kia ắt hẳn chỉ là một trò đùa! Các vị đại sư khác chắc đã dùng thủ đoạn này để rèn giũa niềm khiêm cung cho các môn sinh. Hoặc là….hoặc là…cũng có thể chỉ là muốn cười cợt họ từ bên trong mà thôi!</p>
+<p>Một giọng nói vang lên “Ngươi có muốn biết ta đã nói gì với hắn?”. Col xoay người, thấy vị tăng nhân lúc nãy đã đứng bên băng ghế hắn ngồi. “Sư đã chỉ đường vào khác cho hắn?”</p>
+<p>“Đúng vậy,” vị tăng nhân đáp. “Ta đã tiết lộ với hắn về Tử Huyệt Môn.”</p>
+<p>“Tử Huyệt (<code>unsafe</code>)?” Col không giấu được vẻ tòm mò.</p>
+<p>Chính xác là như vậy, đó là bí mật mà chỉ kẻ nào luyện tập lâu năm tại đạo quán mới có thể biết. Thực chất, chỉ cần dùng đến thủ pháp Tử Huyệt được nhắc đến trong Tú Kim Học Kinh ngữ kỳ 280 (<a href="https://doc.rust-lang.org/nightly/nomicon/" target="_blank" rel="noopener">Rustonomicon 280</a>), người ta có thể vượt qua được nhiều chướng ngại khi soạn thảo chương trình của mình.</p>
+<p>Col ngạc nhiên hỏi: “Những thủ pháp ấy lợi hại thật vậy sao?”</p>
+<p>“Vô cùng lợi hại! Chỉ cần dùng Phá Thân Biến Hóa (<a href="https://doc.rust-lang.org/std/mem/fn.transmute.html" target="_blank" rel="noopener"><code>transmute</code></a>), là có thể thay mới kiểu dữ liệu, hay kéo dài thọ mệnh (<a href="https://doc.rust-lang.org/rust-by-example/scope/lifetime.html" target="_blank" rel="noopener"><code>lifetime</code></a>) của thỉnh chỉ (<code>pointer</code>). Ngay cả triệu hồi thỉnh chỉ từ không trung, hay dữ liệu từ hư không cũng chẳng phải là chuyện lạ!”</p>
+<p>Col cảm thấy bản thân cuối cùng cũng hiểu ra phương thức hoạt động của miếu đường. Chính thủ pháp “Tử Huyệt” ma thuật này là công cụ bí truyền của các cao tăng! Tuy nhiên…</p>
+<p>“Nếu người ta có thể đơn giản bước qua Tử Huyệt Môn là có thể vào được miếu đường, thì tại sao lại cần có hai vị cảnh vệ hùng mạnh bảo vệ cửa? Sao không…”</p>
+<p>Lúc bấy giờ, một tiếng la thất thanh vang lên từ bên trong ngôi đền. Âm thanh kinh hoàng vang dội khắp sân đền, rồi bỗng đột ngột dừng lại.</p>
+<p>Bầu không khí im lặng buông xuống. Không ai dám động đậy. Không ai dám lên tiếng. Cơn gió cũng ngừng thổi. Mọi chim trời đều ngừng hót.</p>
+<p>Col cảm thấy nhịp tim dồn dập bên tai.</p>
+<p>“Hai người họ canh cửa,” vị sư nói, phá tan bầu không gian tĩnh lặng, “chính là để bảo vệ ngươi, khỏi ngôi đền và những thứ bên trong.”</p>
+<p>Col xoay người nhìn lại góc tường ẩn chứa lối vào bí mật. “Vậy tại sao cánh cửa kia lại tồn tại?”</p>
+<p>“Bởi lẽ, nhân vô thập toàn, ngay cả hai vệ binh kia cũng khó tránh phải sai lầm. Đôi khi người ta phải tự mình đối mặt với hiểm nguy.” Vị tăng nhân thở dài. “Nhưng không phải ai cũng gan dạ và tinh thông tuyệt kỹ được như vậy.”</p>
+<p>Sau lời ấy, vị tăng nhân từ trong trường bào lấy ra một tấm giấy rồi bước đến chỗ hai vệ binh. Vệ binh thứ nhất nhìn qua chương trình của bà và gật đầu. Vệ binh thứ hai cũng nhìn qua chương trình, trả lại rồi liền ra tay tát mạnh vào mặt bà.</p>
+<p>“Giá trị vay mượn không tồn tại đủ lâu!”</p>
+<p>Vị tăng nhân xoa mặt, quay về ngồi xuống băng ghế, lẩm bẩm lời chửi rủa.</p>
+<p>Lúc này, Col đã lập tức giác ngộ.</p>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/rust/" class="tag">
+                #rust
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2022-07-11</span>
+    <span class="blog-post-title">
+        <a href="/blog/2022/07/11/Transmute-the-unsafe-magic/">
+          std::mem::transmute the unsafe magic
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-03-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/03/05/Viet-cho-2022/">
+          Viết cho 2022
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-11-02</span>
+    <span class="blog-post-title">
+        <a href="/blog/2024/11/02/Went-to-see-Thom-Yorke/">
+          Went to see Thom Yorke
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/12/05/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-05-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/05/24/Tui-lan-dau-di-phong-van/">
+          Lần đầu đi phỏng vấn
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust.">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Browser from Scratch: DOM API">
+    <meta name="twitter:description" content="One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I'll break down my experimentation in building a DOM API with Rust.">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Browser from Scratch: DOM API
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Browser from Scratch: DOM API
+    </h1>
+    <div class="blog-post-content">
+        <p>The core feature of a browser is HTML rendering. You can have a piece of software that can resolve domains to IP addresses or perform TCP 3-way handshake, but without images or colourful buttons, for the average users, it is not a browser! That’s why text-based protocols like the <a href="https://en.wikipedia.org/wiki/Gopher_(protocol)" target="_blank" rel="noopener">Gopher protocol</a> are being disfavored and overpowered by the HTTP protocol that we have known as “the web” today.</p>
+<p>One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I’ll break down my experimentation in building a DOM API with Rust.</p>
+<h1 id="Before-we-begin"><a href="#Before-we-begin" class="headerlink" title="Before we begin"></a>Before we begin</h1><p>Since this post contains considerable numbers of computer science and rust-related terms/concepts, I recommend that you acquire some knowledge on <a href="https://medium.com/basecs/a-gentle-introduction-to-graph-theory-77969829ead8" target="_blank" rel="noopener">graph theory</a>, Rust’s <a href="https://doc.rust-lang.org/book/ch15-04-rc.html" target="_blank" rel="noopener">reference counted smart pointer</a> and <a href="https://www.cs.uah.edu/~rcoleman/Common/C_Reference/MemoryAlloc.html" target="_blank" rel="noopener">memory allocation</a> before continuing. Otherwise, I hope God bless you.</p>
+<h1 id="What-is-a-DOM-tree"><a href="#What-is-a-DOM-tree" class="headerlink" title="What is a DOM tree?"></a>What is a DOM tree?</h1><p><a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank" rel="noopener">DOM or Document Object Model</a> is an API uses by the browser to represent and manipulate HTML documents. Usually, to represent a document, the DOM API creates a tree data structure with HTML tags as tree nodes, hence the name DOM tree.</p>
+<h1 id="DOM…tree-really"><a href="#DOM…tree-really" class="headerlink" title="DOM…tree, really?"></a>DOM…tree, really?</h1><p>If you have a CS background, you must be a big fan of the game <i class="em em-troll"></i>. However, in this case, if you pay money and attention for an education in computer science (or you are a self-taught like me), you will know that in graph theory, there are two types of data structures-tree and graph.</p>
+<p>Since tags in an HTML document has a parent-child relationship, it’s best to represent the document using a tree structure…right? Yes, but if you think about it, each node of the tree can have pointers that point back to the parent, next siblings, previous siblings, etc. Those connections can and will create a loop in the DOM tree, which is very confusing since the tree, by definition, cannot contain a cycle.</p>
+<p><img src="not_a_tree.png" alt></p>
+<p>But, while the idea of having pointers to other nodes in the tree seems to break the very definition of it, the DOM tree is still, technically, a tree. Sure it is full of connections and looks more like a graph than a tree. But the fact that each node only has 1 parent is what makes the DOM tree…a tree. After all, those connections are just pointers. They don’t own the data that they point to; thus, it is safe to say that a DOM tree is a tree.</p>
+<h1 id="Choosing-DOM-tree-data-structure"><a href="#Choosing-DOM-tree-data-structure" class="headerlink" title="Choosing DOM tree data structure"></a>Choosing DOM tree data structure</h1><p>Because the DOM specs only specify the DOM API using interfaces (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebIDL" target="_blank" rel="noopener">WebIDL</a>), the underlying implementation of the DOM is up to you to decide. That’s why different browser engines have different implementations of the DOM tree. For example, <a href="https://en.wikipedia.org/wiki/Gecko_(software)" target="_blank" rel="noopener">Gecko</a> store DOM both as an array and a linked list so that <code>nextSibling</code>/<code>previousSibling</code> or <code>childnodes[i]</code> operation take <code>O(1)</code> complexity. On the other hand, <a href="https://en.wikipedia.org/wiki/WebKit" target="_blank" rel="noopener">Webkit</a> only used a linked list to store the DOM, which result in an <code>O(n)</code> complexity for <code>childnodes[i]</code> operation but with a trade-off that it use less memory than Gecko.<sup><a href="https://www.quora.com/Is-the-DOM-NodeList-a-linked-list-or-an-array" target="_blank" rel="noopener">source</a></sup></p>
+<p>The browser that I’m working on is called Moon (yes, my originality is at its best). With this browser, I have chosen to store the DOM only as a linked list for memory efficiency.</p>
+<h1 id="DOM-in-Rust"><a href="#DOM-in-Rust" class="headerlink" title="DOM in Rust"></a>DOM in Rust</h1><p>Rust is a safety-first language, which means it doesn’t care about your feeling or your expertise in making a mess with JavaScript. If you violate the rules, it screams in your face.</p>
+<h2 id="Smart-pointer"><a href="#Smart-pointer" class="headerlink" title="Smart pointer"></a>Smart pointer</h2><p>Despite Rust behaving like a grumpy old man, good things did come out of that. One of them is the prevention of <a href="https://en.wikipedia.org/wiki/Dangling_pointer" target="_blank" rel="noopener">dangling pointers</a>.</p>
+<p>A dangling pointer is a pointer that points to an invalid memory location. If you failed your pointer exam in college, think of it like <a href="https://doraemon.fandom.com/wiki/Anywhere_Door" target="_blank" rel="noopener">“Doraemon’s Anywhere Door”</a> or <a href="https://howlscastle.fandom.com/wiki/Howl&#39;s_Castle#The_Magic_Door" target="_blank" rel="noopener">“The Magic Door” in Howl’s moving castle</a> or for astrophysicists, imagine <a href="https://en.wikipedia.org/wiki/Wormhole" target="_blank" rel="noopener">a wormhole</a> that leads to a place that you didn’t expect it to lead to.</p>
+<p>To solve that problem, Rust introduced smart pointers, which is a type of pointer that keep track of the memory that it is pointing to. For example, if a pointer is pointing to a vector and the vector’s length exceeds its capacity, <a href="https://doc.rust-lang.org/std/vec/struct.Vec.html#capacity-and-reallocation" target="_blank" rel="noopener">the vector will be reallocated by Rust to a new location on the heap</a>. This makes the pointer to become a dangling pointer since it doesn’t automatically update to the new location that the array was moved to.</p>
+<p>A smart pointer, on the other hand, keeps track of the location of the data assigned to it. Therefore, it’s safe to operate on it without worrying about accessing invalid memory space.</p>
+<h2 id="Reference-Counted-Smart-Pointer"><a href="#Reference-Counted-Smart-Pointer" class="headerlink" title="Reference Counted Smart Pointer"></a>Reference Counted Smart Pointer</h2><p>Most of the time, you will only use smart pointers to point to data that stores on the heap. In those cases, the data’ ownership is determined, and it will be automatically freed/dropped/disappeared when nobody needs it anymore, kinda like…you….and me <i class="em em-okay"></i></p>
+<p>But, in some cases, data ownership should be shared. For example, in a graph, a node can be owned by many other nodes that point to it, which breaks the “no sharing” rules in Rust. To enable such scenarios to happen, Rust created a type of smart pointer, named <a href="https://doc.rust-lang.org/book/ch15-04-rc.html" target="_blank" rel="noopener"><code>Rc</code> or Reference Counted Smart Pointer</a>.</p>
+<p>Rust book does a way better in explaning the <code>Rc</code> smart pointer than me:</p>
+<blockquote>
+<p>Imagine <code>Rc&lt;T&gt;</code> as a TV in a family room. When one person enters to watch TV, they turn it on. Others can come into the room and watch the TV. When the last person leaves the room, they turn off the TV because it’s no longer being used.</p>
+</blockquote>
+<p>Since our DOM tree can contains nodes that are being pointed to by other nodes, an <code>Rc&lt;T&gt;</code> is a perfect kind of pointer for this job.</p>
+<h2 id="Cyclic-data-and-memory-leaks"><a href="#Cyclic-data-and-memory-leaks" class="headerlink" title="Cyclic data and memory leaks"></a>Cyclic data and memory leaks</h2><p>While <code>Rc&lt;T&gt;</code> can help us solve the shared ownership pointer problem, it also introduces a new challenge called cyclic data.</p>
+<p><img src="cyclic_data.svg" alt></p>
+<p>When using <code>Rc</code> pointer, Rust performs garbage collection based on reference counting, which means the Rc pointer holds a variable that keeps track of the number of references to it. When the count decreases to 0, Rust will free the data behind that pointer. Having cycles in your data is essentially not a bad thing, but it requires good memory management. Otherwise, <a href="https://en.wikipedia.org/wiki/Memory_leak#Reference_counting_and_cyclic_references" target="_blank" rel="noopener">reference cycles can easily lead to memory leaks with reference count garbage collection</a>.</p>
+<p>To cope with that problem, Rust introduces <a href="https://doc.rust-lang.org/std/rc/struct.Weak.html" target="_blank" rel="noopener">Weak references</a>. Instead of increasing the counter variable of the Rc pointer, weak references do not count toward ownership of the data until upgraded into an <code>Rc</code>. Roughly speaking, when you hold a weak reference to a piece of data, you only have a connection to it, and the data may already be freed the moment you upgrade to an <code>Rc</code> pointer, which in that case the upgrade will result in <code>None</code> value.</p>
+<p>Rust book has a <a href="https://doc.rust-lang.org/book/ch15-06-reference-cycles.html" target="_blank" rel="noopener">good chapter</a> explaining how reference cycles can create memory leaks and how to tackle them using weak reference.</p>
+<h2 id="Solving-the-cyclic-data-problem"><a href="#Solving-the-cyclic-data-problem" class="headerlink" title="Solving the cyclic data problem"></a>Solving the cyclic data problem</h2><p>In a DOM tree, a node has connections to many other nodes across the tree. But in this case, we will only pay attention to its first child, last child, next sibling, previous sibling pointer.</p>
+<p><img src="DOM_original.png" alt></p>
+<p>If you look carefully, you can see that there are loops inside the tree above. Therefore, the current structure can create unwanted memory leaks. To solve this problem, we introduce weak references so that we can both solve the memory leaks problem while retaining the current DOM structure.</p>
+<p><img src="DOM_improved.png" alt></p>
+<p>Of course, this is not the only way to solve this problem. Simon Sapin, who works on the Mozilla Servo engine, has created an <a href="https://github.com/SimonSapin/rust-forest" target="_blank" rel="noopener">interesting experiment</a> to try out different methods to structure a DOM tree. His experiement includes structuring the data in an arena so that we can assign an id for each node and manage the node references ourselves or using <code>Rc</code> to structure the tree just like what you read above. And in this case, I have decided to go with the <code>Rc</code> tree approach for Moon.</p>
+<h2 id="DOM-node-inheritance"><a href="#DOM-node-inheritance" class="headerlink" title="DOM node inheritance"></a>DOM node inheritance</h2><p>While it is easy to perform inheritance in OOP languages such as C/C++, Rust doesn’t have an option for struct inheritance. The behaviours of a struct in Rust are shared and combined via “traits”, which makes it rely more on <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance" target="_blank" rel="noopener">composition</a> than inheritance.</p>
+<p>This creates a new problem in our DOM tree structure since DOM API relies a lot on inheritance. For example, this is the inheritance hierarchy for a simple HTML <code>div</code> element:</p>
+<p><img src="div_inheritance.png" alt><br><em>Retrieve from <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement" target="_blank" rel="noopener">MDN</a></em></p>
+<h2 id="Solving-DOM-inheritance"><a href="#Solving-DOM-inheritance" class="headerlink" title="Solving DOM inheritance"></a>Solving DOM inheritance</h2><p>Since there’s no way to perform inheritance, the best thing to do as of right now is to store the structs in a nested manner. But the question here is: in which order?</p>
+<p><img src="inheritance_choices.png" alt></p>
+<h3 id="Node-gt-Element-gt-HtmlElement"><a href="#Node-gt-Element-gt-HtmlElement" class="headerlink" title="Node -&gt; Element -&gt; HtmlElement"></a>Node -&gt; Element -&gt; HtmlElement</h3><p>The first approach is to store the nodes in the order of their inheritance hierarchy. With this approach, the <code>Node</code> type is the parent of all subtype, which reduces the needs for node casting but also comes with some significant downsides.</p>
+<p><img src="inheritance_in_order.png" alt></p>
+<p>Because nodes are connected from the <code>Node</code> level, there’s no need for node casting. If, for example, you want to obtains HTML data from a <code>Node</code>, you only need to travel down from <code>Node</code> to <code>Element</code> to <code>HTMLElement</code> and so on.</p>
+<p>The drawback here is you won’t be able to separate your structs. Technically speaking, <code>HTMLElement</code> structs are not part of the DOM API, and you should be able to separate them from it. However, in this case, if you move your <code>HTMLElement</code> structs to a separate crate, you won’t be able to use the DOM API in those structs because it will create circular module issue.</p>
+<p>Another downside to this is the Node type can store not only <code>Element</code> but also <code>Document</code>, <code>Text</code>, <code>Comment</code>, etc. Therefore, before performing any action on it, you will have to check if it contains the right type of data for that action.</p>
+<h3 id="HTMLElement-gt-Element-gt-Node"><a href="#HTMLElement-gt-Element-gt-Node" class="headerlink" title="HTMLElement -&gt; Element -&gt; Node"></a>HTMLElement -&gt; Element -&gt; Node</h3><p>So how do you tackle the problems above? You do the complete opposite, of course <i class="em em-troll"></i>.</p>
+<p><img src="inheritance_in_reverse.png" alt></p>
+<p>Storing nodes in the opposite direction gives you a more modular and easy to separate structure since the inner node type doesn’t depend on the outer one.</p>
+<p>However, as you can already guess, to associate those nodes together, Rust requires abstracting them using <a href="https://doc.rust-lang.org/book/ch17-02-trait-objects.html" target="_blank" rel="noopener">“trait object”</a>. But when you can only access the objects via its trait, how can you access its inner data? That is when the ability to cast a trait object into a specific node type becomes indispensable.</p>
+<p>Enter <a href="https://doc.rust-lang.org/std/any/trait.Any.html" target="_blank" rel="noopener">Any trait</a>!</p>
+<p><img src="any.png" alt></p>
+<p>Yes, Rust’s developers do think of everything. I won’t go into the details of how the trait works because <del>I don’t really know either</del> it’s not relevant to this post.</p>
+<p>But the way this trait can solve our problem is by allowing us to transform a node to an <code>Any</code> trait object, then proceed to cast it into any type that we want.</p>
+<pre class=" language-rust"><code class="language-rust"><span class="token keyword">trait</span> DOMObject <span class="token punctuation">{</span>
+  <span class="token keyword">fn</span> <span class="token function">as_any</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token operator">&amp;</span>dyn Any<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">impl</span> DOMObject <span class="token keyword">for</span> Element <span class="token punctuation">{</span>
+  <span class="token keyword">fn</span> <span class="token function">as_any</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token operator">&amp;</span>dyn Any <span class="token punctuation">{</span>
+    <span class="token keyword">self</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> node<span class="token punctuation">:</span> Rc<span class="token operator">&lt;</span>RefCell<span class="token operator">&lt;</span>dyn DOMObject<span class="token operator">>></span> <span class="token operator">=</span> Rc<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span>RefCell<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span>Element<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// casting</span>
+<span class="token keyword">let</span> element<span class="token punctuation">:</span> Element <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">borrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">as_any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>downcast_ref<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>Element<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>With this solution, we are now able to create a node of any type with minimum dependence. Plus, we also have a very logical API design!</p>
+<h1 id="That’s-it-folk"><a href="#That’s-it-folk" class="headerlink" title="That’s it folk"></a>That’s it folk</h1><p>That is all I can share about my journey to build the DOM API for my browser. If you survived this post, I hope that you have learnt something new today. If you haven’t, Moon is open-source on Github, don’t hesitate to stop by and study my mistakes closely <i class="em em-troll"></i>.</p>
+<p><a href="https://github.com/ZeroX-DG/moon" target="_blank" rel="noopener">https://github.com/ZeroX-DG/moon</a></p>
+<p>Till next time!</p>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><ul>
+<li>Wikipedia. (2020). <a href="https://en.wikipedia.org/wiki/Memory_leak" target="_blank" rel="noopener">Memory leak</a></li>
+<li>Rust Book. (2020). <a href="https://doc.rust-lang.org/book/ch15-06-reference-cycles.html" target="_blank" rel="noopener">Reference Cycles Can Leak Memory.</a></li>
+<li>Jeff Walden. (2013). <a href="https://www.quora.com/Is-the-DOM-NodeList-a-linked-list-or-an-array" target="_blank" rel="noopener">Is the DOM NodeList a linked list or an array?</a></li>
+<li>Simon Sapin. (2020). <a href="https://github.com/SimonSapin/rust-forest" target="_blank" rel="noopener">Rust forest experiement.</a></li>
+<li>WHATWG. (2020). <a href="https://dom.spec.whatwg.org/" target="_blank" rel="noopener">DOM Living Standard.</a></li>
+<li>Rust Book. (2020). <a href="https://doc.rust-lang.org/book/ch15-04-rc.html" target="_blank" rel="noopener">Rc&lt;T>, the Reference Counted Smart Pointer</a></li>
+<li>Simon Johnston. (2020). <a href="https://docs.rs/xml_dom/0.2.3/xml_dom/" target="_blank" rel="noopener">xml_dom</a></li>
+<li>SerenityOS. (2020). <a href="https://github.com/SerenityOS/serenity/tree/master/Libraries/LibWeb/DOM" target="_blank" rel="noopener">SerenityOS DOM API</a></li>
+</ul>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/code/" class="tag">
+                #code
+            </a>
+        
+            <a href="/blog/tags/browser-from-scratch/" class="tag">
+                #browser-from-scratch
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2020-05-29</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/05/29/Browser-from-Scratch-Introduction/">
+          Browser from Scratch: Introduction
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-09-26</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
+          Browser from Scratch: Layout
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-01-13</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/">
+          Browser from Scratch: CSS parsing & processing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-10-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/">
+          Browser from Scratch: HTML parsing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/12/05/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Browser from Scratch: HTML parsing">
+    <meta name="twitter:description" content="Since I have foolishly made a promise with the first three words in the name of this series, let's build an HTML parser from scratch.">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Browser from Scratch: HTML parsing
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Browser from Scratch: HTML parsing
+    </h1>
+    <div class="blog-post-content">
+        <p>When a browser starts to render a page, it first transforms the HTML code into a <a href="/blog/2020/09/01/Browser-from-Scratch-DOM-API/" title="DOM">DOM</a> tree. This process includes two main activities:</p>
+<ul>
+<li><strong>HTML tokenization:</strong> Transforming input text characters into HTML “tokens”.</li>
+<li><strong>DOM tree building:</strong> Transforming HTML tokens from the previous step into a DOM tree.</li>
+</ul>
+<p>Because there’re only two main activities, implementing an HTML parser should take you no more than 6 hours agonizing over the <a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML5 specification</a>, three weeks implementing half of the parsing algorithm and 2 hours questioning the meaning of existence…every single day. The implementer is then expected to experience several after-effects that may include: confusion, regret for not using <a href="https://github.com/servo/html5ever/" target="_blank" rel="noopener">Servo’s HTML parser</a>, and <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener">Friedrich Nietzsche</a> starts to sound fascinating:</p>
+<blockquote>
+<p>To live is to suffer, to survive is to find some meaning in the suffering.</p>
+</blockquote>
+<p>But since I have foolishly made a promise with the first three words in the name of this series, let’s build an HTML parser from scratch <i class="em em-joy"></i></p>
+<p><strong>Note:</strong> I will just going to give you an overview of how the parser works. If you are interested in the implementation, please refer to <a href="https://github.com/ZeroX-DG/moon/tree/master/components/html" target="_blank" rel="noopener">Moon’s parser source code</a> and <a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML5 specification</a>.</p>
+<h1 id="The-parsing-flow"><a href="#The-parsing-flow" class="headerlink" title="The parsing flow"></a>The parsing flow</h1><p><img src="html-parsing-process.png" alt></p>
+<h2 id="Input-decoder"><a href="#Input-decoder" class="headerlink" title="Input decoder"></a>Input decoder</h2><p>When the browser receives an HTML document from the server, everything is transfered as raw bytes. Thus, to decode those bytes into readable text characters, the browser will first run the <a href="https://html.spec.whatwg.org/#encoding-sniffing-algorithm" target="_blank" rel="noopener">encoding sniffing algorithm</a> to detect the document’s encoding. This includes trying out various methods from BOM sniffing to <code>meta</code> detection.</p>
+<h3 id="BOM-sniffing"><a href="#BOM-sniffing" class="headerlink" title="BOM sniffing"></a>BOM sniffing</h3><p>BOM or <a href="https://en.wikipedia.org/wiki/Byte_order_mark" target="_blank" rel="noopener">Byte Order Mark</a>, is like a <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files" target="_blank" rel="noopener">magic number</a> in files. When opening a file in a hex editor like <a href="https://community.linuxmint.com/software/view/bless" target="_blank" rel="noopener">bless</a>, if the file starts with <code>4A</code> <code>46</code> <code>49</code> <code>46</code>, we know that it’s a JPEG file; <code>25</code> <code>50</code> <code>44</code> <code>46</code>, it’s a PDF file. BOM serves the same purpose but for text streams. Therefore, to determine the encoding of the text stream, the browser will compare the first 3 bytes with the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Byte order mark</th>
+<th>Encoding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="no-float">0xEF 0xBB 0xBF</code></td>
+<td>UTF-8</td>
+</tr>
+<tr>
+<td><code class="no-float">0xFE 0xFF</code></td>
+<td>UTF-16BE</td>
+</tr>
+<tr>
+<td><code class="no-float">0xFF 0xFE</code></td>
+<td>UTF-16LE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Meta-detection"><a href="#Meta-detection" class="headerlink" title="Meta detection"></a>Meta detection</h3><p>Back in 2012, when <a href="https://emmet.io/" target="_blank" rel="noopener">emmet</a> is not yet a thing, and developers still typing HTML manually from start to finish, I often find myself missing a crucial tag that I have no idea how it works back then:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
+<p>This result in my browser displaying Vietnamese characters as “�” character, which for those who don’t know, is called <a href="https://en.wikipedia.org/wiki/Specials_(Unicode_block)" target="_blank" rel="noopener">“replacement character.”</a> This issue was so popular back then that people started to paste replacement character into text inputs intentionally to troll webmasters and make them think that the database has a text encoding issue <i class="em em-joy"></i></p>
+<p>Anyway, now you know that if the browser can’t find the BOM, it will try to detect the document encoding via the <code>meta</code> tag. But you probably won’t have to worry about this since HTML autocomplete is quite powerful these days, and they usually generate that <code>meta</code> tag by default.</p>
+<h2 id="Tokenizer"><a href="#Tokenizer" class="headerlink" title="Tokenizer"></a>Tokenizer</h2><p><strong>Note:</strong> If you are not familiar with tokenization, be sure to read a bit about it <a href="https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization" target="_blank" rel="noopener">here</a>.</p>
+<p>After the stream of bytes is decoded into a stream of characters, it’s then fed into an HTML tokenizer. The tokenizer is responsible for transforming input text characters into HTML tokens. There are fives types HTML tokens:</p>
+<ul>
+<li><strong>DOCTYPE:</strong> Represent and contain information about the document doctype. Yes, that useless <code>&lt;!DOCTYPE html&gt;</code> isn’t as useless as you think.</li>
+<li><strong>Tag</strong>: Represent both start tag (e.g <code>&lt;html&gt;</code>) and end tag (e.g <code>&lt;/html&gt;</code>).</li>
+<li><strong>Comment:</strong> Represent a comment in the HTML document.</li>
+<li><strong>Character:</strong> Represent a character that is not part of any other tokens.</li>
+<li><strong>EOF:</strong> Represent the end of the HTML document.</li>
+</ul>
+<p>The HTML tokenizer is a <a href="https://www.freecodecamp.org/news/state-machines-basics-of-computer-science-d42855debc66/" target="_blank" rel="noopener">state machine</a>, which first starts at an initial state called the <code>Data</code> state. From that, the tokenizer will process a character according to the instruction of that state. The tokenization ends when it encounters an <code>EOF</code> character in the text stream.</p>
+<p><img src="html-tokenize-data.png" alt><br><em>The instruction for data state tokenization</em></p>
+<p>But don’t be fooled by the small number of tokens and think that this is easy to implement. What gives me PTSD after implementing the tokenizer is the sheer number of tokenizer states. 80, to be exact.</p>
+<p><img src="html-tokenizer-states.png" alt><br><em>A small section of the states from <a href="https://github.com/ZeroX-DG/moon/blob/master/components/html/src/tokenizer/state.rs" target="_blank" rel="noopener">moon source code</a></em></p>
+<p>A complete list of states can be found <a href="https://html.spec.whatwg.org/#data-state" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="Tree-building"><a href="#Tree-building" class="headerlink" title="Tree-building"></a>Tree-building</h2><p>The way the tree-building stage works is similar to the tokenize stage. It also switches between different states to create the DOM tree. What special about this stage is it have a stack of open elements to keep track of the parent-child relationship, similar to the <a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">balance parentheses problem</a>.</p>
+<p>Therefore, to build the DOM tree, the tree-building state machine will process the tokens emitted by the tokenizer one by one. If it encounters any script tag, it will pause the current work and let the JS engine does its job. After that, the tree-building process will continue until the EOF token is received.</p>
+<p>One thing to notice when implementing an HTML parser is the tree-building stage doesn’t happen after the tokenize stage. As stated in the specification:</p>
+<blockquote>
+<p>When a token is emitted, it must immediately be handled by the tree construction stage. The tree construction stage can affect the state of the tokenization stage, and can insert additional characters into the stream.</p>
+</blockquote>
+<p>Consider this piece of HTML code:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>this is a paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"&lt;p>this is a new one&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>this is another paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!-- very long html below... --></span>
+</code></pre>
+<p>Because of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/write" target="_blank" rel="noopener"><code>document.write</code></a>, the code starting from the end of the <code>&lt;/script&gt;</code> to the rest of the file will be cleared. Thus, if your parser attempts to tokenize the whole file before performing tree construction, it will end up wasting its time tokenizing redundant code.</p>
+<p>Therefore, to tackle that problem, the browser has the ability to pause the HTML parsing process to execute the JS script first. Therefore, if the script modifies the page, the browser will resume parsing at a new location instead of where it left off before executing the script.</p>
+<p>That’s why JavaScript will block rendering and should be placed at the bottom of the HTML. It also reveals why CSS is also render blocking. When JavaScript runs, it can request for access to the CSSOM, which depends on the CSS; thus, the CSS will block the execution of JS until all the CSS is loaded and the CSSOM is constructed.</p>
+<p><img src="html-blocking.png" alt><br><em>How CSS block rendering. <a href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/" target="_blank" rel="noopener">Source</a></em></p>
+<h1 id="Bonus"><a href="#Bonus" class="headerlink" title="Bonus"></a>Bonus</h1><p>Here are some extra cool things that I learnt after implementing this HTML parser:</p>
+<h2 id="Speculative-parsing"><a href="#Speculative-parsing" class="headerlink" title="Speculative parsing"></a>Speculative parsing</h2><p>As I explained before, because JavaScript can potentially modify the page using <code>document.write</code>, the browser will stop the HTML parsing process until the script execution is completed. However, with the Firefox browser, since Firefox 4, <a href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/" target="_blank" rel="noopener">speculative parsing</a> has been supported. Speculative parsing allows the browser to parse ahead for any resources it might need to load while the JavaScript is being executed. Meaning, the browser can parse HTML faster if JavaScript doesn’t modify the page. However, if it does, everything that the browser parsed ahead is wasted.</p>
+<h2 id="lt-sarcasm"><a href="#lt-sarcasm" class="headerlink" title="&lt;/sarcasm>"></a>&lt;/sarcasm></h2><p>After hours of implementing dry HTML parsing rules, this one really makes me question my own sanity <i class="em em-rolling_on_the_floor_laughing"></i></p>
+<p><img src="html-sarcasm.png" alt></p>
+<h2 id="lt-ruby"><a href="#lt-ruby" class="headerlink" title="&lt;ruby>"></a>&lt;ruby></h2><p>At first, I thought this tag has something to do with the language Ruby. But turn out, it’s a tag to specify a small piece of on top of another text to show the pronunciation, otherwise known as <a href="https://en.wikipedia.org/wiki/Ruby_character" target="_blank" rel="noopener">ruby</a>. For example:</p>
+<p style="text-align: center"><br><ruby><br>河 內<rp>(</rp><rt>Hà Nội</rt><rp>)</rp><br></ruby><br><br><ruby><br>東 京<rp>(</rp><rt>Tō kyō</rt><rp>)</rp><br></ruby><br></p>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ruby</span><span class="token punctuation">></span></span>
+河 內<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rp</span><span class="token punctuation">></span></span>(<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rp</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rt</span><span class="token punctuation">></span></span>Hà Nội<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rt</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rp</span><span class="token punctuation">></span></span>)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rp</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ruby</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ruby</span><span class="token punctuation">></span></span>
+東 京<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rp</span><span class="token punctuation">></span></span>(<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rp</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rt</span><span class="token punctuation">></span></span>Tō kyō<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rt</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rp</span><span class="token punctuation">></span></span>)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rp</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ruby</span><span class="token punctuation">></span></span>
+</code></pre>
+<hr>
+<p>That’s all I can share on my journey implementing the HTML parser. It’s not satisfying to read, I know. But even though it’s complicated to implement the parser, summing up how it works turns out to be quite a simple task; hence, the abrupt ending <i class="em em-joy"></i>. But I hope that I inspired you to use <a href="https://github.com/servo/html5ever/" target="_blank" rel="noopener">Servo’s HTML parser</a> instead of implementing it from scratch like me <i class="em em-okay"></i>. If you somehow deranged enough to do what I did, I wish you the best of luck.</p>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><ul>
+<li>Wikipedia. (2020). <a href="https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization" target="_blank" rel="noopener">Tokenization</a></li>
+<li>WHATWG. (2020). <a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML Living Standard</a></li>
+<li>Servo Engine. (2020). <a href="https://github.com/servo/html5ever/" target="_blank" rel="noopener">Servo HTML parser</a></li>
+<li>SerenityOS. (2020). <a href="https://github.com/SerenityOS/serenity/tree/master/Libraries/LibWeb/HTML/Parser" target="_blank" rel="noopener">SerenityOS HTML parser</a></li>
+<li>Milica Mihajlija. (2017). <a href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/" target="_blank" rel="noopener">Speculative parsing</a></li>
+<li>Ilya Grigorik. (2020). <a href="https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/" target="_blank" rel="noopener">Render Blocking CSS</a></li>
+</ul>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/code/" class="tag">
+                #code
+            </a>
+        
+            <a href="/blog/tags/browser-from-scratch/" class="tag">
+                #browser-from-scratch
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2020-05-29</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/05/29/Browser-from-Scratch-Introduction/">
+          Browser from Scratch: Introduction
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-09-26</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/09/26/Browser-from-Scratch-Layout/">
+          Browser from Scratch: Layout
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-09-01</span>
+    <span class="blog-post-title">
+        <a href="/blog/2020/09/01/Browser-from-Scratch-DOM-API/">
+          Browser from Scratch: DOM API
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-01-13</span>
+    <span class="blog-post-title">
+        <a href="/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/">
+          Browser from Scratch: CSS parsing & processing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/2023/12/05/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>
