@@ -22,19 +22,19 @@ Here are a few clips from my terrible iPhone:
 {% video letdown.MOV 50% %}
 *Let down and hanging aroooouuund (Song: [Let down][letdown])*
 
-{% video presenttense.MOV %}
+{% video presenttense.mp4 %}
 *In you I'm loooosssst (Song: [Present Tense][presenttense])*
 
-{% video notthenews.MOV %}
+{% video notthenews.mp4 %}
 *Bip bop... (Song: [Not the news][notthenews])*
 
 {% video reckoner.MOV 50% %}
 *Reckoneeeeeer.... (Song: [Reckoner][reckoner])*
 
-{% video videotape.MOV %}
+{% video videotape.mp4 %}
 *My video tapeeee (Song: [Videotape][videotape])*
 
-{% video allineed.MOV %}
+{% video allineed.mp4 %}
 *Absolute banger for the end (Song: [All I Need][allineed])*
 
 [letdown]: https://open.spotify.com/track/2fuYa3Lx06QQJAm0MjztKr?si=12e12e9572ab432e
