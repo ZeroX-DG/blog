@@ -15,9 +15,10 @@ Jonny and Thom did end up starting a new band - The Smile, jamming together thro
 
 Since then, these two people have been the most important figures in my musical world. So when I saw a post titled "Thom Yorke is coming to New Zealand", my little heart.exe stopped responding. For the longest time, I never thought I would one day sit in the same ~~room~~ arena with one of my heroes. I texted my friends and immediately reached for my wallet. The word "expensive" became nothing more than a strange arrangement of letters without any meaning.
 
-After the show, I went home, dazed, and picked up my guitar. I shuffled around, tweaked, swore and laughed at the wonky sound from my instrument. My mind desperately held on to the remaining scattered bits of sobriety, and the fading memories of the night.
+After the show, I went home, dazed, and picked up my guitar. I shuffled around, tweaked, swore and laughed at the wonky sound from my instrument. My mind desperately held on to the remaining scattered bits of sobriety, and the fading memories of the night. I still don't think that night happened at all.
 
-A few clips from the show captured on my terrible iPhone :joy:
+
+A few clips from the show captured on my terrible iPhone:
 
 {% video letdown.MOV 50% %}
 *Let down and hanging aroooouuund (Song: [Let down][letdown])*
