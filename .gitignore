@@ -5,3 +5,9 @@ db.json
 node_modules/
 public/
 .deploy*/
+
+# ignore assets since we host it somewhere else.
+source/**/*.mp4
+source/**/*.mov
+source/**/*.jpg
+source/**/*.png
