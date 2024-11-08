@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="What is border-radius, really?">
+    <meta name="twitter:description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        What is border-radius, really?
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        What is border-radius, really?
+    </h1>
+    <div class="blog-post-content">
+        <p>You’re probably thinking: “Hah, such silly question, <code>border-radius</code> is for rounding <code>div</code>s corners, what else?”</p>
+<p>Hmmm but have you ever thought, what does <code>18px</code> or <code>50%</code> really mean when they get passed to <code>border-radius</code> property?</p>
+<p><code>border-radius</code> is actually a shorthand property for four others CSS properties. So when you write:</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+</code></pre>
+<p>You are really writing:</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">border-top-left-radius</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+<span class="token property">border-top-right-radius</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+<span class="token property">border-bottom-left-radius</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+<span class="token property">border-bottom-right-radius</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+</code></pre>
+<p>These four properties represent four corners of an element box (top left, top right, bottom left and bottom right), and the browser relies on those values to draw a curve (an arc really) that connect two edges of each corner. How? The answer lies in the name <code>radius</code>.</p>
+<p>In order to draw the arc, the browser will use the <code>border-radius</code> value to calculate the <code>x, y</code> coordinate of the center of a circle (relative to the position of the corner) using this formula:</p>
+<pre><code>x_circle = x_div_corner + border_radius (or -border_radius if it&#39;s the right edge)
+y_circle = y_div_corner + border_radius (or -border_radius if it&#39;s the bottom edge)
+</code></pre><p>Then it will draw an arc using the above coordinate, plus some extra stuff such as depending on whether it’s a corner on top or bottom, left or right the arc should be clockwise or anti-clockwise, etc.</p>
+<p><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image1.png" /></p>
+<p>That’s why when <code>border-radius</code> is <code>50%</code> and your element box have width and height equal each other (making a square), the browser will draw arcs from a position of 50% width and 50% height, which is at the center of the square, therefore create a perfect circle.</p>
+<p>Although <code>border-radius</code> doesn’t accept value that is less than 0 so you can’t use negative number to make the corners “curve in” <i class="em em-laughing"></i>.</p>
+<p>But <code>border-radius</code> actually accepts up to two values:</p>
+<pre class=" language-css"><code class="language-css"><span class="token property">border-top-left-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px <span class="token number">20</span>px<span class="token punctuation">;</span>
+</code></pre>
+<p>This is because the <code>border-radius</code> arc doesn’t have to be an arc of a circle but can also be an arc of an ellipse, therefore, you can use two different values for the vertical and horizontal radius.</p>
+<p><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image2.png" /><br><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image3.png" /></p>
+<p>Now go do weird things with it! <i class="em em-stuck_out_tongue_winking_eye"></i></p>
+<p><strong>Read More:</strong></p>
+<ul>
+<li><code>border-radius</code> spec:  <a href="https://drafts.csswg.org/css-backgrounds/#border-radius" target="_blank" rel="noopener">https://drafts.csswg.org/css-backgrounds/#border-radius</a></li>
+<li><code>border-radius</code> on CSS almanac: <a href="https://css-tricks.com/almanac/properties/b/border-radius/" target="_blank" rel="noopener">https://css-tricks.com/almanac/properties/b/border-radius/</a></li>
+<li>Forward slash in <code>border-radius</code>: <a href="https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/" target="_blank" rel="noopener">https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/</a></li>
+</ul>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/code/" class="tag">
+                #code
+            </a>
+        
+            <a href="/blog/tags/css/" class="tag">
+                #css
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2022-07-11</span>
+    <span class="blog-post-title">
+        <a href="/blog/Transmute-the-unsafe-magic/">
+          std::mem::transmute the unsafe magic
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-05-29</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-Introduction/">
+          Browser from Scratch: Introduction
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-09-01</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-DOM-API/">
+          Browser from Scratch: DOM API
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-10-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-HTML-parsing/">
+          Browser from Scratch: HTML parsing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-01-13</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-CSS-parsing-processing/">
+          Browser from Scratch: CSS parsing & processing
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

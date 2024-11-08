@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Browser from Scratch: Introduction">
+    <meta name="twitter:description" content="This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Browser from Scratch: Introduction
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Browser from Scratch: Introduction
+    </h1>
+    <div class="blog-post-content">
+        <p>Ah, the browser, the provider of modern addictions such as social media, online games and hours upon hours of videos of stuff getting smashed by the hydraulic press. All of that in one simple piece of software that only take up 90% of your RAM and even <a href="https://www.cnet.com/news/mozilla-exec-says-google-slowed-youtube-down-on-non-chrome-browsers/" target="_blank" rel="noopener">slows down Youtube if you try to switch to other browsers.</a></p>
+<p>That’s why the browser is so appealing to me. We mainly connect with the Internet world via the browser, we spend hours being productive by watching other people being productive on Youtube, we organize our schedule on Google Calendar via the browser even though we go to sleep at 3 AM and wake up just after lunchtime and everyday is a half-day to you. And most importantly, if you are a web developer, the browser’s output literally decides if you will get pay or become <a href="https://en.wikipedia.org/wiki/Diogenes" target="_blank" rel="noopener">Diogenes</a>:</p>
+<p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-Introduction/Diogenes.jpg" /><br><em>Diogenes Sitting in his Tub by <a href="https://en.wikipedia.org/wiki/Jean-L%C3%A9on_G%C3%A9r%C3%B4me" target="_blank" rel="noopener">Jean-Léon Gérôme</a> (1860)</em></p>
+<p>Such an important creation of the world and you probably never get to know how it works which in that case, shame on you….and me too. <i class="em em-okay"></i></p>
+<p>And that’s the reason why this series was born, it’s not to guide you to create a complete browser, but to document the process of me learning how a browser works by creating one and probably get stuck for years and finally give up on this project <strong>BUT!</strong> that comes later.</p>
+<h1 id="Language"><a href="#Language" class="headerlink" title="Language"></a>Language</h1><p>Most browsers are written in C or C++ to achieve maximum speed and flexibility. However, for this project, we are going to use <a href="https://www.rust-lang.org/" target="_blank" rel="noopener">Rust.</a> Why? Because I think Rust is more developer-friendly, more secure and almost as fast as C or C++. And also the <a href="https://servo.org/" target="_blank" rel="noopener">Servo engine</a> is written in Rust so I can <del>steal</del> learn the structure of it and apply it to my engine. <i class="em em-troll"></i></p>
+<h1 id="Browser-architecture"><a href="#Browser-architecture" class="headerlink" title="Browser architecture"></a>Browser architecture</h1><p>Before we start jumping into the code, let’s first take a look at the overall structure of a browser.</p>
+<p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-Introduction/browser_structure.png" /><br><em>Source: <a href="https://www.randgroup.com/insights/ajax-seo-does-google-index-ajax/" target="_blank" rel="noopener">https://www.randgroup.com/insights/ajax-seo-does-google-index-ajax/</a></em></p>
+<h2 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h2><p>The browsers UI includes things that are not created by the web. For example, the URL input box or the forward and backward button, etc. The main purpose of the UI is to receive inputs from the user to control the web being rendered.</p>
+<h2 id="Browser-Engine"><a href="#Browser-Engine" class="headerlink" title="Browser Engine"></a>Browser Engine</h2><p>I used to think that things that are not the UI, together is called browser engine but I was wrong…as usual. The browser engine is the part that receives the input from the UI and processes it to command the render engine. It’s a middle man who sits between UI and Render Engine to connect those 2 parts.</p>
+<p>Why do you need a middle man instead of letting those 2 parts talking directly to each other? That’s because if you want to have both study materials and facebook to be opened at the same time to distract yourself, you will have to have multiple windows or tabs open. In browsers like Chrome, each tab is a separate process that has an instance of Render Engine for rendering the website and these processes will only talk to the browser engine and no one else.</p>
+<p>This way, the browser can isolate the tabs which can be very useful in many situations. For example:</p>
+<ul>
+<li><p>If you click on that picture of the cute cat in your email and a hacker takes over your tab, he cannot access data in other tabs since each tab is a different process and they are introverts therefore they don’t talk to each other.</p>
+</li>
+<li><p>If one of your tabs is doing some heavy work, instead of freezing the whole browser and wait for the work to finish like the old days, that tab can run in the background and you can still switch to other tabs to do you work without any interruption.</p>
+</li>
+<li><p>If one tab crashes, it doesn’t crash the whole browser!</p>
+</li>
+</ul>
+<p>Sounds interesting? Check out <a href="https://www.google.com/googlebooks/chrome" target="_blank" rel="noopener">Chrome comic</a> for more useful information on Google Chrome design that doesn’t bore you.</p>
+<p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-Introduction/chrome_processes.jpg" /><br><em>Source: <a href="https://www.google.com/googlebooks/chrome/small_04.html" target="_blank" rel="noopener">https://www.google.com/googlebooks/chrome/small_04.html</a></em></p>
+<h2 id="Render-Engine"><a href="#Render-Engine" class="headerlink" title="Render Engine"></a>Render Engine</h2><p>The render engine in charge of most of the most expensive operations in the browser. For example, parsing HTML, putting up make up for it using CSS and make it more interesting using JavaScript. However, the render engine doesn’t execute JavaScript directly, instead, each browser has its own dedicated JavaScript engine to process JavaScript code, for example:</p>
+<ul>
+<li><a href="https://v8.dev/" target="_blank" rel="noopener">v8</a> of Google Chrome</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey" target="_blank" rel="noopener">SpiderMonkey</a> of Firefox</li>
+<li><a href="https://en.wikipedia.org/wiki/Chakra_(JScript_engine)" target="_blank" rel="noopener">Chakra</a> of IE</li>
+</ul>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>The network module handle HTTP calls and other network related tasks.</p>
+<h1 id="Do-you-use-library"><a href="#Do-you-use-library" class="headerlink" title="Do you use library?"></a>Do you use library?</h1><p>While many parts of the browser can be created using libraries. I’ll only use libraries for some truly complicated tasks that aren’t very related to the browser, for example, GPU rendering, etc. The rest of the browser will be written from scratch.</p>
+<h1 id="Next-article"><a href="#Next-article" class="headerlink" title="Next article"></a>Next article</h1><p>That’s it for the introduction. This post aims to give you an overview of how a browser works as well as some resources to read and understand it further before we start working on some code. In the next article, we will work on the Rendering Engine for the browser.</p>
+<p>Till next time, folks.</p>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/code/" class="tag">
+                #code
+            </a>
+        
+            <a href="/blog/tags/browser-from-scratch/" class="tag">
+                #browser-from-scratch
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2020-09-01</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-DOM-API/">
+          Browser from Scratch: DOM API
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-10-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-HTML-parsing/">
+          Browser from Scratch: HTML parsing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-01-13</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-CSS-parsing-processing/">
+          Browser from Scratch: CSS parsing & processing
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-09-26</span>
+    <span class="blog-post-title">
+        <a href="/blog/Browser-from-Scratch-Layout/">
+          Browser from Scratch: Layout
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

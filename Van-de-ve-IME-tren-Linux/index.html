@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vấn đề về IME trên Linux">
+    <meta name="twitter:description" content="Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Vấn đề về IME trên Linux
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Vấn đề về IME trên Linux
+    </h1>
+    <div class="blog-post-content">
+        <p>Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.<br><a id="more"></a></p>
+<p>Theo bài viết của đại ca Huy Trần vào năm 2017<sup><a href="https://thefullsnack.com/posts/go-tieng-viet-linux.html" target="_blank" rel="noopener">[1]</a></sup> thì hiện tại, có 2 phương pháp mà các IME đang dùng trên linux:</p>
+<blockquote>
+<p><strong>Preedit:</strong> là cách gõ xuất hiện dấu gạch đít, đây thực chất là một vùng buffer lưu tạm các kí tự đang gõ, thay thế nó, ví dụ aa đưọc thay thành â, khi ngưòi dùng nhấn space để kết thúc từ đang gõ thì nó sẽ commit từ đó về cho UI của ứng dụng. Các bộ gõ tiếng Việt sử dụng kĩ thuật này thì có: ibus-unikey, bộ gõ tiếng Việt mặc định của macOS,…<br>  <strong>Backspace giả:</strong> là cách gõ không xuất hiện dấu gạch đít, cơ chế hoạt động của giải pháp này là khi gõ các kí tự tiếng việt như aa, bộ gõ sẽ tự động gửi 2 dấu backspace vào ứng dụng, và gửi tiếp một kí tự â thay thế. Các bộ gõ sử dụng kĩ thuật này có ibus-bogo, fcitx-bogo, GoTiengViet trên macOS,…</p>
+</blockquote>
+<p>Tất nhiên nếu ai đã từng chập chững bắt đầu gõ tiếng Việt bằng Unikey trên Windows thì chắc hẳn cũng hiểu cái cảm giác sung sướng khi đi đâu gõ cũng ăn và không có cái dấu gạch đít khó chịu hay cái cảm giác hoảng chít mịa khi nhận ra mình vừa gõ status facebook bằng <a href="https://thanhnien.vn/cong-nghe/canh-giac-bo-go-unikey-gia-mao-chiem-doat-quyen-dieu-khien-may-tinh-1156174.html" target="_blank" rel="noopener">Unikey giả mạo</a> và chắc thằng hacker nó biết hết chuyện mình nói xấu rồi <i class="em em-sob"></i></p>
+<p>Chính vì cái cảm giác khó chịu mà cái gạch đít của preedit mang lại mà các bộ IME luôn muốn hướng tới phương pháp backspace giả. Nhưng vấn đề lớn ở đây là không phải ứng dụng nào cũng hoạt động tốt với phương pháp backspace.</p>
+<p>Ví dụ điển hình là việc <a href="https://github.com/BambooEngine/ibus-bamboo" target="_blank" rel="noopener">ibus-bamboo</a>-bộ gõ tiếng Việt duy nhất ở thời điểm hiện tại vẫn còn active, đã phải bổ sung tổ hợp <kbd>Shift</kbd> + <kbd>~</kbd> để chuyển đổi giữa các phương pháp gõ cho từng ứng dụng khác nhau. Trên README của ibus-bamboo có nói rõ vấn đề này:</p>
+<p><img src="https://blog-assets.viethung.space/Van-de-ve-IME-tren-Linux/ibus_bamboo_notice.png" /><br><em>Phần lưu ý trên trang README của ibus-bamboo</em></p>
+<p>Đều này tạo ra sự bất tiện cho người sử dụng và vì thế ibus-bamboo, dù có thể nói là IME hiện đại nhất ở thời điểm bấy giờ nhưng vẫn vướng phải những vấn đề của những tiền bối đi trước: không tương thích với tất cả mọi ứng dụng và gây nhiều bất tiện cho người dùng.</p>
+<h1 id="Trai-nghiem-cua-minh"><a href="#Trai-nghiem-cua-minh" class="headerlink" title="Trải nghiệm của mình"></a>Trải nghiệm của mình</h1><p>Dạo gần đây mình có thử làm một IME bằng Rust, lý do cho việc này thì mình có nói ở <a href="/blog/2020/07/14/Bo-dau-trong-tieng-Viet/">bài này</a>. Điều đầu tiên mình xác định khi bắt tay làm là phải tập trung giải quyết được những vấn đề nói trên vì nếu không thì khác nào mình làm ibus-bamboo thứ 2. Vì vậy, mình bắt đầu thử nghiệm với evdev và uinput để receive và send key.</p>
+<h2 id="Evdev-va-uinput"><a href="#Evdev-va-uinput" class="headerlink" title="Evdev và uinput"></a>Evdev và uinput</h2><p>Thế evdev và uinput là cái quái gì? Một chiêu mà mình học khi làm 1 dự án công ty đó là bạn có thể listen event mà Linux nhận được từ hardware thông qua evdev. Theo wiki<sup><a href="https://en.wikipedia.org/wiki/Evdev" target="_blank" rel="noopener">[2]</a></sup> thì evdev là một interface dùng để translate input từ hardware sang 1 dạng format chung mà các application có thể dùng để xử lý. Nói theo ngôn ngữ front-end webdev thì evdev như một API server cho phép đọc data từ hardware và thay vì dùng JSON, evdev có một chuẩn riêng để return dữ liệu về. Đặc biệt, evdev nhận event trước cả X server:</p>
+<blockquote>
+<p>It sits below the process that handles input events, in between the kernel and that process.</p>
+</blockquote>
+<pre><code>kernel → libevdev → xf86-input-evdev → X server → X client
+</code></pre><p>Bằng cách sử dụng evdev, key input sẽ được nhận thẳng từ kernel nên việc X sever có dở chứng mà ignore key input đi chăng nữa cũng chẳng lo và việc receive key input sẽ hoạt động trên mọi ứng dụng.</p>
+<p>Vậy còn uinput là gì? Theo một bài giải thích mình tìm được<sup><a href="http://who-t.blogspot.com/2016/05/the-difference-between-uinput-and-evdev.html" target="_blank" rel="noopener">[3]</a></sup> thì uinput đơn giản là một kernel module, support cho directory <code>/dev/uinput</code> và bất kì process nào cũng có thể write custom event vào đó. Khi nhận được event, uinput sẽ tạo một device ảo ở directory <code>/dev/input</code> và broadcast event từ device đó. Vì mọi event ở <code>/dev/input</code> sẽ được send tới tất cả ứng dụng nên việc send fake key input từ IME sẽ hoạt động trên mọi ứng dụng bất kể là gtk hay qt.</p>
+<p><strong>tldr/dqdd:</strong> Evdev sử dụng để listen key event ở mọi ứng dụng và uinput dùng để send key event giả tới mọi ứng dụng.</p>
+<h3 id="Van-de-1-Sudo"><a href="#Van-de-1-Sudo" class="headerlink" title="Vấn đề 1: Sudo"></a>Vấn đề 1: Sudo</h3><p><img src="https://blog-assets.viethung.space/Van-de-ve-IME-tren-Linux/sudo_meme.jpg" /></p>
+<p>Vì evdev có thể listen key ở toàn bộ mọi ứng dụng, nên IME sẽ chả khác gì một con keylogger cả. Vì vậy, Linux bắt buộc phải có quyền sudo để sử dụng evdev. Uinput cũng cần quyền root vì lý do tương tự. Điều này không phải là vấn đề quá nhạy cảm vì nếu muốn làm keylogger thì hoàn toàn có thể dùng X11 mà không cần quyền root<sup><a href="https://github.com/anko/xkbcat" target="_blank" rel="noopener">[4]</a></sup>. Nhưng nếu lỡ không may cần xài trên máy trường hoặc máy công cộng không có quyền root thì điều này là khá bất tiện.</p>
+<h3 id="Van-de-2-Sai-nguoi-nhan"><a href="#Van-de-2-Sai-nguoi-nhan" class="headerlink" title="Vấn đề 2: Sai người nhận"></a>Vấn đề 2: Sai người nhận</h3><p>UInput không phân biệt được window đang cần nhận event. Một trường hợp khá hiếm xảy ra là khi đang gõ thì bổng có 1 pop-up xuất hiện. Vì uinput tạo ra một keyboard ảo và key send được send tới nơi có focus nên mọi fake key từ IME sẽ được gửi vào pop-up. Tuy đây không phải là vấn đề lớn nhưng nếu có 1 trang phishing nào đó tạo pop-up quăng lên và IME send nguyên mớ thông tin nhạy cảm vào thì khá là đau lòng.</p>
+<h3 id="Van-de-3-Compose-key"><a href="#Van-de-3-Compose-key" class="headerlink" title="Vấn đề 3: Compose key"></a>Vấn đề 3: Compose key</h3><p>Nếu uinput tạo ra keyboard giả thì làm sao có thể send được các kí tự tiếng Việt? tất nhiên là sử dụng phương pháp <a href="https://en.wikipedia.org/wiki/Compose_key" target="_blank" rel="noopener">compose key</a>. Compose key là phương pháp mà khi gõ tổ hợp <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>u</kbd> và hex của kí tự mà bạn muốn send, X server sẽ compose ra kí tự mà bạn muốn. Hồi còn nhỏ xài winxp mình hay dùng trò này để nhập zero width character phối hợp với empty folder icon để tạo folder ẩn đựng “bài tập” <span style="font-family: Arial; display: inline-block">( ͡° ͜ʖ ͡°)</span>.</p>
+<p>Nhưng vấn đề ở đây là quá trình compose sẽ chỉ được hoàn tất khi bạn release tất cả các phím. Điều này dẫn tới việc đôi lúc key tiếp theo bạn gõ bị ăn vào quá trình compose và tạo ra kí tự sai. Muốn giải quyết vấn đề này, bạn cần đợi IME compose key xong trước khi gõ phím tiếp theo. Việc này tạo ra một khoảng delay lớn khi gõ phím vô cùng bất tiện.</p>
+<h2 id="X11"><a href="#X11" class="headerlink" title="X11"></a>X11</h2><p>Mình cũng đã thử dùng X11 API để listen và send key nhưng vẫn gặp nhiều vấn đề khó giải quyết.</p>
+<p>Cụ thể như việc để send một kí tự unicode thì trước hết cần phải map kí tự ấy vào 1 phím trên X11 keyboard layout bằng API <code>XChangeKeyboardMapping</code> và send key đó bằng <code>XTestFakeKeyEvent</code>. Vấn để ở đây là <code>XChangeKeyboardMapping</code> cần một khoảng delay để apply key và trước khi key kịp apply thì <code>XTestFakeKeyEvent</code> đã send key đi mất. Nếu đợi <code>XChangeKeyboardMapping</code> map xong key rồi mới send thì sẽ tạo ra một khoảng delay giữa các phím nên gõ rất cụt hứng.</p>
+<p>Thêm một điểm khá khó chịu là API của X11 vô cùng lộn xộn, đến giờ mình vẫn không rõ <code>XFlush</code>, <code>XSync</code> và <code>XSynchronize</code> thực sự làm gì.</p>
+<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Nói thế chứ post này chủ yếu để ghi lại những khó khăn mình đi qua chứ không có ý doạ những bạn có ý định xây dựng IME. Nếu các bạn cũng có ý định phát triển một bộ IME trên Linux, sử dụng những kĩ thuật tân tiến hơn thì có thể tham khảo library mà mình tạo ra để giúp các bạn bớt đi gánh nặng về logic của engine và chỉ cần tập trung vào key sending và receiving:</p>
+<p><a href="https://github.com/ZeroX-DG/vi-rs" target="_blank" rel="noopener">https://github.com/ZeroX-DG/vi-rs</a></p>
+<h1 id="Tham-khao"><a href="#Tham-khao" class="headerlink" title="Tham khảo"></a>Tham khảo</h1><ol>
+<li>Thefullsnack. (2017). <a href="https://thefullsnack.com/posts/go-tieng-viet-linux.html" target="_blank" rel="noopener">Chuyện gõ tiếng Việt trên Linux</a>.</li>
+<li>Wikipedia. (2020). <a href="https://en.wikipedia.org/wiki/Evdev" target="_blank" rel="noopener">evdev</a>.</li>
+<li>Peter Hutterer. (2016). <a href="http://who-t.blogspot.com/2016/05/the-difference-between-uinput-and-evdev.html" target="_blank" rel="noopener">The difference between uinput and evdev</a>.</li>
+<li>Vojtech Pavlik. (2001). <a href="https://www.kernel.org/doc/html/latest/input/input.html" target="_blank" rel="noopener">Linux Input Subsystem userspace API</a>.</li>
+<li>The kernel development community. (2020). <a href="https://www.kernel.org/doc/html/latest/input/uinput.html" target="_blank" rel="noopener">uinput module</a></li>
+</ol>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/vietnamese/" class="tag">
+                #vietnamese
+            </a>
+        
+            <a href="/blog/tags/algo/" class="tag">
+                #algo
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2020-07-14</span>
+    <span class="blog-post-title">
+        <a href="/blog/Bo-dau-trong-tieng-Viet/">
+          Bỏ dấu trong tiếng Việt
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-03-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/Viet-cho-2022/">
+          Viết cho 2022
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-11-02</span>
+    <span class="blog-post-title">
+        <a href="/blog/Went-to-see-Thom-Yorke/">
+          Went to see Thom Yorke
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2021-05-24</span>
+    <span class="blog-post-title">
+        <a href="/blog/Tui-lan-dau-di-phong-van/">
+          Lần đầu đi phỏng vấn
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>

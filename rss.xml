@@ -4,19 +4,19 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Viet Hung&#39;s blog</title>
-    <link>https://zerox-dg.github.io/blog/</link>
+    <link>https://viethung.space/blog/</link>
     
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 01 Nov 2024 23:35:05 GMT</pubDate>
+    <pubDate>Fri, 08 Nov 2024 23:04:51 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
     <item>
       <title>Went to see Thom Yorke</title>
-      <link>https://zerox-dg.github.io/blog/2024/11/02/Went-to-see-Thom-Yorke/</link>
-      <guid>https://zerox-dg.github.io/blog/2024/11/02/Went-to-see-Thom-Yorke/</guid>
+      <link>https://viethung.space/blog/Went-to-see-Thom-Yorke/</link>
+      <guid>https://viethung.space/blog/Went-to-see-Thom-Yorke/</guid>
       <pubDate>Sat, 02 Nov 2024 00:00:00 GMT</pubDate>
       
       <description>Yes, that Thom Yorke, from Radiohead</description>
@@ -25,7 +25,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/experience/">experience</category>
+      <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
     </item>
     
@@ -33,8 +33,8 @@
     
     <item>
       <title>Programmer&#39;s Block</title>
-      <link>https://zerox-dg.github.io/blog/2024/05/22/Programmers-block/</link>
-      <guid>https://zerox-dg.github.io/blog/2024/05/22/Programmers-block/</guid>
+      <link>https://viethung.space/blog/Programmers-block/</link>
+      <guid>https://viethung.space/blog/Programmers-block/</guid>
       <pubDate>Wed, 22 May 2024 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Oh hey, I didn’t know you’re still here reading my blog. It’s been half a year without any post I know. I’ve been busy….doing nothing.&lt;/p&gt;</description>
@@ -43,7 +43,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/random/">random</category>
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
     </item>
     
@@ -51,8 +51,8 @@
     
     <item>
       <title>What is border-radius, really?</title>
-      <link>https://zerox-dg.github.io/blog/2023/12/05/What-is-border-radius-really/</link>
-      <guid>https://zerox-dg.github.io/blog/2023/12/05/What-is-border-radius-really/</guid>
+      <link>https://viethung.space/blog/What-is-border-radius-really/</link>
+      <guid>https://viethung.space/blog/What-is-border-radius-really/</guid>
       <pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate>
       
       <description>Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?</description>
@@ -61,9 +61,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/css/">css</category>
+      <category domain="https://viethung.space/blog/tags/css/">css</category>
       
     </item>
     
@@ -71,8 +71,8 @@
     
     <item>
       <title>Rust Koan: Những Chướng Ngại</title>
-      <link>https://zerox-dg.github.io/blog/2023/11/09/Rust-koans-chuong-ngai/</link>
-      <guid>https://zerox-dg.github.io/blog/2023/11/09/Rust-koans-chuong-ngai/</guid>
+      <link>https://viethung.space/blog/Rust-koans-chuong-ngai/</link>
+      <guid>https://viethung.space/blog/Rust-koans-chuong-ngai/</guid>
       <pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
       
       <description>Dịch lại một đoạn koan về rust trong lúc cao hứng.</description>
@@ -81,7 +81,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
+      <category domain="https://viethung.space/blog/tags/rust/">rust</category>
       
     </item>
     
@@ -89,8 +89,8 @@
     
     <item>
       <title>Tui đi coi ca nhạc</title>
-      <link>https://zerox-dg.github.io/blog/2023/08/12/Tui-di-coi-ca-nhac/</link>
-      <guid>https://zerox-dg.github.io/blog/2023/08/12/Tui-di-coi-ca-nhac/</guid>
+      <link>https://viethung.space/blog/Tui-di-coi-ca-nhac/</link>
+      <guid>https://viethung.space/blog/Tui-di-coi-ca-nhac/</guid>
       <pubDate>Sat, 12 Aug 2023 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Đầu năm tới giờ tui đi được 3 buổi hoà nhạc. Tới giờ tui vẫn chưa tin được là mấy đêm hôm đó có diễn ra thiệt.&lt;/p&gt;</description>
@@ -99,7 +99,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/experience/">experience</category>
+      <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
     </item>
     
@@ -107,8 +107,8 @@
     
     <item>
       <title>Viết cho 2022</title>
-      <link>https://zerox-dg.github.io/blog/2023/03/05/Viet-cho-2022/</link>
-      <guid>https://zerox-dg.github.io/blog/2023/03/05/Viet-cho-2022/</guid>
+      <link>https://viethung.space/blog/Viet-cho-2022/</link>
+      <guid>https://viethung.space/blog/Viet-cho-2022/</guid>
       <pubDate>Sun, 05 Mar 2023 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Bữa nay để ý thấy cái blog nguyên một năm 2022 đầy sóng gió chỉ có một bài post duy nhất nên làm tui muốn viết lại chút ít gì đó.&lt;br&gt;</description>
@@ -117,7 +117,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/random/">random</category>
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
     </item>
     
@@ -125,8 +125,8 @@
     
     <item>
       <title>std::mem::transmute the unsafe magic</title>
-      <link>https://zerox-dg.github.io/blog/2022/07/11/Transmute-the-unsafe-magic/</link>
-      <guid>https://zerox-dg.github.io/blog/2022/07/11/Transmute-the-unsafe-magic/</guid>
+      <link>https://viethung.space/blog/Transmute-the-unsafe-magic/</link>
+      <guid>https://viethung.space/blog/Transmute-the-unsafe-magic/</guid>
       <pubDate>Mon, 11 Jul 2022 00:00:00 GMT</pubDate>
       
       <description>Using mem::transmute for struct inheritance in Rust</description>
@@ -135,9 +135,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/rust/">rust</category>
+      <category domain="https://viethung.space/blog/tags/rust/">rust</category>
       
     </item>
     
@@ -145,8 +145,8 @@
     
     <item>
       <title>Browser from Scratch: Layout</title>
-      <link>https://zerox-dg.github.io/blog/2021/09/26/Browser-from-Scratch-Layout/</link>
-      <guid>https://zerox-dg.github.io/blog/2021/09/26/Browser-from-Scratch-Layout/</guid>
+      <link>https://viethung.space/blog/Browser-from-Scratch-Layout/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-Layout/</guid>
       <pubDate>Sun, 26 Sep 2021 00:00:00 GMT</pubDate>
       
       <description>A quick look into how the browser layout process works.</description>
@@ -155,9 +155,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
@@ -165,8 +165,8 @@
     
     <item>
       <title>Lần đầu đi phỏng vấn</title>
-      <link>https://zerox-dg.github.io/blog/2021/05/24/Tui-lan-dau-di-phong-van/</link>
-      <guid>https://zerox-dg.github.io/blog/2021/05/24/Tui-lan-dau-di-phong-van/</guid>
+      <link>https://viethung.space/blog/Tui-lan-dau-di-phong-van/</link>
+      <guid>https://viethung.space/blog/Tui-lan-dau-di-phong-van/</guid>
       <pubDate>Mon, 24 May 2021 00:00:00 GMT</pubDate>
       
       <description>Ghi chép về lần đầu tui đi phỏng vấn xin việc.</description>
@@ -175,7 +175,7 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/experience/">experience</category>
+      <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
     </item>
     
@@ -183,8 +183,8 @@
     
     <item>
       <title>Browser from Scratch: CSS parsing &amp; processing</title>
-      <link>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</link>
-      <guid>https://zerox-dg.github.io/blog/2021/01/13/Browser-from-Scratch-CSS-parsing-processing/</guid>
+      <link>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</guid>
       <pubDate>Wed, 13 Jan 2021 00:00:00 GMT</pubDate>
       
       <description>A brief history of CSS &amp; how browser process CSS values</description>
@@ -193,9 +193,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
@@ -203,8 +203,8 @@
     
     <item>
       <title>Browser from Scratch: HTML parsing</title>
-      <link>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/10/24/Browser-from-Scratch-HTML-parsing/</guid>
+      <link>https://viethung.space/blog/Browser-from-Scratch-HTML-parsing/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-HTML-parsing/</guid>
       <pubDate>Sat, 24 Oct 2020 00:00:00 GMT</pubDate>
       
       <description>Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.</description>
@@ -213,9 +213,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
@@ -223,8 +223,8 @@
     
     <item>
       <title>Browser from Scratch: DOM API</title>
-      <link>https://zerox-dg.github.io/blog/2020/09/01/Browser-from-Scratch-DOM-API/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/09/01/Browser-from-Scratch-DOM-API/</guid>
+      <link>https://viethung.space/blog/Browser-from-Scratch-DOM-API/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-DOM-API/</guid>
       <pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate>
       
       <description>One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I&#39;ll break down my experimentation in building a DOM API with Rust.</description>
@@ -233,9 +233,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
@@ -243,8 +243,8 @@
     
     <item>
       <title>Vấn đề về IME trên Linux</title>
-      <link>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/07/21/Van-de-ve-IME-tren-Linux/</guid>
+      <link>https://viethung.space/blog/Van-de-ve-IME-tren-Linux/</link>
+      <guid>https://viethung.space/blog/Van-de-ve-IME-tren-Linux/</guid>
       <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.&lt;br&gt;</description>
@@ -253,9 +253,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      <category domain="https://viethung.space/blog/tags/algo/">algo</category>
       
     </item>
     
@@ -263,8 +263,8 @@
     
     <item>
       <title>Bỏ dấu trong tiếng Việt</title>
-      <link>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/07/14/Bo-dau-trong-tieng-Viet/</guid>
+      <link>https://viethung.space/blog/Bo-dau-trong-tieng-Viet/</link>
+      <guid>https://viethung.space/blog/Bo-dau-trong-tieng-Viet/</guid>
       <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
       
       <description>Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên &quot;lai nớt&quot; thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.</description>
@@ -273,9 +273,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/vietnamese/">vietnamese</category>
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/algo/">algo</category>
+      <category domain="https://viethung.space/blog/tags/algo/">algo</category>
       
     </item>
     
@@ -283,8 +283,8 @@
     
     <item>
       <title>Browser from Scratch: Introduction</title>
-      <link>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</link>
-      <guid>https://zerox-dg.github.io/blog/2020/05/29/Browser-from-Scratch-Introduction/</guid>
+      <link>https://viethung.space/blog/Browser-from-Scratch-Introduction/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-Introduction/</guid>
       <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
       
       <description>This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!</description>
@@ -293,9 +293,9 @@
       
       
       
-      <category domain="https://zerox-dg.github.io/blog/tags/code/">code</category>
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
       
-      <category domain="https://zerox-dg.github.io/blog/tags/browser-from-scratch/">browser-from-scratch</category>
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
