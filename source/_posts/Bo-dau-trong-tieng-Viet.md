@@ -11,7 +11,7 @@ Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ t
 
 Sau khi kế hoạch 2 bên bại lộ thì vị tiền bối kia đã chọn giao lại trọng trách này cho mình thực hiện. (vị tiền bối mình đang nói tới chưa bao giờ thấy ở trong cùng 1 căn phòng với chủ blog [thefullsnack][1] :troll:)
 
-Tuy nhiên, sau nhiều ngày thử nghiệm với cơ chế receive và sending key trên [X11][5], thậm chí là sử dụng luôn cả [evdev][6] và uinput để nhận và send key thẳng vào kernel Linux, nhưng tần suất chửi thề của mình vẫn không thuyên giảm (Cái này mình sẽ nói ở [một bài riêng][14]). Nhận thấy trình độ thấp kém, mình đành ngậm ngùi nhận thua và chuyển từ phát triển IME sang làm library giúp đặt dấu cho IME. Mong là có thể giúp ích cho các vị cao nhân trong tương lai sử dụng library của mình mà hoàn thành trọng trách bị mình bỏ dở.
+Tuy nhiên, sau nhiều ngày thử nghiệm với cơ chế receive và sending key trên [X11][5], thậm chí là sử dụng luôn cả [evdev][6] và uinput để nhận và send key thẳng vào kernel Linux, nhưng tần suất chửi thề của mình vẫn không thuyên giảm (Cái này mình sẽ nói ở {% post_link Van-de-ve-IME-tren-Linux 'một bài riêng' %}). Nhận thấy trình độ thấp kém, mình đành ngậm ngùi nhận thua và chuyển từ phát triển IME sang làm library giúp đặt dấu cho IME. Mong là có thể giúp ích cho các vị cao nhân trong tương lai sử dụng library của mình mà hoàn thành trọng trách bị mình bỏ dở.
 
 Ở post này mình sẽ nói sơ qua quy luật đặt dấu mà mình học được và đồng thời giới thiệu library hỗ trợ đặt dấu do mình phát triển.
 
@@ -150,4 +150,3 @@ https://github.com/ZeroX-DG/vi-rs
 [11]: http://vietlex.com/xu-li-ngon-ngu/28-Quy_tac_dat_dau_thanh_trong_tieng_Viet
 [12]: https://vietnamesetypography.com/modified-letters/
 [13]: https://vietnamesetypography.com/
-[14]: /blog/2020/07/21/Van-de-ve-IME-tren-Linux/
