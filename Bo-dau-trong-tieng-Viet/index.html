@@ -30,8 +30,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
-<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"></head>
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"><link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+</head>
 
     <body>
         <div class="body-container">
@@ -47,7 +47,7 @@
         <p>Ngoài Covíd 19 và blog <a href="https://thefullsnack.com/" target="_blank" rel="noopener">thefullsnack</a> đóng cửa làm publicity stunt ra thì cuối 2019, đầu 2020 còn là thời kì của trao lưu RIIR (Rewrite It In Rust).</p>
 <p>Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên “lai nớt” thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ <a href="https://en.wikipedia.org/wiki/Input_method" target="_blank" rel="noopener">Input Method Editor</a> hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như <a href="https://en.wikipedia.org/wiki/Intelligent_Input_Bus" target="_blank" rel="noopener">ibus</a> hay <a href="https://en.wikipedia.org/wiki/Fcitx" target="_blank" rel="noopener">fcitx</a>.</p>
 <p>Sau khi kế hoạch 2 bên bại lộ thì vị tiền bối kia đã chọn giao lại trọng trách này cho mình thực hiện. (vị tiền bối mình đang nói tới chưa bao giờ thấy ở trong cùng 1 căn phòng với chủ blog <a href="https://thefullsnack.com/" target="_blank" rel="noopener">thefullsnack</a> <i class="em em-troll"></i>)</p>
-<p>Tuy nhiên, sau nhiều ngày thử nghiệm với cơ chế receive và sending key trên <a href="https://en.wikipedia.org/wiki/X_Window_System" target="_blank" rel="noopener">X11</a>, thậm chí là sử dụng luôn cả <a href="https://en.wikipedia.org/wiki/Evdev" target="_blank" rel="noopener">evdev</a> và uinput để nhận và send key thẳng vào kernel Linux, nhưng tần suất chửi thề của mình vẫn không thuyên giảm (Cái này mình sẽ nói ở <a href="/blog/2020/07/21/Van-de-ve-IME-tren-Linux/">một bài riêng</a>). Nhận thấy trình độ thấp kém, mình đành ngậm ngùi nhận thua và chuyển từ phát triển IME sang làm library giúp đặt dấu cho IME. Mong là có thể giúp ích cho các vị cao nhân trong tương lai sử dụng library của mình mà hoàn thành trọng trách bị mình bỏ dở.</p>
+<p>Tuy nhiên, sau nhiều ngày thử nghiệm với cơ chế receive và sending key trên <a href="https://en.wikipedia.org/wiki/X_Window_System" target="_blank" rel="noopener">X11</a>, thậm chí là sử dụng luôn cả <a href="https://en.wikipedia.org/wiki/Evdev" target="_blank" rel="noopener">evdev</a> và uinput để nhận và send key thẳng vào kernel Linux, nhưng tần suất chửi thề của mình vẫn không thuyên giảm (Cái này mình sẽ nói ở <a href="/blog/Van-de-ve-IME-tren-Linux/" title="một bài riêng">một bài riêng</a>). Nhận thấy trình độ thấp kém, mình đành ngậm ngùi nhận thua và chuyển từ phát triển IME sang làm library giúp đặt dấu cho IME. Mong là có thể giúp ích cho các vị cao nhân trong tương lai sử dụng library của mình mà hoàn thành trọng trách bị mình bỏ dở.</p>
 <p>Ở post này mình sẽ nói sơ qua quy luật đặt dấu mà mình học được và đồng thời giới thiệu library hỗ trợ đặt dấu do mình phát triển.</p>
 <h1 id="Cac-phan-cua-1-chu-tieng-Viet"><a href="#Cac-phan-cua-1-chu-tieng-Viet" class="headerlink" title="Các phần của 1 chữ tiếng Việt"></a>Các phần của 1 chữ tiếng Việt</h1><blockquote>
 <p><strong>Disclaimer!</strong> Mình vốn không xuất thân từ ngành ngôn ngữ học, điểm văn lại chưa bao giờ qua 6.5 từ hồi cấp 2 tới giờ nên những gì mình tìm hiểu được có thể không chính xác cho lắm.</p>

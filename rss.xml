@@ -9,8 +9,32 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 08 Nov 2024 23:05:30 GMT</pubDate>
+    <pubDate>Sun, 10 Nov 2024 04:04:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Migrating to Cloudflare R2</title>
+      <link>https://viethung.space/blog/Migrating-to-Cloudflare-R2/</link>
+      <guid>https://viethung.space/blog/Migrating-to-Cloudflare-R2/</guid>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;A quick update: all images and videos on this blog are now sitting on a &lt;a</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+    </item>
+    
     
     
     <item>

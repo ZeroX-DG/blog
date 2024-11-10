@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Viet Hung's blog">
+    <meta name="author" content="Viet Hung Nguyen">
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Migrating to Cloudflare R2">
+    <meta name="twitter:description" content="Viet Hung's blog">
+    <meta name="twitter:creator" content="@ZeroX_Hung">
+    <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg">
+    <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+    <title>
+      
+        Migrating to Cloudflare R2
+      
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+    <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <link rel="stylesheet" href="/blog/css/custom-emoji.css">
+    <link rel="stylesheet" href="/blog/css/tocbot.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="/blog/css/prism-material-light.css" type="text/css"><link rel="alternate" href="/blog/rss.xml" title="Viet Hung's blog" type="application/rss+xml">
+</head>
+
+    <body>
+        <div class="body-container">
+            <div class="blog-post">
+  <div class="blog-post-container">
+    <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+    </p>
+    <h1 class="blog-post-title">
+        Migrating to Cloudflare R2
+    </h1>
+    <div class="blog-post-content">
+        <p>A quick update: all images and videos on this blog are now sitting on a <a href="https://developers.cloudflare.com/r2/" target="_blank" rel="noopener">Cloudflare R2</a> bucket!</p>
+<p>For the past four years, those files were directly added to git and bundled along with the text contents in a Github action build before being deployed to Github pages. I know you weren’t supposed to add non-text files to git, but I didn’t want to think about that back then. When I started the blog, I wanted to write and didn’t care where things were supposed to go. This system worked fine till recently when I tried to add a 400MB video of <a href="/blog/Went-to-see-Thom-Yorke/" title="Thom Yorke's beautiful singing">Thom Yorke's beautiful singing</a>:</p>
+<p><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/git-add.png" /><br><em><code>git add</code> takes 10s to run on 400MB file <i class="em em-shake"></i></em><br><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/github-limit.png" /><br><em><code>git push</code> takes a minute then get rejected with this message</em></p>
+<p>Turns out Github has a file limit of 100MB!</p>
+<p>I gave Git LFS a whirl a few days ago, but then Github sent me this email:</p>
+<p><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/lfs-limit.png" /></p>
+<p>So I finally bit the bullet and migrated to Cloudflare R2, which gives you 10GB for free. I thought this was going to be hard to set up, so I’ve been putting it off for years, but it turns out to be quite simple.</p>
+<p>I won’t get into the details of how I did it, but the rough steps that I took were:</p>
+<ol>
+<li>Set up a public R2 bucket.</li>
+<li>Change my domain name server to Cloudflare so I can use my subdomain for the bucket.</li>
+<li>Upload all my images and videos to the bucket.</li>
+<li>Write a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> plugin to modify the images and videos URL to use my bucket URL.</li>
+</ol>
+<p>That’s about it.</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// append asset_external_host to assets</span>
+hexo<span class="token punctuation">.</span>extend<span class="token punctuation">.</span>filter<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'after_post_render'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> getAssetURL <span class="token operator">=</span> <span class="token punctuation">(</span>src<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> externalHost <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>config<span class="token punctuation">.</span>asset_external_host<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> externalHost
+      <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token punctuation">.</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>src<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span> externalHost<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">:</span> src<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// IMG</span>
+  data<span class="token punctuation">.</span>content <span class="token operator">=</span> data<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/&lt;img[^>]* src=\"([^\"]*)\"[^>]*>/g</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> src<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`&lt;img src="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">getAssetURL</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">" />`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// SOURCE (VIDEO)</span>
+  data<span class="token punctuation">.</span>content <span class="token operator">=</span> data<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/&lt;source[^>]* src=\"([^\"]*)\"[^>]*>/g</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> src<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`&lt;source src="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">getAssetURL</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">" />`</span></span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><em>^my hexo plugin for appending a custom bucket link to image &amp; video src</em></p>
+
+    </div>
+    <div class="tag-list">
+        <b>Tags:</b>
+        
+            <a href="/blog/tags/random/" class="tag">
+                #random
+            </a>
+        
+    </div>
+    <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">Love what you read? Support me via ko-fi <i class="em em-coffee"></i></a>
+    </div>
+    <div class="separator"></div>
+    <div class="related-blog-post-list">
+        <h1 class="title">Other posts</h1>
+        
+        
+        
+            <div class="blog-post-item">
+  <span class="date">2023-03-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/Viet-cho-2022/">
+          Viết cho 2022
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-05-22</span>
+    <span class="blog-post-title">
+        <a href="/blog/Programmers-block/">
+          Programmer's Block
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-11-02</span>
+    <span class="blog-post-title">
+        <a href="/blog/Went-to-see-Thom-Yorke/">
+          Went to see Thom Yorke
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2023-12-05</span>
+    <span class="blog-post-title">
+        <a href="/blog/What-is-border-radius-really/">
+          What is border-radius, really?
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2020-07-21</span>
+    <span class="blog-post-title">
+        <a href="/blog/Van-de-ve-IME-tren-Linux/">
+          Vấn đề về IME trên Linux
+        </a>
+    </span>
+</div>
+
+        
+    </div>
+  </div>
+  <div class="js-toc"></div>
+</div>
+
+        </div>
+        <!-- After footer scripts -->
+        <script src="/blog/js/tocbot.min.js"></script>
+<script src="/blog/js/custom.js"></script>
+<script>
+ tocbot.init({
+     tocSelector: '.js-toc',
+     contentSelector: '.blog-post-content',
+     headingSelector: 'h1, h2, h3',
+ });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123395923-6');
+</script>
+
+    </body>
+</html>
