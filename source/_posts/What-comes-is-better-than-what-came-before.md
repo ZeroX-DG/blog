@@ -11,7 +11,7 @@ I came home with a heavy heart. The sun was hot and blinding. I took off the bac
 > You are what you perceive
 > What comes is better than what came before
 
-I sat down and smiled at my cup of lemonade.
+I sat down and smiled bitterly at my cup of lemonade.
 
 Is it? Is it really better?
 
