@@ -1,25 +1,26 @@
 <div class="index-page">
     <div class="introduction">
         <h1 class="name"><a href="<%- config.root %>">Viet-Hung Nguyen</a></h1>
-        <p class="title">Software Engineer / Film Enthusiast</p>
-        <p><a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> • <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> • <a href="https://www.linkedin.com/in/v-hung/" target="_blank">LinkedIn</a></p>
+        <p><a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> • <a href="https://twitter.com/itsviethung"
+                target="_blank">Twitter</a> • <a href="https://www.linkedin.com/in/v-hung/" target="_blank">LinkedIn</a>
+        </p>
     </div>
     <div class="blog-post-list<%= page.tag ? ' center' : '' %>">
         <% if (page.tag) { %>
-          <h1>#<%- page.tag %></h1>
-        <% } %>
-        <% page.posts.each(function(item){ %>
-            <%- partial('_partial/article-list-item', {item: item}) %>
-        <% }); %>
+            <h1>#<%- page.tag %></h1>
+            <% } %>
+                <% page.posts.each(function(item){ %>
+                    <%- partial('_partial/article-list-item', {item: item}) %>
+                        <% }); %>
     </div>
     <% if (page.tag) { %>
-    <div class="tag-list center">
-        <p style="font-size: 20px; font-weight: bold;">Other tags:</p>
-        <% site.tags.each(function(tag) {%>
-            <a href="<%- config.root %><%- tag.path %>" class="tag">
-                #<%- tag.name %>
-            </a>
-        <% }); %>
-    </div>
-    <% } %>
+        <div class="tag-list center">
+            <p style="font-size: 20px; font-weight: bold;">Other tags:</p>
+            <% site.tags.each(function(tag) {%>
+                <a href="<%- config.root %><%- tag.path %>" class="tag">
+                    #<%- tag.name %>
+                </a>
+                <% }); %>
+        </div>
+        <% } %>
 </div>
