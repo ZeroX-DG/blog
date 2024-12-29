@@ -9,8 +9,62 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Tue, 24 Dec 2024 00:01:03 GMT</pubDate>
+    <pubDate>Sun, 29 Dec 2024 22:16:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>2024 Qua Sách Tui Đọc</title>
+      <link>https://viethung.space/blog/2024-qua-sach-tui-doc/</link>
+      <guid>https://viethung.space/blog/2024-qua-sach-tui-doc/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;For English reader, I also have a &lt;a href=&quot;/blog/2024-in-books&quot;&gt;translated version</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>2024 in Books</title>
+      <link>https://viethung.space/blog/2024-in-books/</link>
+      <guid>https://viethung.space/blog/2024-in-books/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
     
     
     <item>
@@ -131,6 +185,8 @@
       
       <category domain="https://viethung.space/blog/tags/rust/">rust</category>
       
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
     </item>
     
     
@@ -146,6 +202,8 @@
       
       
       
+      
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
@@ -222,6 +280,8 @@
       
       
       
+      
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
