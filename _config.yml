@@ -45,22 +45,22 @@ highlight:
   auto_detect: false
 
 prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'material-light'
-  line_number: false    # default false
+  mode: "preprocess" # realtime/preprocess
+  theme: "material-light"
+  line_number: false # default false
 
 spotify:
-  size: '320x80'
+  size: "320x80"
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 0
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -96,8 +96,8 @@ feed:
   hub:
   content:
   content_limit: 100
-  content_limit_delim: ' '
-  template: './rss.xml'
+  content_limit_delim: " "
+  template: "./rss.xml"
 
 # Marked
 marked:

@@ -1,6 +1,6 @@
 ---
 title: Lần đầu đi phỏng vấn
-tags: ["experience"]
+tags: ["experience", "vietnamese"]
 description: Ghi chép về lần đầu tui đi phỏng vấn xin việc.
 date: 2021/05/24
 ---

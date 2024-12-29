@@ -1,6 +1,6 @@
 ---
 title: Tui đi coi ca nhạc
-tags: ["experience"]
+tags: ["experience", "vietnamese"]
 date: 2023/08/12
 ---
 

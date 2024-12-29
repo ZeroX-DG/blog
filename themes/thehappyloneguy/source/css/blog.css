@@ -333,6 +333,12 @@ th {
   left: 80%;
   transform: translateY(-50%);
   overflow: hidden;
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.blog-post .js-toc:hover {
+  opacity: 1;
 }
 
 .blog-post .js-toc ol {

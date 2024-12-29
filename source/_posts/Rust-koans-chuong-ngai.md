@@ -1,6 +1,6 @@
 ---
 title: "Rust Koan: Những Chướng Ngại"
-tags: ["rust"]
+tags: ["rust", "vietnamese"]
 date: 2023/11/09
 description: Dịch lại một đoạn koan về rust trong lúc cao hứng.
 ---
