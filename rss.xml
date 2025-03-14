@@ -9,8 +9,33 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 31 Jan 2025 12:09:48 GMT</pubDate>
+    <pubDate>Fri, 14 Mar 2025 22:46:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Chuyển Nhà</title>
+      <link>https://viethung.space/blog/chuyen-nha/</link>
+      <guid>https://viethung.space/blog/chuyen-nha/</guid>
+      <pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Ờ thì tui lại chuyển nhà &lt;i class=&quot;em em-joy&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;Trong gần 6 năm qua, tui chưa từng ở</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+    </item>
+    
     
     
     <item>
@@ -410,26 +435,6 @@
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
       <category domain="https://viethung.space/blog/tags/algo/">algo</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Browser from Scratch: Introduction</title>
-      <link>https://viethung.space/blog/Browser-from-Scratch-Introduction/</link>
-      <guid>https://viethung.space/blog/Browser-from-Scratch-Introduction/</guid>
-      <pubDate>Fri, 29 May 2020 00:00:00 GMT</pubDate>
-      
-      <description>This is the start of Browser from Scratch series, created to help me (and probably you too) to learn more about how a browser works by building one!</description>
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/code/">code</category>
-      
-      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
