@@ -28,4 +28,6 @@ I didn't answer. I kissed her hair and held her tight, feeling her skin on my sk
 
 Outside on the lawn, we watched two leaves swirling together, dancing to the violent wind for a brief moment, before one of them got blown away. It flew so far away, leaving the other leaf spinning alone on the ground. Then the wind picked up again, sending everything in the air. We lay in bed, holding on to each other, till the storm was gone, and the dawn chorus started.
 
+I'm sure she knows what was on my mind.
+
 
