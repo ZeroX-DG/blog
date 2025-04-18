@@ -9,8 +9,32 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 14 Mar 2025 22:46:49 GMT</pubDate>
+    <pubDate>Fri, 18 Apr 2025 02:46:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Year Of The Cat</title>
+      <link>https://viethung.space/blog/Year-of-The-Cat/</link>
+      <guid>https://viethung.space/blog/Year-of-The-Cat/</guid>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;This short story has been sitting on my laptop for more than a year. I’ve forgotten what the</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/short-story/">short-story</category>
+      
+    </item>
+    
     
     
     <item>
@@ -65,32 +89,6 @@
     
     
     <item>
-      <title>2024 in Books</title>
-      <link>https://viethung.space/blog/2024-in-books/</link>
-      <guid>https://viethung.space/blog/2024-in-books/</guid>
-      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/random/">random</category>
-      
-      <category domain="https://viethung.space/blog/tags/books/">books</category>
-      
-    </item>
-    
-    
-    
-    <item>
       <title>2024 Qua Sách Tui Đọc</title>
       <link>https://viethung.space/blog/2024-qua-sach-tui-doc/</link>
       <guid>https://viethung.space/blog/2024-qua-sach-tui-doc/</guid>
@@ -111,6 +109,32 @@
       <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>2024 in Books</title>
+      <link>https://viethung.space/blog/2024-in-books/</link>
+      <guid>https://viethung.space/blog/2024-in-books/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/books/">books</category>
       
@@ -407,26 +431,6 @@
       <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.&lt;br&gt;</description>
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
-      <category domain="https://viethung.space/blog/tags/algo/">algo</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Bỏ dấu trong tiếng Việt</title>
-      <link>https://viethung.space/blog/Bo-dau-trong-tieng-Viet/</link>
-      <guid>https://viethung.space/blog/Bo-dau-trong-tieng-Viet/</guid>
-      <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
-      
-      <description>Cuối năm 2019, cộng đồng webuild đang sôi sục về chủ đề gõ tiếng Việt trên &quot;lai nớt&quot; thì có 2 cá nhân nảy ra cùng ý tưởng nhưng giấu nhẹm đi làm riêng. Ý tưởng là 1 bộ Input Method Editor hoàn toàn bằng Rust, hứa hẹn sẽ có thể cạnh tranh với các tên tuổi trong làng gõ chữ Quốc ngữ trên Linux như ibus hay fcitx.</description>
       
       
       
