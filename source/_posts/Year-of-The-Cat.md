@@ -20,7 +20,7 @@ As we lay watching the trees bending in various directions, she held my arms aro
 
 The night before, she showed up at my door unannounced after disappearing for weeks. I was drinking by myself, listening to Al Stewart's "Year Of The Cat" when she came knocking on my door.
 
-In the morning, she opened my curtain to the grey sky and got back in bed. With my arm around her body, we lay watching the backyard through the small window.
+In the morning, she opened the curtains to the grey sky and got back in bed. With my arm around her body, we lay watching the backyard through the small window.
 
 "If someday, I must go away again, without knowing when I'd be back. Would you still wait for me?" she said.
 
