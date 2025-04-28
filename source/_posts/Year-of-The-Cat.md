@@ -8,7 +8,7 @@ This short story has been sitting on my laptop for more than a year. I've forgot
 
 ---
 
-June likes to cuddle whenever she comes over to my place. And when morning came, I would wake up to see that her side of the bed was empty. And when I head out for work, there would only be one pair of shoes waiting for me, my pair of shoes.
+June likes to cuddle whenever she comes over to my place. And when morning comes, I would wake up to see that her side of the bed is empty. And when I head out for work, there would only be one pair of shoes waiting for me, my pair of shoes.
 
 Once we were in bed, June told me she could read my mind sometimes, that she gained this ability after a car accident in middle school. She said when she woke up in the hospital, she could hear everyone's thoughts. I thought that was quite a handy thing to have, to which she then turned to me (without me saying anything), and said "It's not like what you think. It's a curse."
 
