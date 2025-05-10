@@ -9,8 +9,32 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Mon, 28 Apr 2025 12:21:59 GMT</pubDate>
+    <pubDate>Sat, 10 May 2025 16:19:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Japan Travel Log (Entry #1): The Dead Phone Incident</title>
+      <link>https://viethung.space/blog/Japan-travel-log-dead-phone-incident/</link>
+      <guid>https://viethung.space/blog/Japan-travel-log-dead-phone-incident/</guid>
+      <pubDate>Sat, 10 May 2025 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;I started 2025 by fulfilling my ultimate dream since I was 17: to become a tourist in Japan &lt;i</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/experience/">experience</category>
+      
+    </item>
+    
     
     
     <item>
@@ -278,9 +302,9 @@
       
       
       
-      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
+      
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
     </item>
     
@@ -356,9 +380,9 @@
       
       
       
-      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
+      
+      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
       
     </item>
     
@@ -419,26 +443,6 @@
       <category domain="https://viethung.space/blog/tags/code/">code</category>
       
       <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Vấn đề về IME trên Linux</title>
-      <link>https://viethung.space/blog/Van-de-ve-IME-tren-Linux/</link>
-      <guid>https://viethung.space/blog/Van-de-ve-IME-tren-Linux/</guid>
-      <pubDate>Tue, 21 Jul 2020 00:00:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;Một vấn đề muôn thuở của những IME hỗ trợ gõ tiếng Việt trên Linux là việc tương thích phương pháp gõ với cả ứng dụng lẫn người dùng.&lt;br&gt;</description>
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
-      <category domain="https://viethung.space/blog/tags/algo/">algo</category>
       
     </item>
     
