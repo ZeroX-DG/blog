@@ -1,5 +1,5 @@
 ---
-title: "Japan Travel Log (Entry #1): The Dead Phone Incident"
+title: "Japan Travel Log: The Dead Phone Incident"
 tags: ["experience"]
 date: 2025/05/10
 ---
