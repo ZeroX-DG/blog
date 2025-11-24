@@ -31,7 +31,9 @@ On my left was a young couple having a vivid conversation about how unsure they 
 "But you know, even if Josh actually hates you, I still like talking to you."
 "Yeah?" she said, looking in his eyes as if none of those things mattered. "I like talking to you, too."
 
-Through the reflection of the train window, I watched as she put her legs on his thigh and they smiled at each other. An air of intimacy filled the train, and I was pulled back to reality again. Better left these people alone, I thought. I put on Night Train by The Oscar Peterson Trio and distract myself from the couple by trying to follow the piano melody of C-jam Blues.
+Through the reflection of the train window, I watched as she put her legs on his thigh and they smiled at each other. An air of intimacy filled the train, and I was pulled back to reality again. *Better leave these people alone*, I thought. I put on Night Train by The Oscar Peterson Trio and distracted myself from the couple by trying to follow the piano melody of C-jam Blues.
+
+***
 
 About half an hour later, I arrived at my hotel, checked in, left my bags, and began walking in the general direction of the central station. Getting on an early flight had filled my stomach with a violent hunger for real food. My only goal at the time was to find a lunch spot, and I heard there are plenty of good restaurants near the central station.
 
@@ -111,7 +113,7 @@ Ramen always puts me to sleep. Perhaps even more effective than sleeping pills.
 
 When I awoke, the street lights had just been turned on. My stomach made a sad growling sound.
 
-I left my room, checking my bag several times, making sure the key was there. The front desk closed at 6PM, and getting stuck outside in the CBD on a Friday night doesn't sound like the smartest idea. The bars on the other side of the street were getting more crowded by the minute.
+I left my room, checking my bag several times, making sure the key was there. The front desk closed at 6 PM, and getting stuck outside in the CBD on a Friday night doesn't sound like the smartest idea. The bars on the other side of the street were getting more crowded by the minute.
 
 The restaurants in the city are mostly fancy ones, costing $50 or above per person. So I kept on walking further south and ended up in Westfield, hoping that they'd still have some cheap ramen at Ippudo. Lucky for me, the restaurant closes at 8 and the staff were happy to take me to a counter seat.
 
@@ -125,10 +127,10 @@ For some reason, they always stretched the end of the sentence at ramen restaura
 
 I left the restaurant when the staff began to clear the nearby empty tables, and there were only a few diners left at the counter.
 
-When I was back at my hotel, the opposite bar had completely overflowed with people. Some in business suits, some in jeans and T-shirts. They were talking, singing, and laughing loudly until nearly 2 a.m. I lay in bed listening to the drunken laughter mixing with motorcycle engines and, at one point, the unmistakable sound of a cat being murdered, though somehow it got away.
+When I was back at my hotel, the opposite bar had completely overflowed with people. Some in business suits, some in jeans and T-shirts. They were talking, singing, and laughing loudly until nearly 2 AM. I lay in bed listening to the drunken laughter mixing with motorcycle engines and, at one point, the unmistakable sound of a cat being murdered, though somehow it got away.
 
 I thought about the couple on the train, the bin chicken pretending I didn't exist, the guy miswriting my name, the bookstore lady pronouncing Dymocks weirdly. Maybe that was all it was — just different ways of saying the same thing. And although I might not realised it, everyone was trying to reach me in their own way.
 
-I clutched my pillow like it was a flotation device. This was my last night before Melbourne, and the city was determined to scream its personality into my window until 2 A.M. 
+I clutched my pillow like it was a flotation device. This was my last night before Melbourne, and the city was determined to scream its personality into my window until 2 AM. 
 
 I should probably have had more ramen.
