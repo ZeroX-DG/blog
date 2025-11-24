@@ -9,8 +9,32 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Sun, 11 May 2025 03:50:22 GMT</pubDate>
+    <pubDate>Mon, 24 Nov 2025 12:10:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>Australia Travel Log: Sydney</title>
+      <link>https://viethung.space/blog/Australia-travel-log-Sydney/</link>
+      <guid>https://viethung.space/blog/Australia-travel-log-Sydney/</guid>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;On a tiny screen at the back of a headrest, an animated globe slowly spun to a thin white line</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/experience/">experience</category>
+      
+    </item>
+    
     
     
     <item>
@@ -113,32 +137,6 @@
     
     
     <item>
-      <title>2024 in Books</title>
-      <link>https://viethung.space/blog/2024-in-books/</link>
-      <guid>https://viethung.space/blog/2024-in-books/</guid>
-      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/random/">random</category>
-      
-      <category domain="https://viethung.space/blog/tags/books/">books</category>
-      
-    </item>
-    
-    
-    
-    <item>
       <title>2024 Qua Sách Tui Đọc</title>
       <link>https://viethung.space/blog/2024-qua-sach-tui-doc/</link>
       <guid>https://viethung.space/blog/2024-qua-sach-tui-doc/</guid>
@@ -159,6 +157,32 @@
       <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>2024 in Books</title>
+      <link>https://viethung.space/blog/2024-in-books/</link>
+      <guid>https://viethung.space/blog/2024-in-books/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/books/">books</category>
       
@@ -415,26 +439,6 @@
       <pubDate>Sat, 24 Oct 2020 00:00:00 GMT</pubDate>
       
       <description>Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.</description>
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/code/">code</category>
-      
-      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Browser from Scratch: DOM API</title>
-      <link>https://viethung.space/blog/Browser-from-Scratch-DOM-API/</link>
-      <guid>https://viethung.space/blog/Browser-from-Scratch-DOM-API/</guid>
-      <pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate>
-      
-      <description>One of the main building blocks of the HTML rendering process is the DOM API. Before a browser can render the HTML document, it needs to parse the document content into a tree structure called the DOM tree. In this post, I&#39;ll break down my experimentation in building a DOM API with Rust.</description>
       
       
       
