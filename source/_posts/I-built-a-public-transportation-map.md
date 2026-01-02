@@ -4,7 +4,7 @@ tags: ["random", "code"]
 date: 2026/01/03
 ---
 
-So, long story short, I stumbled across this amazing map of Tokyo's public transportation system by Akihiko Kusanagi about three days before the end of 2025. At the time, Claude AI had just graciously doubled its usage limits at no cost at all for 7 days, and I was on holiday with too much free time on my hands to know what to do with it.
+So, long story short, I stumbled across this amazing [map of Tokyo's public transportation system](https://minitokyo3d.com/) by [Akihiko Kusanagi](https://github.com/nagix) about three days before the end of 2025. At the time, Claude AI had just graciously doubled its usage limits at no cost at all for 7 days, and I was on holiday with too much free time on my hands to know what to do with it.
 
 ![](claude-2x.png)
 
