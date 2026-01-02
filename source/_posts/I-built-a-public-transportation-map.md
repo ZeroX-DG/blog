@@ -165,7 +165,7 @@ There was also a cluster of unmarked vehicles in the Bay of Islands, but I never
 
 Maybe they are backup ferries? Or is AT planning to grow its network? Either way, I'm very curious.
 
-And the farthest south you can go with your AT hop card is Hamilton. You hop on the Te Huia train at the Strand, and 2.5 hours later, moving across the Waikato River, you'd find yourself at Hamilton, dazed and confused.
+And the farthest south you can go with your AT hop card is Hamilton. You hop on the Te Huia train at the Strand, and 2.5 hours later, moving along the Waikato River, you'd find yourself at Hamilton, dazed and confused.
 
 ![](hamilton.jpeg)
 
