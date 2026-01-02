@@ -1,7 +1,7 @@
 // append asset_external_host to assets
 hexo.extend.filter.register('after_post_render', function (data) {
   const getAssetURL = (src) => {
-    const externalHost = hexo.env.env === 'development' ? null : this.config.asset_external_host;
+    const externalHost = this.config.asset_external_host;
     return externalHost
       ? new URL(`${data.path}${src}`, externalHost).toString()
       : src;
