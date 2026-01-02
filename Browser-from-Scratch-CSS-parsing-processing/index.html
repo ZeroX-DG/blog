@@ -50,7 +50,7 @@
 <blockquote>
 <p><strong>Fun Fact:</strong> In 1996, Netscape implemented CSS support by translating CSS rules into snippets of JavaScript, which were then run along with other scripts. It’s certainly inefficient to use CSS that way, so Netscape then proposed a new syntax called JSSS or <a href="https://en.wikipedia.org/wiki/JavaScript_Style_Sheets" target="_blank" rel="noopener">JavaScript Style Sheets</a> to bypass CSS entirely. <br><br>That didn’t work out, fortunately. And from that on, the world lives happily in CSS and we never tried to write JS <a href="https://cssinjs.org/" target="_blank" rel="noopener">for</a> &nbsp; <a href="https://styled-components.com/" target="_blank" rel="noopener">styling</a> &nbsp; <a href="https://emotion.sh" target="_blank" rel="noopener">ever</a> &nbsp; <a href="https://formidable.com/open-source/radium/" target="_blank" rel="noopener">again</a>.</p>
 </blockquote>
-<h2 id="CSS-Parsing"><a href="#CSS-Parsing" class="headerlink" title="CSS Parsing"></a>CSS Parsing</h2><p><img src="css_parsing_flow.png" /></p>
+<h2 id="CSS-Parsing"><a href="#CSS-Parsing" class="headerlink" title="CSS Parsing"></a>CSS Parsing</h2><p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-CSS-parsing-processing/css_parsing_flow.png" /></p>
 <p>Similar to HTML parsing, CSS parsing also starts by tokenizing the CSS source code into tokens, which are then parsed into CSS rules.</p>
 <p>The parsing rules are described in <a href="https://www.w3.org/TR/css-syntax-3" target="_blank" rel="noopener">the CSS syntax spec</a>. However, since the syntax is fairly simple, you are free implement your version of the parsing algorithm to maximize the speed. In fact, <a href="https://github.com/tabatkins" target="_blank" rel="noopener">Tab Atkins Jr.</a> who is working on the syntax spec states in <a href="https://github.com/tabatkins/parse-css" target="_blank" rel="noopener">his implementation</a> of the spec:</p>
 <blockquote>
@@ -69,7 +69,7 @@
 </li>
 </ul>
 <p>For the sake of simplicity, <del>and because I haven’t implemented at-rules support yet,</del> I will only be covering how browser process style rules.</p>
-<h2 id="Style-rule-parsing"><a href="#Style-rule-parsing" class="headerlink" title="Style rule parsing"></a>Style rule parsing</h2><p><img src="ruleset.png" /><br><em>To avoid expensive lawsuit in the future, here’s the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax" target="_blank" rel="noopener">source</a> of the diagram</em></p>
+<h2 id="Style-rule-parsing"><a href="#Style-rule-parsing" class="headerlink" title="Style rule parsing"></a>Style rule parsing</h2><p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-CSS-parsing-processing/ruleset.png" /><br><em>To avoid expensive lawsuit in the future, here’s the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax" target="_blank" rel="noopener">source</a> of the diagram</em></p>
 <p>A valid style rule is a CSS rule that has a list of selectors and a declaration block. The declaration block contains many style declarations separated by semicolons.</p>
 <p>Meaning….</p>
 <p><blockquote class="twitter-tweet" data-conversation="none"><p lang="et" dir="ltr">.ಠ_ಠ { –（╯°□°）╯: ︵┻━┻; } is valid CSS.</p>&mdash; 🏝 Taudry Hepburn 🏝 (@tabatkins) <a href="https://twitter.com/tabatkins/status/1099050056760487936?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">February 22, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
@@ -112,13 +112,13 @@
 <li>Subsequent-sibling combinator (<code>&#39;~&#39;</code>)</li>
 </ol>
 <p>And they are usually combined into somthing like this:</p>
-<p><img src="selector_types.png" /></p>
+<p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-CSS-parsing-processing/selector_types.png" /></p>
 <p>But if you are a web developer like me, you probably have already known what CSS selectors are all about. So here’s the <a href="https://www.w3.org/TR/selectors-3/" target="_blank" rel="noopener">spec</a> if you want to dive deeper, and let’s move on to something more exciting.</p>
 <h2 id="CSS-style-processing"><a href="#CSS-style-processing" class="headerlink" title="CSS style processing"></a>CSS style processing</h2><h3 id="Selector-matching"><a href="#Selector-matching" class="headerlink" title="Selector matching"></a>Selector matching</h3><p>After parsing all CSS rules, the browser must then perform a process called <strong>selector matching</strong>, which is like tinder, but for style rules and DOM nodes.</p>
 <p>In this process, the browser will attempt to match the selector of every style rule to every node in the DOM tree. If a node prefers no ons and fwb and matched the selector, all the style declarations in the style rule will be applied to that node.</p>
 <p>If you are thinking: “This sounds incredibly inefficient! What if I intentionally write a very weird selector to slow down the web?” then the answer is: “you will burn in hell, you prick.”</p>
 <p>But not to worry, browser engines nowadays are very smart and do all kinds of optimization so prevent that from happening. So if you feel lost in life and wish to learn more, I suggest you dive into this <a href="https://stackoverflow.com/questions/12279544/which-css-selectors-or-rules-can-significantly-affect-front-end-layout-renderi/" target="_blank" rel="noopener">link</a>.</p>
-<h3 id="Style-declaration-processing"><a href="#Style-declaration-processing" class="headerlink" title="Style declaration processing"></a>Style declaration processing</h3><p><img src="declaration.png" /></p>
+<h3 id="Style-declaration-processing"><a href="#Style-declaration-processing" class="headerlink" title="Style declaration processing"></a>Style declaration processing</h3><p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-CSS-parsing-processing/declaration.png" /></p>
 <p><strong>Property processing</strong></p>
 <p>There are 2 types of CSS property:</p>
 <ul>
@@ -130,7 +130,7 @@
 <p>For every property of every element on our page, the browser guarantees there is always a value for it. Even if there is no style declaration applied, the browser will still fall back to a value via the defaulting process. We will discuss that later.</p>
 <p>As of 2021, there are <a href="https://www.w3.org/Style/CSS/all-properties.en.html" target="_blank" rel="noopener">538 different CSS properties</a>. Therefore, to render a page, every element on the page must have a style object that holds 538 properties, each with its own value.</p>
 <p>So to optimize the space usage, properties that share a common value, will hold a pointer to that value instead of owning a copy of the value for themselves, which is similar to the concept of <a href="https://towardsdatascience.com/optimization-in-python-interning-805be5e9fd3e" target="_blank" rel="noopener">“interning” in Python</a>:</p>
-<p><img src="interning.png" /><br><em><a href="https://towardsdatascience.com/optimization-in-python-interning-805be5e9fd3e" target="_blank" rel="noopener">Source</a></em></p>
+<p><img src="https://blog-assets.viethung.space/Browser-from-Scratch-CSS-parsing-processing/interning.png" /><br><em><a href="https://towardsdatascience.com/optimization-in-python-interning-805be5e9fd3e" target="_blank" rel="noopener">Source</a></em></p>
 <p>Now, to ensure every property has a value, the browser must performs a multi-step calculation to process style rules and arrive at a value for each property.</p>
 <blockquote>
 <p><strong>Notice me senpai!</strong> I won’t be going deep into the details of each step, but if you wish to learn more, consider reading the <a href="https://www.w3.org/TR/css3-cascade/#value-stages" target="_blank" rel="noopener">spec</a>.</p>

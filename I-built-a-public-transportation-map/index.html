@@ -45,14 +45,14 @@
     </h1>
     <div class="blog-post-content">
         <p>So, long story short, I stumbled across this amazing map of Tokyo’s public transportation system by Akihiko Kusanagi about three days before the end of 2025. At the time, Claude AI had just graciously doubled its usage limits at no cost at all for 7 days, and I was on holiday with too much free time on my hands to know what to do with it.</p>
-<p><img src="claude-2x.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/claude-2x.png" /></p>
 <p><em>Why not give vibe coding a try?</em> I thought. Surely I could do something similar for Auckland. It was as if the stars had aligned above my head.</p>
 <p>So, even when I’m somewhat against vibe coding, this was the perfect time &amp; conditions for it to happen.</p>
 <blockquote>
 <p>They say the Devil’s water it ain’t so sweet; you don’t have to drink right now. But you can dip your feet… Every once in a little while.</p>
 </blockquote>
 <p>In the end, this is what came out of it: <a href="https://ptauckland3d.com" target="_blank" rel="noopener">https://ptauckland3d.com</a></p>
-<p><img src="screenshot.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/screenshot.png" /></p>
 <h2 id="So-what-is-it"><a href="#So-what-is-it" class="headerlink" title="So what is it?"></a>So what is it?</h2><p>There were 4 things that impressed me in Kusanagi-san’s mini Tokyo project that I wanted to replicate:</p>
 <ol>
 <li>The vast network of trains</li>
@@ -60,23 +60,23 @@
 <li>The live camera view of each station</li>
 <li>The 3D map</li>
 </ol>
-<p><img src="tokyo.png" /><br><em>It even got the snow! whaaat?</em></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/tokyo.png" /><br><em>It even got the snow! whaaat?</em></p>
 <p>Of all the countries in the world, Japan is perhaps the one with the best train system. They have a huge network of underground and above-ground trains; from local small trains to express Shinkansen that take you from Osaka to Tokyo in 4 hours. So naturally, the first item on the list would be difficult to attain with Auckland’s smaller public transport network. But to be fair, it’s not even that small.</p>
 <p>After building this app, I realised we had a pretty decent network for a city of 1.7 million people (compared to a whopping 14 million population of Tokyo). Still, it doesn’t mean that there aren’t things that need improving *cough*trains to airport*cough*</p>
-<p><img src="birdeyes-view.png" /><br><em>bird’s eye view of the Auckland public transport network</em></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/birdeyes-view.png" /><br><em>bird’s eye view of the Auckland public transport network</em></p>
 <p>The second thing, about having the vehicle positions updated live on the map is pretty straightforward to implement. Since Auckland Transport publishes the locations of all buses and trains via their API at: <a href="https://dev-portal.at.govt.nz/" target="_blank" rel="noopener">https://dev-portal.at.govt.nz/</a>, and the API is free (with rate limit), it’s pretty easy to grab the vehicles coordinates and plot them on a map.</p>
-<p><img src="position-json.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/position-json.png" /></p>
 <p>While there are no actual “live” positions, the vehicle locations are guaranteed (by AT) to be updated at least every 30 seconds, and we can request them in one single GET request. So every 10 seconds, I sent out a request for locations updates. And in that mean time, I added a sly animation of the vehicles drifting forward to gives an illusion of them moving in real-time, while we wait for the next positions update to arrive.</p>
-<p><img src="realtime.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/realtime.png" /></p>
 <p>As for the live camera, there were no live camera feeds anywhere that I could find. The closest thing I found was <a href="https://www.journeys.nzta.govt.nz/traffic-cameras/auckland/137" target="_blank" rel="noopener">NZTA camera network</a>, which takes a single picture for each camera at a certain interval. This could be helpful in some cases, but it’s no doubt much less impressive than a live camera feed. So it’s simply not worth integrating.</p>
 <p>My aim then reduced to: A visualisation of all the routes, buses and trains in Auckland with vehicles moving to their somewhat near real-life position.</p>
 <p>That was enough for me to call it a win. Besides, I only got 3 days before Claude reverts to the old usage limit.</p>
 <h2 id="What-about-the-3D-map"><a href="#What-about-the-3D-map" class="headerlink" title="What about the 3D map?"></a>What about the 3D map?</h2><p>Kusanagi-san (btw this last name sounds so cool to me. I thought about <a href="https://en.wikipedia.org/wiki/Motoko_Kusanagi" target="_blank" rel="noopener">Makoto Kusanagi</a> from Ghost In the Shell when I saw this name) used <a href="https://www.mapbox.com/" target="_blank" rel="noopener">Mapbox</a> to show a 3D view of Tokyo. And luckily, the same library also works for Auckland.</p>
 <p>The only catch is that it offers a free limit of 50,000 loads/month. After exceeding that limit, you are automatically on pay-as-you-go. There was no option to simply disable the map when the free-tier usage is exceeded, so the chance of waking up on the curb, homeless, with a massive Mapbox bill was dangerously close to me.</p>
-<p><img src="mapbox-limit.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/mapbox-limit.png" /></p>
 <p>But eventually, on a Sunday night, in front of the glowing monitor, I put the fate of my credit card in the hands of the people and created a free-tier Mapbox account.</p>
 <p>Unrelated, but during my research, I also found this <a href="https://demo.f4map.com/#lat=-36.8475250&amp;lon=174.7636722&amp;zoom=16" target="_blank" rel="noopener">impressive map</a> with actual natural elements like trees &amp; bushes:</p>
-<p><img src="f4map.png" /><br><em>Auckland is so beautiful</em></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/f4map.png" /><br><em>Auckland is so beautiful</em></p>
 <h2 id="How-did-you-render-the-vehicles"><a href="#How-did-you-render-the-vehicles" class="headerlink" title="How did you render the vehicles?"></a>How did you render the vehicles?</h2><p>So you know how AT returns a list of locations for all vehicles in one single request? It looks like this:</p>
 <pre><code>[
   {
@@ -101,34 +101,34 @@
 </code></pre><p>So I grabbed the latitude and longitude of these vehicles and painted them on the map as a 3D box, which Mapbox has provided an example to demonstrate how to do this with Three.js:</p>
 <p><a href="https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model-threebox/" target="_blank" rel="noopener">https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model-threebox/</a></p>
 <p>The result?</p>
-<p><img src="position-plot.png" /><br><em>An early prototype when I yet know how to colour the vehicles:)</em></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/position-plot.png" /><br><em>An early prototype when I yet know how to colour the vehicles:)</em></p>
 <h2 id="How-did-you-paint-the-route"><a href="#How-did-you-paint-the-route" class="headerlink" title="How did you paint the route?"></a>How did you paint the route?</h2><p>This one is a little more challenging. Because AT doesn’t return route data from their API but stores it in a zip file at:</p>
 <p><a href="https://at.govt.nz/about-us/at-data-sources/general-transit-feed-specification/" target="_blank" rel="noopener">https://at.govt.nz/about-us/at-data-sources/general-transit-feed-specification/</a>.</p>
 <p>This seemed to be the standard practice, since route data is much bigger and less likely to change. And their data follows a standard GTFS (General Transit Feed Specification) format, so there was extensive documentation on the meaning of the data:</p>
 <p><a href="https://gtfs.org/documentation/overview/" target="_blank" rel="noopener">https://gtfs.org/documentation/overview/</a></p>
 <p>The route paths are stored in a text file called <code>shapes.txt</code> in the zip archive, among other text files. These text files are essentially CSVs, and often reference each other. In a way, these files are like tables in a database, but without any normalisation applied. The data format was quite inefficient to work with. So I did the obvious first step, which is to combine all these text files into a single SQLite database for easier querying.</p>
-<p><img src="gtfs-db.png" /><br><img src="shapes-table.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/gtfs-db.png" /><br><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/shapes-table.png" /></p>
 <p>I asked Claude to write a little Python script that reads those files, parses them and generates a database file. And he did the job surprisingly well without complaint! There were a few hiccups here and there, but they were all non-obvious issues that would happen to anyone.</p>
-<p><img src="gtfs-python.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/gtfs-python.png" /></p>
 <p>Then, of course, I asked Claude to write some code to query the database and paint the routes onto the map as a separate layer. And with the knowledge of the entire Mapbox API, Claude had no trouble doing that in a few seconds.</p>
 <p>However, knowledge does not equal experience, and that is what Claude lacked. You could read thousands of books; look over millions of papers and documents on various subjects throughout the Internet, yet they could only take you so far in reality. And Claude made a mistake when deciding to render all 200+ bus, train and ferry routes in separate layers, causing the map to lag violently.</p>
 <p>I asked Claude to consider rendering the routes in a single layer to reduce the load on Mapbox. At the time, I didn’t know if that would actually make a difference. After all, I had only known about Mapbox’s existence for a few hours. So unlike Claude, all I had was past experience and almost no knowledge. But apparently I was absolutely right!</p>
-<p><img src="daytime-routes.png" /><br><em>This could make a good wallpaper</em></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/daytime-routes.png" /><br><em>This could make a good wallpaper</em></p>
 <h2 id="Where-did-you-store-the-SQLite-database"><a href="#Where-did-you-store-the-SQLite-database" class="headerlink" title="Where did you store the SQLite database?"></a>Where did you store the SQLite database?</h2><p>By the morning of the third day, I had everything running somewhat smoothly. The routes painted on the map, and the vehicle somewhat follows its path. Sometimes there are stray buses cutting through a small alley to avoid road work, or maybe the driver was just lost. But overall, everything looked like a moving, living network of public transportation. So I started to think about hosting.</p>
-<p><img src="gtfs-sqlite.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/gtfs-sqlite.png" /></p>
 <p>The database itself was 280MB. Downloading that much data on a wired connection should take around 2-3 seconds, but considering people might be looking at the map on their phone, in the middle of nowhere, to see if their 45-minute-late bus is actually on the way, downloading 280MB could drain their mobile data, and leave them stranded without any connection to the outside world. So I decided to rethink the approach.</p>
 <p>I decided to create a Supabase project. The database was within the free-tier limit, and its size never grows, so it was perfect to host the static GTFS data. Plus, I could do the querying using edge functions and have a serverless backend for the app. This reduced the bundle size, and I could even add some caching for static GTFS data.</p>
 <p>The result is this beautiful architecture that powers the app right now:</p>
-<p><img src="architecture.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/architecture.png" /></p>
 <h2 id="What-if-I-spend-all-day-clicking-refresh-to-use-up-your-Mapbox-usage"><a href="#What-if-I-spend-all-day-clicking-refresh-to-use-up-your-Mapbox-usage" class="headerlink" title="What if I spend all day clicking refresh to use up your Mapbox usage?"></a>What if I spend all day clicking refresh to use up your Mapbox usage?</h2><p>Please don’t.</p>
 <h2 id="What-are-you-gonna-do-about-it"><a href="#What-are-you-gonna-do-about-it" class="headerlink" title="What are you gonna do about it?"></a>What are you gonna do about it?</h2><p>Well, I have a mechanism that will shut down the service once the Mapbox limit is reached. So if someone abuses the app or too many people hop on it in the same month, I’d have to shut it down temporarily until the limit resets next month. Since this is a service for the community, I hope that everyone would be considerate of others.</p>
 <h2 id="How-vast-is-this-network"><a href="#How-vast-is-this-network" class="headerlink" title="How vast is this network?"></a>How vast is this network?</h2><p>One interesting piece of information that I found after rendering all the routes on the map was that the furthest point of travel to the north of Auckland that AT covers is Wellsford. But I also spotted some unmarked vehicles out in the sea, all the way near Rangaunu Bay.</p>
-<p><img src="rangaunu-bay.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/rangaunu-bay.png" /></p>
 <p>There was also a cluster of unmarked vehicles in the Bay of Islands, but I never found out what they were.</p>
-<p><img src="bay-of-islands.png" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/bay-of-islands.png" /></p>
 <p>Maybe they are backup ferries? Or is AT planning to grow its network? Either way, I’m very curious.</p>
 <p>And the farthest south you can go with your AT hop card is Hamilton. You hop on the Te Huia train at the Strand, and 2.5 hours later, moving across the Waikato River, you’d find yourself at Hamilton, dazed and confused.</p>
-<p><img src="hamilton.jpeg" /></p>
+<p><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/hamilton.jpeg" /></p>
 <h2 id="How-much-work-did-you-do"><a href="#How-much-work-did-you-do" class="headerlink" title="How much work did you do?"></a>How much work did you do?</h2><p>Not much. The majority of the time was spent tweaking the prompt and thinking about the best way to implement certain features.</p>
 <p>Because Claude would often use the naive approach to whatever problem you had, I had to think carefully about what kind of problem to present to Claude. I find myself thinking more about the core of my problem. <em>Is it an actual problem? Or a symptom of something else?</em> I would ask. Because Claude would happily sweep things under the rug while saying how absolutely right I was. It was like talking to a yes-man/woman/AI to reach a decision. In those situations, you can only rely on yourself.</p>
 <p>In the end, I spent 40% of my time thinking, 30% typing the prompt, 10% tackling the hairy bugs that Claude was stuck on, and 20% waiting for Claude to generate the code. I almost didn’t have to write any logic myself, which is quite scary.</p>
@@ -140,9 +140,9 @@
 <h2 id="That’s-boring-Any-other-interesting-insights"><a href="#That’s-boring-Any-other-interesting-insights" class="headerlink" title="That’s boring! Any other interesting insights?"></a>That’s boring! Any other interesting insights?</h2><ul>
 <li>Peak number of vehicles seemed to be 1600+.</li>
 <li>There’s a bus depot at Wynyard Quarter where you can see all the buses gather to sleep at night.</li>
-<li>Buses are often early or late. Rarely do you find one that’s on time. I don’t know if this also applies to trains because they are replaced by rail buses at the moment of writing.<br><img src="early-bus.png" /><br><em>I hope this is just a mistake in the tracking system</em></li>
-<li>If there’s a crash or road closure, buses can be really late. But that’s why apps like this exist—to give you more info to make a decision whether to stay or move on.<br><img src="late-bus.png" /><br><em>There was a crash on 31/12/2025 &amp; part of Southern Motorway was closed</em></li>
-<li>The shortest path to the airport is probably through the Southwestern Motorway. Buses are going that way, but not trains. So to get to the airport from the CBD, you’ll have to take the train to Puhinui and transfer to the AIR bus, which is a really tiring journey.<br><img src="airport.png" /></li>
+<li>Buses are often early or late. Rarely do you find one that’s on time. I don’t know if this also applies to trains because they are replaced by rail buses at the moment of writing.<br><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/early-bus.png" /><br><em>I hope this is just a mistake in the tracking system</em></li>
+<li>If there’s a crash or road closure, buses can be really late. But that’s why apps like this exist—to give you more info to make a decision whether to stay or move on.<br><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/late-bus.png" /><br><em>There was a crash on 31/12/2025 &amp; part of Southern Motorway was closed</em></li>
+<li>The shortest path to the airport is probably through the Southwestern Motorway. Buses are going that way, but not trains. So to get to the airport from the CBD, you’ll have to take the train to Puhinui and transfer to the AIR bus, which is a really tiring journey.<br><img src="https://blog-assets.viethung.space/I-built-a-public-transportation-map/airport.png" /></li>
 <li>Buses seemed to move pretty slowly during the day? But that’s probably a choice. At night, you can sometimes spot buses racing to North Shore for some reason (as in going very fast, not like racing with each other, although that would be kinda interesting to see).</li>
 </ul>
 <h2 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h2><p>I’d like to say thanks to the Auckland Transport dev team for letting members of the public like me gaining access to these data via the APIs. It was a great opportunity for me to give back this city &amp; appreciate more of what Auckland Transport is doing. I can only imagine the effort that goes into coordinating these buses, trains and ferries through so many different conditions…</p>
@@ -174,16 +174,6 @@
         
         
             <div class="blog-post-item">
-  <span class="date">2024-12-19</span>
-    <span class="blog-post-title">
-        <a href="/blog/What-comes-is-better-than-what-came-before/">
-          What comes is better than what came before
-        </a>
-    </span>
-</div>
-
-        
-            <div class="blog-post-item">
   <span class="date">2023-12-05</span>
     <span class="blog-post-title">
         <a href="/blog/What-is-border-radius-really/">
@@ -208,6 +198,16 @@
     <span class="blog-post-title">
         <a href="/blog/poetry-dump/">
           poetry dump
+        </a>
+    </span>
+</div>
+
+        
+            <div class="blog-post-item">
+  <span class="date">2024-12-19</span>
+    <span class="blog-post-title">
+        <a href="/blog/What-comes-is-better-than-what-came-before/">
+          What comes is better than what came before
         </a>
     </span>
 </div>
