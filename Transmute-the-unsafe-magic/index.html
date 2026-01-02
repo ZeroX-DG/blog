@@ -46,7 +46,7 @@
     <div class="blog-post-content">
         <p>One great problem that kept me from fully enjoying Rust was the inability to use OOP. Now, before you take me to the gallows, I want you to know that I fully support <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance" target="_blank" rel="noopener">composition over inheritance</a>, and the concept of <code>trait</code> is one of the primary reasons why I love Rust. However, there are certain situations where OOP is irreplaceable. In my case, it’s the DOM tree structure.</p>
 <p>The DOM tree structure was designed in the OOP paradigm. Meaning it relies heavily on inheritance: <code>HTMLElement</code> inherits <code>Element</code> inherits <code>Node</code>.</p>
-<p><img src="https://blog-assets.viethung.space/Transmute-the-unsafe-magic/html.png" /><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="noopener">Extracted from MDN</a></em></p>
+<p><img src="html.png" /><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank" rel="noopener">Extracted from MDN</a></em></p>
 <p>A straightforward way to implement this behaviour is to use nested structs:</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
   element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
@@ -70,7 +70,7 @@
 <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 256</span>
 </code></pre>
 <p>You probably see where I’m going with this. Even though the DOM tree is a nested structure, the memory layout is still linear. The nested structure only exists in the type system of Rust, so in memory, the address of the <code>HTMLElement</code> is the same as the address of <code>Element</code> and <code>Node</code> (as long as the <code>element</code> and <code>node</code> field is the first field in each struct).</p>
-<p><img src="https://blog-assets.viethung.space/Transmute-the-unsafe-magic/memory-layout.png" /></p>
+<p><img src="memory-layout.png" /></p>
 <p>This enables us to use <code>transmute</code> to cast between those types and access the data from the inner struct out to the containing struct.</p>
 <pre class=" language-rust"><code class="language-rust"><span class="token keyword">struct</span> HTMLElement <span class="token punctuation">{</span>
   element<span class="token punctuation">:</span> Element<span class="token punctuation">,</span>
@@ -186,20 +186,20 @@
 
         
             <div class="blog-post-item">
-  <span class="date">2020-05-29</span>
+  <span class="date">2026-01-03</span>
     <span class="blog-post-title">
-        <a href="/blog/Browser-from-Scratch-Introduction/">
-          Browser from Scratch: Introduction
+        <a href="/blog/I-built-a-public-transportation-map/">
+          I built a public transportation map
         </a>
     </span>
 </div>
 
         
             <div class="blog-post-item">
-  <span class="date">2020-10-24</span>
+  <span class="date">2020-05-29</span>
     <span class="blog-post-title">
-        <a href="/blog/Browser-from-Scratch-HTML-parsing/">
-          Browser from Scratch: HTML parsing
+        <a href="/blog/Browser-from-Scratch-Introduction/">
+          Browser from Scratch: Introduction
         </a>
     </span>
 </div>

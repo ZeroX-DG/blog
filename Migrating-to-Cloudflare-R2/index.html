@@ -46,10 +46,10 @@
     <div class="blog-post-content">
         <p>A quick update: all images and videos on this blog are now sitting on a <a href="https://developers.cloudflare.com/r2/" target="_blank" rel="noopener">Cloudflare R2</a> bucket!</p>
 <p>For the past four years, those files were directly added to git and bundled along with the text contents in a Github action build before being deployed to Github pages. I know you weren’t supposed to add non-text files to git, but I didn’t want to think about that back then. When I started the blog, I wanted to write and didn’t care where things were supposed to go. This system worked fine till recently when I tried to add a 400MB video of <a href="/blog/Went-to-see-Thom-Yorke/" title="Thom Yorke's beautiful singing">Thom Yorke's beautiful singing</a>:</p>
-<p><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/git-add.png" /><br><em><code>git add</code> takes 10s to run on 400MB file <i class="em em-shake"></i></em><br><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/github-limit.png" /><br><em><code>git push</code> takes a minute then get rejected with this message</em></p>
+<p><img src="git-add.png" /><br><em><code>git add</code> takes 10s to run on 400MB file <i class="em em-shake"></i></em><br><img src="github-limit.png" /><br><em><code>git push</code> takes a minute then get rejected with this message</em></p>
 <p>Turns out Github has a file limit of 100MB!</p>
 <p>I gave Git LFS a whirl a few days ago, but then Github sent me this email:</p>
-<p><img src="https://blog-assets.viethung.space/Migrating-to-Cloudflare-R2/lfs-limit.png" /></p>
+<p><img src="lfs-limit.png" /></p>
 <p>So I finally bit the bullet and migrated to Cloudflare R2, which gives you 10GB for free. I thought this was going to be hard to set up, so I’ve been putting it off for years, but it turns out to be quite simple.</p>
 <p>I won’t get into the details of how I did it, but the rough steps that I took were:</p>
 <ol>
