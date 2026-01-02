@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 02 Jan 2026 11:15:23 GMT</pubDate>
+    <pubDate>Fri, 02 Jan 2026 20:18:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
@@ -23,7 +23,7 @@
         
           
           
-      <description>&lt;p&gt;So, long story short, I stumbled across this amazing map of Tokyo’s public transportation system</description>
+      <description>&lt;p&gt;So, long story short, I stumbled across this amazing &lt;a href=&quot;https://minitokyo3d.com/&quot;</description>
           
         
       
@@ -163,6 +163,32 @@
     
     
     <item>
+      <title>2024 in Books</title>
+      <link>https://viethung.space/blog/2024-in-books/</link>
+      <guid>https://viethung.space/blog/2024-in-books/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
+    
+    
+    <item>
       <title>2024 Qua Sách Tui Đọc</title>
       <link>https://viethung.space/blog/2024-qua-sach-tui-doc/</link>
       <guid>https://viethung.space/blog/2024-qua-sach-tui-doc/</guid>
@@ -183,32 +209,6 @@
       <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
-      <category domain="https://viethung.space/blog/tags/books/">books</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>2024 in Books</title>
-      <link>https://viethung.space/blog/2024-in-books/</link>
-      <guid>https://viethung.space/blog/2024-in-books/</guid>
-      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/books/">books</category>
       
