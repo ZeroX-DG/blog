@@ -9,8 +9,34 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Fri, 02 Jan 2026 20:27:07 GMT</pubDate>
+    <pubDate>Thu, 08 Jan 2026 07:05:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    
+    <item>
+      <title>We&#39;ll live through the long, long days, and through the long nights</title>
+      <link>https://viethung.space/blog/Well-live-through-the-long-long-days/</link>
+      <guid>https://viethung.space/blog/Well-live-through-the-long-long-days/</guid>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;For the rough years ahead.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We’ll live through the long, long days, and</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
+      
+    </item>
+    
     
     
     <item>
@@ -163,32 +189,6 @@
     
     
     <item>
-      <title>2024 in Books</title>
-      <link>https://viethung.space/blog/2024-in-books/</link>
-      <guid>https://viethung.space/blog/2024-in-books/</guid>
-      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/random/">random</category>
-      
-      <category domain="https://viethung.space/blog/tags/books/">books</category>
-      
-    </item>
-    
-    
-    
-    <item>
       <title>2024 Qua Sách Tui Đọc</title>
       <link>https://viethung.space/blog/2024-qua-sach-tui-doc/</link>
       <guid>https://viethung.space/blog/2024-qua-sach-tui-doc/</guid>
@@ -209,6 +209,32 @@
       <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
+      <category domain="https://viethung.space/blog/tags/books/">books</category>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>2024 in Books</title>
+      <link>https://viethung.space/blog/2024-in-books/</link>
+      <guid>https://viethung.space/blog/2024-in-books/</guid>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;Tui cũng có &lt;a href=&quot;/blog/2024-qua-sach-tui-doc&quot;&gt;bản Tiếng Việt cho bài</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/random/">random</category>
       
       <category domain="https://viethung.space/blog/tags/books/">books</category>
       
@@ -433,26 +459,6 @@
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Browser from Scratch: CSS parsing &amp; processing</title>
-      <link>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</link>
-      <guid>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</guid>
-      <pubDate>Wed, 13 Jan 2021 00:00:00 GMT</pubDate>
-      
-      <description>A brief history of CSS &amp; how browser process CSS values</description>
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/code/">code</category>
-      
-      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
