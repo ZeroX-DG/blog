@@ -9,7 +9,7 @@
     <atom:link href="/blog/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Viet Hung&#39;s blog</description>
-    <pubDate>Thu, 08 Jan 2026 07:05:56 GMT</pubDate>
+    <pubDate>Sun, 11 Jan 2026 06:02:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     
@@ -108,30 +108,6 @@
       
       
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
-      
-    </item>
-    
-    
-    
-    <item>
-      <title>Year Of The Cat</title>
-      <link>https://viethung.space/blog/Year-of-The-Cat/</link>
-      <guid>https://viethung.space/blog/Year-of-The-Cat/</guid>
-      <pubDate>Fri, 18 Apr 2025 00:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;This short story has been sitting on my laptop for more than a year. I’ve forgotten what the</description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://viethung.space/blog/tags/short-story/">short-story</category>
       
     </item>
     
@@ -459,6 +435,26 @@
       <category domain="https://viethung.space/blog/tags/experience/">experience</category>
       
       <category domain="https://viethung.space/blog/tags/vietnamese/">vietnamese</category>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>Browser from Scratch: CSS parsing &amp; processing</title>
+      <link>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</link>
+      <guid>https://viethung.space/blog/Browser-from-Scratch-CSS-parsing-processing/</guid>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 GMT</pubDate>
+      
+      <description>A brief history of CSS &amp; how browser process CSS values</description>
+      
+      
+      
+      
+      
+      <category domain="https://viethung.space/blog/tags/code/">code</category>
+      
+      <category domain="https://viethung.space/blog/tags/browser-from-scratch/">browser-from-scratch</category>
       
     </item>
     
