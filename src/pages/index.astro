@@ -9,12 +9,14 @@ const posts = await getCollection('posts');
 const sortedPosts = posts.sort((a, b) =>
   b.data.date.getTime() - a.data.date.getTime()
 );
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout>
   <div class="index-page">
     <div class="introduction">
-      <h1 class="name"><a href="/blog/">Viet-Hung Nguyen</a></h1>
+      <h1 class="name"><a href={`${base}/`}>Viet-Hung Nguyen</a></h1>
       <p>
         <a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> •
         <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> •

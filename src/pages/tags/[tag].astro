@@ -25,12 +25,13 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts, allTags } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={`#${tag}`}>
   <div class="index-page">
     <div class="introduction">
-      <h1 class="name"><a href="/blog/">Viet-Hung Nguyen</a></h1>
+      <h1 class="name"><a href={`${base}/`}>Viet-Hung Nguyen</a></h1>
       <p>
         <a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> •
         <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> •
@@ -44,7 +45,7 @@ const { tag, posts, allTags } = Astro.props;
     <div class="tag-list center">
       <p style="font-size: 20px; font-weight: bold;">Other tags:</p>
       {allTags.map(t => (
-        <a href={`/blog/tags/${t}/`} class="tag">
+        <a href={`${base}/tags/${t}/`} class="tag">
           #{t}
         </a>
       ))}

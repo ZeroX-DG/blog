@@ -23,13 +23,14 @@ const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={post.data.title} description={post.data.description} isPost={true}>
   <div class="blog-post">
     <div class="blog-post-container">
       <p class="home-navigator">
-        ← <a href="/blog/">All Posts</a>
+        ← <a href={`${base}/`}>All Posts</a>
       </p>
       <h1 class="blog-post-title">
         {post.data.title}
@@ -40,7 +41,7 @@ const relatedPosts = getRelatedPosts(post, allPosts);
       <div class="tag-list">
         <b>Tags:</b>
         {(post.data.tags || []).map(tag => (
-          <a href={`/blog/tags/${tag}/`} class="tag">
+          <a href={`${base}/tags/${tag}/`} class="tag">
             #{tag}
           </a>
         ))}

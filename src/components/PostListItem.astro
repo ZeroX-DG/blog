@@ -16,12 +16,13 @@ const formatDate = (date: Date) => {
 
 // Use original filename (from id) to preserve URL casing
 const originalSlug = post.id.replace(/\.md$/, '');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div class="blog-post-item">
   <span class="date">{formatDate(post.data.date)}</span>
   <span class="blog-post-title">
-    <a href={`/blog/${originalSlug}/`}>
+    <a href={`${base}/${originalSlug}/`}>
       {post.data.title}
     </a>
   </span>
