@@ -249,6 +249,8 @@ a:hover {
 .blog-post .blog-post-content poem {
   font-family: "EB Garamond", serif;
   font-size: 20px;
+  display: block;
+  white-space: pre-line;
 }
 
 .blog-post code {
