@@ -1,0 +1,28 @@
+---
+import Layout from '../components/Layout.astro';
+import PostListItem from '../components/PostListItem.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+
+// Sort posts by date descending
+const sortedPosts = posts.sort((a, b) =>
+  b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout>
+  <div class="index-page">
+    <div class="introduction">
+      <h1 class="name"><a href="/blog/">Viet-Hung Nguyen</a></h1>
+      <p>
+        <a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> •
+        <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> •
+        <a href="https://www.linkedin.com/in/v-hung/" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+    <div class="blog-post-list">
+      {sortedPosts.map(post => <PostListItem post={post} />)}
+    </div>
+  </div>
+</Layout>

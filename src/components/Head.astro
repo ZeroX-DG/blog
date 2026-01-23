@@ -1,0 +1,31 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = "Viet Hung's blog" } = Astro.props;
+const siteTitle = "Viet Hung's blog";
+const pageTitle = title ? title : siteTitle;
+const cleanDescription = description.replace(/<[^>]*>/g, '');
+---
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content={cleanDescription}>
+  <meta name="author" content="Viet Hung Nguyen">
+
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={cleanDescription} />
+  <meta name="twitter:creator" content="@ZeroX_Hung" />
+  <meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg" />
+  <link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png">
+  <title>{pageTitle}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=EB+Garamond&display=swap">
+  <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+</head>

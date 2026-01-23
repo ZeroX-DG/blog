@@ -1,0 +1,35 @@
+---
+interface Props {
+  isPost?: boolean;
+}
+
+const { isPost = false } = Astro.props;
+---
+
+{isPost && (
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+  <script is:inline>
+    tocbot.init({
+      tocSelector: '.js-toc',
+      contentSelector: '.blog-post-content',
+      headingSelector: 'h1, h2, h3',
+      collapseDepth: 6,
+      hasInnerContainers: true,
+    });
+
+    // Make checkboxes readonly
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+      checkbox.readOnly = true;
+      checkbox.disabled = true;
+    });
+  </script>
+)}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123395923-6"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-123395923-6');
+</script>

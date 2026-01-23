@@ -1,15 +1,16 @@
 .DS_Store
 Thumbs.db
-db.json
 *.log
 node_modules/
-public/
-.deploy*/
+
+# Astro
+dist/
+.astro/
 
 # ignore assets since we host it somewhere else.
-source/**/*.mp4
-source/**/*.mov
-source/**/*.jpg
-source/**/*.png
-source/**/*.webp
-source/**/*.jpeg
+src/content/posts/**/*.mp4
+src/content/posts/**/*.mov
+src/content/posts/**/*.jpg
+src/content/posts/**/*.png
+src/content/posts/**/*.webp
+src/content/posts/**/*.jpeg

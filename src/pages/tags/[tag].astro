@@ -1,0 +1,53 @@
+---
+import Layout from '../../components/Layout.astro';
+import PostListItem from '../../components/PostListItem.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+
+  // Get all unique tags
+  const tags = new Set<string>();
+  posts.forEach(post => {
+    (post.data.tags || []).forEach(tag => tags.add(tag));
+  });
+
+  return Array.from(tags).map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter(post => (post.data.tags || []).includes(tag))
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+      allTags: Array.from(tags),
+    },
+  }));
+}
+
+const { tag, posts, allTags } = Astro.props;
+---
+
+<Layout title={`#${tag}`}>
+  <div class="index-page">
+    <div class="introduction">
+      <h1 class="name"><a href="/blog/">Viet-Hung Nguyen</a></h1>
+      <p>
+        <a href="https://github.com/ZeroX-DG" target="_blank">GitHub</a> •
+        <a href="https://twitter.com/itsviethung" target="_blank">Twitter</a> •
+        <a href="https://www.linkedin.com/in/v-hung/" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+    <div class="blog-post-list center">
+      <h1>#{tag}</h1>
+      {posts.map(post => <PostListItem post={post} />)}
+    </div>
+    <div class="tag-list center">
+      <p style="font-size: 20px; font-weight: bold;">Other tags:</p>
+      {allTags.map(t => (
+        <a href={`/blog/tags/${t}/`} class="tag">
+          #{t}
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

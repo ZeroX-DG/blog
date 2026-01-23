@@ -1,0 +1,58 @@
+---
+import Layout from '../components/Layout.astro';
+import PostListItem from '../components/PostListItem.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import { getCollection } from 'astro:content';
+import { getRelatedPosts } from '../utils/related-posts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const allPosts = posts;
+
+  return posts.map(post => {
+    // Use original filename (from id) to preserve URL casing
+    const originalSlug = post.id.replace(/\.md$/, '');
+    return {
+      params: { slug: originalSlug },
+      props: { post, allPosts, originalSlug },
+    };
+  });
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await post.render();
+
+const relatedPosts = getRelatedPosts(post, allPosts);
+---
+
+<Layout title={post.data.title} description={post.data.description} isPost={true}>
+  <div class="blog-post">
+    <div class="blog-post-container">
+      <p class="home-navigator">
+        ← <a href="/blog/">All Posts</a>
+      </p>
+      <h1 class="blog-post-title">
+        {post.data.title}
+      </h1>
+      <div class="blog-post-content">
+        <Content />
+      </div>
+      <div class="tag-list">
+        <b>Tags:</b>
+        {(post.data.tags || []).map(tag => (
+          <a href={`/blog/tags/${tag}/`} class="tag">
+            #{tag}
+          </a>
+        ))}
+      </div>
+      <div class="donate">
+        <a href="https://ko-fi.com/viethung" class="donate-button">
+          Love what you read? Support me via ko-fi <i class="em em-coffee"></i>
+        </a>
+      </div>
+      <div class="separator"></div>
+      <RelatedPosts posts={relatedPosts} />
+    </div>
+    <div class="js-toc"></div>
+  </div>
+</Layout>

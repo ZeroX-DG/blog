@@ -8,13 +8,11 @@ jobs:
       contents: write
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2
-        # with:
-        #   lfs: true
-      
-      - uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '10'
+          node-version: '20'
 
       - run: npm install
       - run: npm run build
@@ -24,4 +22,4 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./dist

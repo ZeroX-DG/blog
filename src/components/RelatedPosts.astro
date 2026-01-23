@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostListItem from './PostListItem.astro';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="related-blog-post-list">
+  <h1 class="title">Other posts</h1>
+  {posts.length === 0 ? (
+    <p style="font-family: KoHo">No posts found!</p>
+  ) : (
+    posts.map(post => <PostListItem post={post} />)
+  )}
+</div>
