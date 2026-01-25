@@ -67,8 +67,8 @@ a:hover {
 .introduction {
   max-width: 700px;
   margin: 0 auto;
-  padding-top: 80px;
-  padding-bottom: 120px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .introduction .name {
@@ -146,6 +146,34 @@ a:hover {
   max-width: 700px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.blog-post-list .post-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.blog-post-list .filter-button {
+  padding: 6px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.blog-post-list .filter-button:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+  color: #222;
+}
+
+.blog-post-list .filter-button.active {
+  background: #222;
+  color: white;
+  border-color: #222;
 }
 
 .blog-post-list.center {
@@ -581,6 +609,10 @@ kbd {
   .blog-post-item {
     flex-direction: column;
     margin-bottom: 1em;
+  }
+
+  .blog-post-list .post-filters {
+    margin-bottom: 20px;
   }
 
   .index-page .left-nav {

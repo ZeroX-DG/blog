@@ -24,7 +24,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </p>
     </div>
     <div class="blog-post-list">
-      {sortedPosts.map(post => <PostListItem post={post} />)}
+      <div class="post-filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="technical">Technical</button>
+        <button class="filter-button" data-filter="random">Random</button>
+      </div>
+      <div class="posts-container">
+        {sortedPosts.map(post => <PostListItem post={post} />)}
+      </div>
     </div>
   </div>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-button');
+    const posts = document.querySelectorAll<HTMLElement>('.blog-post-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter posts
+        posts.forEach(post => {
+          const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+
+          if (filter === 'all') {
+            post.style.display = 'flex';
+          } else if (tags.includes(filter)) {
+            post.style.display = 'flex';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

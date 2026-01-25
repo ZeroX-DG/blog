@@ -38,7 +38,7 @@ const originalSlug = post.id.replace(/\.md$/, '');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div class="blog-post-item">
+<div class="blog-post-item" data-tags={post.data.tags.join(',')}>
   <span class="date">{formatDate(post.data.date)}</span>
   <div class="blog-post-content-wrapper">
     <span class="blog-post-title">
