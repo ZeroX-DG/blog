@@ -1,36 +1,54 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?"><meta name="author" content="Viet Hung Nguyen"><!-- twitter --><meta name="twitter:card" content="summary"><meta name="twitter:title" content="What is border-radius, really?"><meta name="twitter:description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?"><meta name="twitter:creator" content="@ZeroX_Hung"><meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg"><link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png"><title>What is border-radius, really?</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"><link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css"><link rel="stylesheet" href="/blog/_astro/_slug_.BzIIA-uz.css"></head><body> <div class="body-container">  <div class="blog-post"> <div class="blog-post-container"> <p class="home-navigator">
-← <a href="/blog/">All Posts</a> </p> <h1 class="blog-post-title"> What is border-radius, really? </h1> <div class="blog-post-content"> <p>You’re probably thinking: “Hah, such silly question, <code>border-radius</code> is for rounding <code>div</code>s corners, what else?”</p>
-<p>Hmmm but have you ever thought, what does <code>18px</code> or <code>50%</code> really mean when they get passed to <code>border-radius</code> property?</p>
-<p><code>border-radius</code> is actually a shorthand property for four others CSS properties. So when you write:</p>
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?"><meta name="author" content="Viet Hung Nguyen"><!-- twitter --><meta name="twitter:card" content="summary"><meta name="twitter:title" content="What is border-radius, really?"><meta name="twitter:description" content="Have you ever thought, what does 18px or 50% really mean when they get passed to border-radius property?"><meta name="twitter:creator" content="@ZeroX_Hung"><meta name="twitter:image" content="https://zerox-dg.github.io/blog/img/me.jpg"><link rel="icon" type="image/x-icon" href="https://github.com/ZeroX-DG.png"><title>What is border-radius, really?</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"><link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css"><link rel="stylesheet" href="/blog/_astro/_slug_.B4d6mxde.css"></head><body> <div class="body-container">  <div class="blog-post"> <div class="blog-post-container"> <p class="home-navigator">
+← <a href="/blog/">All Posts</a> </p> <h1 class="blog-post-title"> What is border-radius, really? </h1> <div class="blog-post-content"> <p>You’re probably thinking: “Hah, such silly question, <code>border-radius</code> is for
+rounding <code>div</code>s corners, what else?”</p>
+<p>Hmmm but have you ever thought, what does <code>18px</code> or <code>50%</code> really mean when they
+get passed to <code>border-radius</code> property?</p>
+<p><code>border-radius</code> is actually a shorthand property for four others CSS properties.
+So when you write:</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#22863A">border-radius</span><span style="color:#24292E">: 18px;</span></span></code></pre>
 <p>You are really writing:</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#22863A">border-top-left-radius</span><span style="color:#24292E">: 18px;</span></span>
 <span class="line"><span style="color:#22863A">border-top-right-radius</span><span style="color:#24292E">: 18px;</span></span>
 <span class="line"><span style="color:#22863A">border-bottom-left-radius</span><span style="color:#24292E">: 18px;</span></span>
 <span class="line"><span style="color:#22863A">border-bottom-right-radius</span><span style="color:#24292E">: 18px;</span></span></code></pre>
-<p>These four properties represent four corners of an element box (top left, top right, bottom left and bottom right), and the browser relies on those values to draw a curve (an arc really) that connect two edges of each corner. How? The answer lies in the name <code>radius</code>.</p>
-<p>In order to draw the arc, the browser will use the <code>border-radius</code> value to calculate the <code>x, y</code> coordinate of the center of a circle (relative to the position of the corner) using this formula:</p>
+<p>These four properties represent four corners of an element box (top left, top
+right, bottom left and bottom right), and the browser relies on those values to
+draw a curve (an arc really) that connect two edges of each corner. How? The
+answer lies in the name <code>radius</code>.</p>
+<p>In order to draw the arc, the browser will use the <code>border-radius</code> value to
+calculate the <code>x, y</code> coordinate of the center of a circle (relative to the
+position of the corner) using this formula:</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>x_circle = x_div_corner + border_radius (or -border_radius if it's the right edge)</span></span>
 <span class="line"><span>y_circle = y_div_corner + border_radius (or -border_radius if it's the bottom edge)</span></span></code></pre>
-<p>Then it will draw an arc using the above coordinate, plus some extra stuff such as depending on whether it’s a corner on top or bottom, left or right the arc should be clockwise or anti-clockwise, etc.</p>
+<p>Then it will draw an arc using the above coordinate, plus some extra stuff such
+as depending on whether it’s a corner on top or bottom, left or right the arc
+should be clockwise or anti-clockwise, etc.</p>
 <p><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image1.png" alt=""></p>
-<p>That’s why when <code>border-radius</code> is <code>50%</code> and your element box have width and height equal each other (making a square), the browser will draw arcs from a position of 50% width and 50% height, which is at the center of the square, therefore create a perfect circle.</p>
-<p>Although <code>border-radius</code> doesn’t accept value that is less than 0 so you can’t use negative number to make the corners “curve in” <i class="em em-laughing"></i>.</p>
+<p>That’s why when <code>border-radius</code> is <code>50%</code> and your element box have width and
+height equal each other (making a square), the browser will draw arcs from a
+position of 50% width and 50% height, which is at the center of the square,
+therefore create a perfect circle.</p>
+<p>Although <code>border-radius</code> doesn’t accept value that is less than 0 so you can’t
+use negative number to make the corners “curve in” <i class="em em-laughing"></i>.</p>
 <p>But <code>border-radius</code> actually accepts up to two values:</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#22863A">border-top-left-radius</span><span style="color:#24292E">: 10px 20px;</span></span></code></pre>
-<p>This is because the <code>border-radius</code> arc doesn’t have to be an arc of a circle but can also be an arc of an ellipse, therefore, you can use two different values for the vertical and horizontal radius.</p>
-<p><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image2.png" alt="">
-<img src="https://blog-assets.viethung.space/What-is-border-radius-really/image3.png" alt=""></p>
+<p>This is because the <code>border-radius</code> arc doesn’t have to be an arc of a circle
+but can also be an arc of an ellipse, therefore, you can use two different
+values for the vertical and horizontal radius.</p>
+<p><img src="https://blog-assets.viethung.space/What-is-border-radius-really/image2.png" alt=""> <img src="https://blog-assets.viethung.space/What-is-border-radius-really/image3.png" alt=""></p>
 <p>Now go do weird things with it! <i class="em em-stuck_out_tongue_winking_eye"></i></p>
 <p><strong>Read More:</strong></p>
 <ul>
-<li><code>border-radius</code> spec:  <a href="https://drafts.csswg.org/css-backgrounds/#border-radius">https://drafts.csswg.org/css-backgrounds/#border-radius</a></li>
-<li><code>border-radius</code> on CSS almanac: <a href="https://css-tricks.com/almanac/properties/b/border-radius/">https://css-tricks.com/almanac/properties/b/border-radius/</a></li>
-<li>Forward slash in <code>border-radius</code>: <a href="https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/">https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/</a></li>
+<li><code>border-radius</code> spec: <a href="https://drafts.csswg.org/css-backgrounds/#border-radius">https://drafts.csswg.org/css-backgrounds/#border-radius</a></li>
+<li><code>border-radius</code> on CSS almanac:
+<a href="https://css-tricks.com/almanac/properties/b/border-radius/">https://css-tricks.com/almanac/properties/b/border-radius/</a></li>
+<li>Forward slash in <code>border-radius</code>:
+<a href="https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/">https://www.sitepoint.com/setting-css3-border-radius-with-slash-syntax/</a></li>
 </ul> </div> <div class="tag-list"> <b>Tags:</b> <a href="/blog/tags/css/" class="tag">
 #css </a><a href="/blog/tags/code/" class="tag">
-#code </a> </div> <div class="donate"> <a href="https://ko-fi.com/viethung" class="donate-button">
-Love what you read? Support me via ko-fi <i class="em em-coffee"></i> </a> </div> <div class="separator"></div> <div class="related-blog-post-list"> <h1 class="title">Other posts</h1> <div class="blog-post-item"> <span class="date">2026-01-03</span> <span class="blog-post-title"> <a href="/blog/I-built-a-public-transportation-map/"> I built a public transportation map </a> </span> </div><div class="blog-post-item"> <span class="date">2022-07-11</span> <span class="blog-post-title"> <a href="/blog/Transmute-the-unsafe-magic/"> std::mem::transmute the unsafe magic </a> </span> </div><div class="blog-post-item"> <span class="date">2021-09-26</span> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-Layout/"> Browser from Scratch: Layout </a> </span> </div><div class="blog-post-item"> <span class="date">2021-01-13</span> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-CSS-parsing-processing/"> Browser from Scratch: CSS parsing &amp; processing </a> </span> </div><div class="blog-post-item"> <span class="date">2020-10-24</span> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-HTML-parsing/"> Browser from Scratch: HTML parsing </a> </span> </div> </div> </div> <div class="js-toc"></div> </div>  </div> <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+#code </a><a href="/blog/tags/technical/" class="tag">
+#technical </a> </div> <div class="donate"> <a href="https://ko-fi.com/viethung" class="donate-button">
+Love what you read? Support me via ko-fi <i class="em em-coffee"></i> </a> </div> <div class="separator"></div> <div class="related-blog-post-list"> <h1 class="title">Other posts</h1> <div class="blog-post-item" data-tags="technical,code"> <span class="date">2026-01-03</span> <div class="blog-post-content-wrapper"> <span class="blog-post-title"> <a href="/blog/I-built-a-public-transportation-map/"> I built a public transportation map </a> </span> <p class="excerpt">I was on holiday with too much free time on my hand and Claude AI had just doubled its usage limits for 7 days.</p> </div> </div><div class="blog-post-item" data-tags="code,rust,technical"> <span class="date">2022-07-11</span> <div class="blog-post-content-wrapper"> <span class="blog-post-title"> <a href="/blog/Transmute-the-unsafe-magic/"> std::mem::transmute the unsafe magic </a> </span> <p class="excerpt">Using mem::transmute for struct inheritance in Rust</p> </div> </div><div class="blog-post-item" data-tags="code,browser-from-scratch,technical"> <span class="date">2021-09-26</span> <div class="blog-post-content-wrapper"> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-Layout/"> Browser from Scratch: Layout </a> </span> <p class="excerpt">A quick look into how the browser layout process works.</p> </div> </div><div class="blog-post-item" data-tags="code,browser-from-scratch,technical"> <span class="date">2021-01-13</span> <div class="blog-post-content-wrapper"> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-CSS-parsing-processing/"> Browser from Scratch: CSS parsing &amp; processing </a> </span> <p class="excerpt">A brief history of CSS &amp; how browser process CSS values</p> </div> </div><div class="blog-post-item" data-tags="code,browser-from-scratch,technical"> <span class="date">2020-10-24</span> <div class="blog-post-content-wrapper"> <span class="blog-post-title"> <a href="/blog/Browser-from-Scratch-HTML-parsing/"> Browser from Scratch: HTML parsing </a> </span> <p class="excerpt">Since I have foolishly made a promise with the first three words in the name of this series, let&#39;s build an HTML parser from scratch.</p> </div> </div> </div> </div> <div class="js-toc"></div> </div>  </div> <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
   <script>
     tocbot.init({
       tocSelector: '.js-toc',
