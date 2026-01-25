@@ -2,6 +2,7 @@
 title: 2024 Qua Sách Tui Đọc
 tags: ["vietnamese", "books", "random"]
 date: 2024/12/30
+description: Reading-wrapped cho năm 2024 của tui
 ---
 
 For English reader, I also have a

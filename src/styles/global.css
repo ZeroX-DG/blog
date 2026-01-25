@@ -99,6 +99,13 @@ a:hover {
   box-sizing: border-box;
   display: flex;
   width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.blog-post-item .blog-post-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-post-item .blog-post-title {
@@ -124,6 +131,15 @@ a:hover {
   font-feature-settings: "tnum";
   margin-right: 1.2em;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.blog-post-item .excerpt {
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  margin-top: 0.3em;
 }
 
 .blog-post-list {

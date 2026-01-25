@@ -1,7 +1,8 @@
 ---
 title: "Australia Travel Log: Sydney"
-tags: ["experience"]
+tags: ["experience", "random"]
 date: 2025/11/25
+description: There I was, strapped to my seat in a Boeing 787, which was spreading its wings across the Tasmanian Sea, when a feeling of slight panic started to kick in.
 ---
 
 On a tiny screen at the back of a headrest, an animated globe slowly spun to a

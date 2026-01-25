@@ -1,7 +1,8 @@
 ---
 title: 'I built a public transportation map'
-tags: ["random", "code"]
+tags: ["technical", "code"]
 date: 2026/01/03
+description: I was on holiday with too much free time on my hand and Claude AI had just doubled its usage limits for 7 days.
 ---
 
 So, long story short, I stumbled across this amazing

@@ -14,6 +14,25 @@ const formatDate = (date: Date) => {
   return `${year}-${month}-${day}`;
 };
 
+// Extract excerpt from post content
+const getExcerpt = (content: string) => {
+  // Remove frontmatter and images
+  const cleanContent = content
+    .replace(/^---[\s\S]*?---/, '')
+    .replace(/!\[.*?\]\(.*?\)/g, '')
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Convert [text](url) to just text
+    .trim();
+
+  // Get first paragraph or first 150 characters
+  const firstParagraph = cleanContent.split('\n\n')[0];
+  if (firstParagraph.length <= 150) {
+    return firstParagraph;
+  }
+  return firstParagraph.substring(0, 150) + '...';
+};
+
+const excerpt = post.data.description || getExcerpt(post.body);
+
 // Use original filename (from id) to preserve URL casing
 const originalSlug = post.id.replace(/\.md$/, '');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -21,9 +40,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <div class="blog-post-item">
   <span class="date">{formatDate(post.data.date)}</span>
-  <span class="blog-post-title">
-    <a href={`${base}/${originalSlug}/`}>
-      {post.data.title}
-    </a>
-  </span>
+  <div class="blog-post-content-wrapper">
+    <span class="blog-post-title">
+      <a href={`${base}/${originalSlug}/`}>
+        {post.data.title}
+      </a>
+    </span>
+    {excerpt && <p class="excerpt">{excerpt}</p>}
+  </div>
 </div>

@@ -2,6 +2,7 @@
 title: 2024 in Books
 tags: ["books", "random"]
 date: 2024/12/30
+description: My reading-wrapped for 2024
 ---
 
 Tui cũng có [bản Tiếng Việt cho bài này](/blog/2024-qua-sach-tui-doc/).
