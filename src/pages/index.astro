@@ -25,9 +25,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
     <div class="blog-post-list">
       <div class="post-filters">
-        <button class="filter-button active" data-filter="all">All</button>
-        <button class="filter-button" data-filter="technical">Technical</button>
-        <button class="filter-button" data-filter="random">Random</button>
+        <span class="filter-item active" data-filter="all">All</span>
+        <span class="filter-separator">/</span>
+        <span class="filter-item" data-filter="technical">Technical</span>
+        <span class="filter-separator">/</span>
+        <span class="filter-item" data-filter="random">Random</span>
       </div>
       <div class="posts-container">
         {sortedPosts.map(post => <PostListItem post={post} />)}
@@ -38,16 +40,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-button');
+    const filterItems = document.querySelectorAll<HTMLElement>('.filter-item');
     const posts = document.querySelectorAll<HTMLElement>('.blog-post-item');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
+    filterItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const filter = item.dataset.filter;
+        if (!filter) return;
 
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+        // Update active item
+        filterItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
 
         // Filter posts
         posts.forEach(post => {

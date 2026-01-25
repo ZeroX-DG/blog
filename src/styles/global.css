@@ -150,30 +150,30 @@ a:hover {
 
 .blog-post-list .post-filters {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 30px;
+  font-size: 0.95rem;
 }
 
-.blog-post-list .filter-button {
-  padding: 6px 14px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: transparent;
-  color: rgba(0, 0, 0, 0.6);
+.blog-post-list .filter-item {
+  opacity: 0.5;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-  border-radius: 4px;
-}
-
-.blog-post-list .filter-button:hover {
-  border-color: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.2s;
   color: #222;
 }
 
-.blog-post-list .filter-button.active {
-  background: #222;
-  color: white;
-  border-color: #222;
+.blog-post-list .filter-item:hover {
+  opacity: 0.8;
+}
+
+.blog-post-list .filter-item.active {
+  opacity: 1;
+}
+
+.blog-post-list .filter-separator {
+  opacity: 0.3;
+  user-select: none;
 }
 
 .blog-post-list.center {
