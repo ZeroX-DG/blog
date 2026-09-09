@@ -316,7 +316,7 @@ a:hover {
 .blog-post .blog-post-content poem {
   font-size: 1.1em;
   display: block;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .blog-post code {

@@ -19,7 +19,9 @@ I was very much inspired by the haiku in 2024 as you can see :joy:
 
 ## Dust
 
-<poem>Before my eyes, dust gathered on my glasses. What else am I not seeing?
+<poem>Before my eyes,
+dust gathered on my glasses.
+What else am I not seeing?
 </poem>
 
 <br>
@@ -27,7 +29,9 @@ I was very much inspired by the haiku in 2024 as you can see :joy:
 
 ## It's done
 
-<poem>What done is done. What should have been done, is always a dream.
+<poem>What done is done.
+What should have been done,
+is always a dream.
 </poem>
 
 <br>
@@ -35,8 +39,10 @@ I was very much inspired by the haiku in 2024 as you can see :joy:
 
 ## Where dreams come to die
 
-<poem>In the pit of exhaustion, where dreams come to die, I see myself curled
-up, too tired to cry.
+<poem>In the pit of exhaustion,
+where dreams come to die,
+I see myself curled up,
+too tired to cry.
 </poem>
 
 <br>
@@ -44,10 +50,17 @@ up, too tired to cry.
 
 ## Drunk
 
-<poem>When I'm drunk, life is simple. Sadness is simple, so is happiness. And at
-the bottom of my glass I'll find you, where my happiness and sadness become one.
-I'll take another sip, when you're not here. Let it burn down my throat, my
-swirling laughters, and silent tears.
+<poem>When I'm drunk, life is simple.
+Sadness is simple,
+so is happiness.
+And at the bottom of my glass
+I'll find you,
+where my happiness and sadness
+become one.
+I'll take another sip,
+when you're not here.
+Let it burn down my throat,
+my swirling laughters, and silent tears.
 </poem>
 
 <br>
@@ -55,7 +68,14 @@ swirling laughters, and silent tears.
 
 ## Breadcrumbs
 
-<poem>All I remember, was the sunny kitchen, the breeze snuck in through the
-curtains. And your lingering laughter like half-forgotten dreams, like the
-breadcrumbs you left on the counter.
+<poem>All I remember,
+was the sunny kitchen,
+    the breeze snuck in
+    through the curtains.
+And your lingering laughter
+like half-forgotten dreams,
+like the breadcrumbs
+    you left
+    on the counter.
 </poem>
+
