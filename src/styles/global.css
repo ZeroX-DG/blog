@@ -320,7 +320,7 @@ a:hover {
 }
 
 .blog-post code {
-  font-family: "Inconsolata" !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
   background: #f2f2f2;
   padding: 3px 5px;
   border-radius: 5px;
@@ -333,7 +333,7 @@ a:hover {
 }
 
 .blog-post pre {
-  line-height: 130% !important;
+  line-height: 1.2 !important;
   display: inline-block;
   background: rgba(223, 226, 229, .314);
   border: none !important;
@@ -510,8 +510,8 @@ th {
 
 pre *,
 code * {
-  font-family: "Inconsolata", monospace !important;
-  font-size: 16px !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
+  font-size: 14px !important;
   line-height: inherit !important;
 }
 
