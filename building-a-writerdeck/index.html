@@ -32,7 +32,7 @@ edit what I just wrote. So in the end, I went with a <a href="https://www.elecro
 that was intended for price tags in supermarkets. It’s a simple board with ESP32
 S3, black-and-white (no grayscale) e-ink. It’s got Bluetooth and Wi-Fi built in;
 powerful enough to handle my sporadic writing sessions.</p>
-<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/simple.jpg" alt=""> <em>It can shows writing prompt as the screensaver</em></p>
+<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/simple.jpg" alt=""> <em>It can show a writing prompt as the screensaver</em></p>
 <h2 id="the-case">The case</h2>
 <p>Part of the reason why I decided on that board was because everything is already
 soldered on one board. The display is hooked to the ESP32 S3 chip and battery
@@ -91,7 +91,7 @@ connection all the time, draining the battery more quickly, whereas BLE
 alternates between sleep and wake, making it more energy efficient.</p>
 <p>To connect to Bluetooth keyboards, I went with the BLE implementation. Typing
 isn’t a continuous thing so most of the time the Bluetooth connection can stay
-asleep until a burst of keystrokes arrives. Also, ESP32 only supports BLE :P</p>
+asleep until a burst of keystrokes arrives. Also, ESP32-S3 only supports BLE :P</p>
 <p>But the main pain is really from the pairing method. With BLE, you’ve got the
 legacy pairing and secure connection pairing, which was introduced after legacy
 pairing. I still don’t know if my HHKB actually does secure connection pairing,
@@ -121,7 +121,7 @@ measure the current battery level. After a bit of research, I found out that you
 can just measure the voltage that the battery gives off to estimate how much
 power it still has.</p>
 <p>The trick is that electricity flows from positive, through to ground. But before
-it does that, we put it through a GPIO port so it can read the voltage from the
+it does that, we connect a GPIO ADC input so it can read the voltage from the
 battery.</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌───────┐              </span></span>
 <span class="line"><span>│  BAT  │              </span></span>
@@ -148,7 +148,7 @@ ground, skipping GPIO, so we have to add a resistor between GPIO and ground.</p>
 <span class="line"><span>│  GND  │              </span></span>
 <span class="line"><span>└───────┘</span></span></code></pre>
 <p>And because the GPIO can’t take high voltage from the battery (the ESP32 ADC has
-an input range from 0 - 3.3V), we have to put another resistor between the
+an input range from 0 - 3.1V), we have to put another resistor between the
 battery and GPIO.</p>
 <pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌───────┐              </span></span>
 <span class="line"><span>│  BAT  │              </span></span>
@@ -179,7 +179,7 @@ using the formula:</p>
 <p>Using the voltage values that LiPo batteries typically give, we can map V(in) to
 the battery percentage. But of course, since this isn’t a linear graph, we can
 only approximate the percentage.</p>
-<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/lipo_voltage.jpg" alt=""> <em>Source: <a href="https://appbattery.com/faq/ultimate-guide-to-lifepo4-voltage-chart/">appbattery.com</a></em></p>
+<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/battery_discharge.gif" alt=""> <em>Source: <a href="https://learn.adafruit.com/li-ion-and-lipoly-batteries/voltages">learn.adafruit.com</a></em></p>
 <p>Overall, this is a simple voltage divider circuit. After a few minutes of
 soldering, I got myself some battery percentage showing on the screen!</p>
 <p>
