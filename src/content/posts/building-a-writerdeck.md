@@ -47,7 +47,7 @@ that was intended for price tags in supermarkets. It's a simple board with ESP32
 S3, black-and-white (no grayscale) e-ink. It's got Bluetooth and Wi-Fi built in;
 powerful enough to handle my sporadic writing sessions.
 
-![](simple.jpg) _It can shows writing prompt as the screensaver_
+![](simple.jpg) _It can show a writing prompt as the screensaver_
 
 ## The case
 
@@ -126,7 +126,7 @@ alternates between sleep and wake, making it more energy efficient.
 
 To connect to Bluetooth keyboards, I went with the BLE implementation. Typing
 isn't a continuous thing so most of the time the Bluetooth connection can stay
-asleep until a burst of keystrokes arrives. Also, ESP32 only supports BLE :P
+asleep until a burst of keystrokes arrives. Also, ESP32-S3 only supports BLE :P
 
 But the main pain is really from the pairing method. With BLE, you've got the
 legacy pairing and secure connection pairing, which was introduced after legacy
@@ -166,7 +166,7 @@ can just measure the voltage that the battery gives off to estimate how much
 power it still has.
 
 The trick is that electricity flows from positive, through to ground. But before
-it does that, we put it through a GPIO port so it can read the voltage from the
+it does that, we connect a GPIO ADC input so it can read the voltage from the
 battery.
 
 ```
@@ -201,7 +201,7 @@ ground, skipping GPIO, so we have to add a resistor between GPIO and ground.
 ```
 
 And because the GPIO can't take high voltage from the battery (the ESP32 ADC has
-an input range from 0 - 3.3V), we have to put another resistor between the
+an input range from 0 - 3.1V), we have to put another resistor between the
 battery and GPIO.
 
 ```
@@ -245,7 +245,7 @@ Using the voltage values that LiPo batteries typically give, we can map V(in) to
 the battery percentage. But of course, since this isn't a linear graph, we can
 only approximate the percentage.
 
-![](lipo_voltage.jpg) _Source: [appbattery.com][7]_
+![](battery_discharge.gif) _Source: [learn.adafruit.com][7]_
 
 Overall, this is a simple voltage divider circuit. After a few minutes of
 soldering, I got myself some battery percentage showing on the screen!
@@ -284,6 +284,6 @@ would have missed if I hadn't slowed down.
 [4]: https://veronicaexplains.net/my-first-writerdeck/
 [5]: https://www.writerdeck.org/
 [6]: https://www.elecrow.com/crowpanel-esp32-5-79-e-paper-hmi-display-with-272-792-resolution-black-white-color-driven-by-spi-interface.html
-[7]: https://appbattery.com/faq/ultimate-guide-to-lifepo4-voltage-chart/
+[7]: https://learn.adafruit.com/li-ion-and-lipoly-batteries/voltages
 [8]: https://crates.io/crates/esp-radio
 [9]: https://crates.io/crates/trouble-host
