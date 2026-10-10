@@ -48,29 +48,30 @@ too.</p>
 <li>The middle plate with cut out holes for the protruding components.</li>
 <li>The backplate which is a plain flat piece of plastic screwed onto the board.</li>
 </ul>
-<p>Luckily, the board came with a detailed 3D design file. All I had to do was open
-the design in FreeCAD, watch a few YouTube videos to learn how to extract the
+<p>Luckily, it came with a detailed 3D design file. All I had to do was open the
+design in FreeCAD, watch a few YouTube videos to learn how to extract the
 backplate as an .obj file, and import it into KiCad (since it’s simpler to
 learn).</p>
-<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/3d_shell.png" alt=""></p>
 <p>I decided to swap out the backplate for a custom 3D-printed case that can be
-used to also hold the battery. The rest of the work was convincing a friend with
-a 3D printer to print out my case (shoutout to Alan if he’s reading).</p>
+used to also hold the battery.</p>
+<p><img src="https://blog-assets.viethung.space/building-a-writerdeck/3d_shell.png" alt=""></p>
+<p>The rest of the work was convincing a friend with a 3D printer to print out my
+case (shoutout to Alan if he’s reading).</p>
 <p><img src="https://blog-assets.viethung.space/building-a-writerdeck/shell.jpg" alt=""></p>
 <h2 id="display-driver">Display driver</h2>
 <p>This is the hardest part of the whole building process.</p>
 <p>The board came with some sample code written in C using Arduino IDE. But I don’t
 know C and I also hated how slow Arduino IDE takes to compile my program. So I
 had no choice but to write the firmware in Rust.</p>
-<p>Except there was no driver for this display in Rust. There was one library, but
-it’s for a different hardware and initially didn’t work on my display at all. So
-I forked it, and threw Claude into the deep end.</p>
-<p>After a few nights burning tokens, we came out with working code, and even
-comments explaining how the driver works … in Mandarin. I used to think vibe
-coding wasn’t really a problem as long as I could read and understand the code,
-but this time I truly had no idea. I cannot claim any credit for this work. I
-was, in fact, burning credits on this work :) I wonder what the world will look
-like when what I was doing becomes normalised one day.</p>
+<p>Except there was no driver for this display in Rust. There was
+<a href="https://github.com/nihilityer/ssd1683">one library</a>, but it’s for a different hardware and initially didn’t work
+on my display at all. So I had to fork it, and threw Claude into the deep end.</p>
+<p>After a few nights burning tokens, Claude &#x26; I came out with working code, and
+even comments explaining how the driver works … in Mandarin. I used to think
+vibe coding wasn’t really a problem as long as I could read and understand the
+code, but this time I truly had no idea. I cannot claim any credit for this
+work. I was, in fact, burning credits on this work :) I wonder what the world
+will look like when what I was doing becomes normalised one day.</p>
 <p>Anyway, with the code all compiling, I flashed it on the board and oh my god it
 worked!??!?!</p>
 <p><img src="https://blog-assets.viethung.space/building-a-writerdeck/first_rendering.jpg" alt=""></p>
