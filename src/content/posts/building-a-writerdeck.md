@@ -2,12 +2,10 @@
 title: "Building a writerdeck"
 tags: ["electronics", "random", "technical"]
 date: 2026/09/27
-description: A few months ago, I randomly bumped into this post about someone setting up a "writerdeck" to focus on their writing. The idea really intrigued me because at the time, I was, and still am, suffering from constant distraction, and my writing frequency was dropping harder than the stock market.
+description: A few months ago, I bumped into this post from Veronica Explains about her "writerdeck." The idea really intrigued me because at the time, I was suffering from constant distraction, and my writing frequency was dropping harder than the stock market.
 ---
 
-A few months ago, I randomly bumped into [this post][4] about someone setting up
-a "writerdeck" to focus on their writing. The idea really intrigued me because
-at the time, I was, and still am, suffering from constant distraction, and my
+A few months ago, I bumped into [this post][4] from Veronica Explains about her "writerdeck." The idea really intrigued me because at the time, I was suffering from constant distraction, and my
 writing frequency was dropping harder than the stock market.
 
 If you haven't heard of [writerdecks][5] before, they are essentially single-
