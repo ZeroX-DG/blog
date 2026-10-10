@@ -2,21 +2,22 @@
 title: "Building a writerdeck"
 tags: ["electronics", "random", "technical"]
 date: 2026/09/27
-description: A few months ago, I bumped into this post from Veronica Explains about her "writerdeck." The idea really intrigued me because at the time, I was suffering from constant distraction, and my writing frequency was dropping harder than the stock market.
+description: A few months ago, I bumped into this post from Veronica Explains about her "writerdeck." The idea really intrigued me because I was suffering from constant distraction, and my writing frequency was dropping harder than the stock market.
 ---
 
-A few months ago, I bumped into [this post][4] from Veronica Explains about her "writerdeck." The idea really intrigued me because at the time, I was suffering from constant distraction, and my
-writing frequency was dropping harder than the stock market.
+A few months ago, I bumped into [this post][4] from Veronica Explains about her
+"writerdeck." The idea really intrigued me because I was suffering from constant
+distraction, and my writing frequency was dropping harder than the stock market.
 
-If you haven't heard of [writerdecks][5] before, they are essentially single-
-purpose devices dedicated to writing. Often this means very limited hardware and
-software to keep the device minimal and distraction-free. People have been using
-old laptops, Kindles, or anything that can put characters on a blank screen,
-except for pen and paper. There's a whole community for this kind of device, and
-they gather around a subreddit called [/r/writerdeck][1]. Their solution to the
-age of distraction was to lock themselves into an environment where there's
-nothing else to do but write. Whether this actually works or not, there was only
-one way for me to find out.
+If you haven't heard of [writerdecks][5] before, they are essentially
+single-purpose devices dedicated to writing. Often this means very limited
+hardware and software to keep the device minimal and distraction-free. People
+have been using old laptops, Kindles, or anything that can put characters on a
+blank screen, except for pen and paper. There's a whole community for this kind
+of device, and they gather around a subreddit called [/r/writerdeck][1]. Their
+solution to the age of distraction was to lock themselves into an environment
+where there's nothing else to do but write. Whether this actually works or not,
+there was only one way for me to find out.
 
 ## Why build?
 
