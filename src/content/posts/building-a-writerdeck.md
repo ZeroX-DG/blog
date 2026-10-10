@@ -67,16 +67,18 @@ The structure of the board is quite simple. There are 3 main layers:
 - The middle plate with cut out holes for the protruding components.
 - The backplate which is a plain flat piece of plastic screwed onto the board.
 
-Luckily, the board came with a detailed 3D design file. All I had to do was open
-the design in FreeCAD, watch a few YouTube videos to learn how to extract the
+Luckily, it came with a detailed 3D design file. All I had to do was open the
+design in FreeCAD, watch a few YouTube videos to learn how to extract the
 backplate as an .obj file, and import it into KiCad (since it's simpler to
 learn).
 
+I decided to swap out the backplate for a custom 3D-printed case that can be
+used to also hold the battery.
+
 ![](3d_shell.png)
 
-I decided to swap out the backplate for a custom 3D-printed case that can be
-used to also hold the battery. The rest of the work was convincing a friend with
-a 3D printer to print out my case (shoutout to Alan if he's reading).
+The rest of the work was convincing a friend with a 3D printer to print out my
+case (shoutout to Alan if he's reading).
 
 ![](shell.jpg)
 
@@ -88,16 +90,16 @@ The board came with some sample code written in C using Arduino IDE. But I don't
 know C and I also hated how slow Arduino IDE takes to compile my program. So I
 had no choice but to write the firmware in Rust.
 
-Except there was no driver for this display in Rust. There was one library, but
-it's for a different hardware and initially didn't work on my display at all. So
-I forked it, and threw Claude into the deep end.
+Except there was no driver for this display in Rust. There was
+[one library][10], but it's for a different hardware and initially didn't work
+on my display at all. So I had to fork it, and threw Claude into the deep end.
 
-After a few nights burning tokens, we came out with working code, and even
-comments explaining how the driver works ... in Mandarin. I used to think vibe
-coding wasn't really a problem as long as I could read and understand the code,
-but this time I truly had no idea. I cannot claim any credit for this work. I
-was, in fact, burning credits on this work :) I wonder what the world will look
-like when what I was doing becomes normalised one day.
+After a few nights burning tokens, Claude & I came out with working code, and
+even comments explaining how the driver works ... in Mandarin. I used to think
+vibe coding wasn't really a problem as long as I could read and understand the
+code, but this time I truly had no idea. I cannot claim any credit for this
+work. I was, in fact, burning credits on this work :) I wonder what the world
+will look like when what I was doing becomes normalised one day.
 
 Anyway, with the code all compiling, I flashed it on the board and oh my god it
 worked!??!?!
@@ -286,3 +288,4 @@ would have missed if I hadn't slowed down.
 [7]: https://learn.adafruit.com/li-ion-and-lipoly-batteries/voltages
 [8]: https://crates.io/crates/esp-radio
 [9]: https://crates.io/crates/trouble-host
+[10]: https://github.com/nihilityer/ssd1683
